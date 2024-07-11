@@ -3,6 +3,23 @@ import axios from 'axios'
 
 const FrontBoard = () => {
     const [value, setValue] = useState([]);
+    function test(){
+        axios
+        .delete("hello",{
+            data: {
+                key : 1,
+                title: "플라스크제목"
+                // 프론트가 데이터 보내는 작업 for delete
+            }
+        })
+        .then((res) =>{
+            setValue(res);
+
+        }
+        )
+    }
+
+    
     useEffect(() => {
         axios
             .get("hello")
@@ -34,13 +51,27 @@ const FrontBoard = () => {
     return (
         <div>
             프론트 게시판입니다.
-            <form action="hello" method="post">
+            {/* <form action="hello" method="post">
                 ID : <input type="text" name="id" /> <br/>
                 PW : <input type="text" name="pw" /> <br/>
                 NM : <input type="text" name="nm" /> <br/>
                 Img: <input type="text" name="img" />
                 <input type="submit" />
+            </form> */}
+
+            {/* <form action="hello" method="get">
+                GET TEST <input type="text" name="test" /> <br/> 
+             
+                <input type="submit" />
+            </form> */}
+
+               <form action="hello" method="delete">
+                DELETE TEST <input type="text" name="delTest" /> <br/> 
+             
+                <input type="submit" />
+                <button onClick={test}>11111</button>
             </form>
+
 
         </div>
     );
