@@ -1,8 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom';
 import FrontBoard from './pages/FrontBoard';
-import Hellow from './pages/Hellow';
-import MyPage from './pages/MyPage';
+
 
 function App() {
   return (
@@ -13,8 +12,7 @@ function App() {
         <div className=''>
           <Routes>
             <Route path='/' element={<FrontBoard/>}></Route>
-            <Route path='/hello' element={<Hellow/>}></Route>
-            <Route path='/my' element={<MyPage/>}></Route>
+
           </Routes>
         </div>
         
