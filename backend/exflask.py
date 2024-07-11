@@ -69,34 +69,15 @@ class HelloWorld(Resource):
         data = setQuery("select * from board")
         return jsonify({'result': data})
     
-    def post(self):  # POST 요청시 리턴 값에 해당 하는 dict를 JSON 형태로 반환
-        input_name = request.form['id_jw']
-        print(input_name)
-        #input_phone = request.form['input_phone']
-        #print(input_name, input_phone)
-        # MySQL 데이터베이스 연결
-        db = pymysql.connect(host='127.0.0.1', user='root', password='1234', db='maven', charset='utf8')
-
-        # 데이터에 접근
-        cursor = db.cursor()
-        
-        # SQL query 작성
-        sql = "INSERT INTO board(title, content, writer, img) values(%s,%s,%s,%s)"
-        value = ("플라스크제목", input_name, "플라스크작성자", "플라스크이미지.jpg")
-        
-        # 쿼리 실행
-        #cursor = db.cursor()  # default 튜플 타입으로 받기
-        # cursor = db.cursor(pymysql.cursors.DictCursor)  # Dictionary 타입으로 받기
-        cursor.execute(sql,value)
-        
-        # 결과 받고 컨트롤하기
-        # cursor.execute("select * from board")
-        data = cursor.fetchall()
-        
-        db.commit() # DB 변경사항 저장
-        db.close()
-        #return jsonify({'result': data})
-        return app.send_static_file('index.html') # react 페이지 반환 하는 방법 // 주소로 반환은 안됌
+    def post(self):
+        input_id = request.form['id']
+        input_pw = request.form['pw']
+        input_nm = request.form['nm']
+        input_img = request.form['img']
+        sql = "INSERT INTO board(title, content, writer, img) VALUES(%s, %s, %s, %s)"
+        value = (input_id, input_pw, input_nm, input_img )
+        setQuery(sql, value)
+        return jsonify({'result': value})
         
         
     
