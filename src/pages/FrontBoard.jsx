@@ -35,7 +35,10 @@ const FrontBoard = () => {
         <div>
             프론트 게시판입니다.
             <form action="hello" method="post">
-                <input type="text" name="id_jw" />
+                ID : <input type="text" name="id" /> <br/>
+                PW : <input type="text" name="pw" /> <br/>
+                NM : <input type="text" name="nm" /> <br/>
+                Img: <input type="text" name="img" />
                 <input type="submit" />
             </form>
 
