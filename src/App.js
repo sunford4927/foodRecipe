@@ -1,6 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom';
 import FrontBoard from './pages/FrontBoard';
+import Counter from './pages/Counter';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <div className=''>
           <Routes>
             <Route path='/' element={<FrontBoard/>}></Route>
+            <Route path='/num' element={<Counter/>}></Route>
 
           </Routes>
         </div>
