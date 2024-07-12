@@ -5,16 +5,27 @@ import App from './App';
 
 import { BrowserRouter } from 'react-router-dom';
 
+// Redux 관련 불러오기
+import { createStore } from 'redux';
+import counter from "./redux/reducer/index.js"
+import { Provider } from 'react-redux';
+
+const store = createStore(counter);
 
 // 설치 완료 리스트
 // npm i react-router-dom 
 // npm i axios
+// npm install concurrently --save : 서버와 클라이언트를 한번에 실행시키기위한 라이브러리
+// npm i redux
+// npm i react-redux
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
   //</React.StrictMode>
 );
 
