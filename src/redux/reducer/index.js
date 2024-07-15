@@ -2,7 +2,8 @@ import * as types from '../actions/ActionTypes';
 
 const initialState = {
     count : 0,
-    name : "lsh"
+    name : "lsh",
+    backMode : false,
 }
 
 const counterReducer = (state = initialState, action) => {
@@ -17,6 +18,12 @@ const counterReducer = (state = initialState, action) => {
           ...state,
           count: state.count - 1
         };
+
+      case types.BACKMODECHANGE:
+        return {
+          ...state,
+          backMode : !state.backMode,
+        }
       default:
         return state;
     }

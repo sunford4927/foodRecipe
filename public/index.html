@@ -24,6 +24,11 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <!-- scss 파일은 html link 태그에서 읽지 못해서 아래 코드를 작성해야된도
+          npx sass --watch ./public/index.scss ./public/index.css 
+
+     -->
+    <link rel="stylesheet" href="index.css" />
     <title>React App</title>
   </head>
   <body>
@@ -39,5 +44,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+      
   </body>
 </html>
