@@ -7,3 +7,7 @@ export const increment = () => ({
 export const decrement = () => ({
     type : types.DECREMENT
 });
+
+export const modechange = () => ({
+    type : types.BACKMODECHANGE
+});

@@ -18,6 +18,7 @@ const store = createStore(counter);
 // npm install concurrently --save : 서버와 클라이언트를 한번에 실행시키기위한 라이브러리
 // npm i redux
 // npm i react-redux
+// npm i sass
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>
