@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+#modeBtn img {
+  width: 30px;
+  height: 30px;
+}
+
+#darkMode {
+  color: rgb(17, 17, 17);
+  background-color: rgb(245, 239, 239);
+}
+#darkMode button {
+  color: rgb(17, 17, 17);
+  background-color: rgb(245, 239, 239);
+}
+
+#lightMode {
+  background-color: rgb(17, 17, 17);
+  color: rgb(245, 239, 239);
+}
+#lightMode button {
+  background-color: rgb(17, 17, 17);
+  color: rgb(245, 239, 239);
+}
+
+/*# sourceMappingURL=index.css.map */
