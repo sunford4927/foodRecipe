@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
 }
 
 button {
@@ -7,9 +10,15 @@ button {
   border: none;
 }
 
+#modeBtn {
+  position: fixed;
+  left: 90%;
+  top: 90%;
+  padding: 0;
+}
 #modeBtn img {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
 }
 
 #darkMode {
@@ -20,6 +29,12 @@ button {
   color: rgb(17, 17, 17);
   background-color: rgb(245, 239, 239);
 }
+#darkMode #menuContainer {
+  background-color: rgb(102, 197, 235);
+}
+#darkMode .RecipeItem_Container {
+  border: 2px solid #000;
+}
 
 #lightMode {
   background-color: rgb(17, 17, 17);
@@ -28,6 +43,33 @@ button {
 #lightMode button {
   background-color: rgb(17, 17, 17);
   color: rgb(245, 239, 239);
+}
+#lightMode #menuContainer {
+  background-color: rgb(24, 78, 99);
+}
+#lightMode .RecipeItem_Container {
+  border: 2px solid #fff;
+}
+
+.RecipeItem_Container {
+  width: 350px;
+  border-radius: 10px;
+}
+.RecipeItem_Container p {
+  margin: 0;
+}
+.RecipeItem_Container img {
+  width: 350px;
+  height: 300px;
+}
+.RecipeItem_Container .star {
+  width: 20px;
+  height: 20px;
+}
+.RecipeItem_Container .titleImg {
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 /*# sourceMappingURL=index.css.map */
