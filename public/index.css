@@ -10,6 +10,11 @@ button {
   border: none;
 }
 
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
 #modeBtn {
   position: fixed;
   left: 90%;
@@ -54,6 +59,7 @@ button {
 .RecipeItem_Container {
   width: 350px;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 .RecipeItem_Container p {
   margin: 0;
