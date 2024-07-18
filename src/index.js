@@ -19,6 +19,8 @@ const store = createStore(counter);
 // npm i redux
 // npm i react-redux
 // npm i sass
+// npm i react-paginate
+// npm i react-icons
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>
