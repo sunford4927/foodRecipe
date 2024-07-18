@@ -42,10 +42,23 @@ def setQuery(sql=None, data = None):
 
     cursor.execute(sql,data)
     
-    cursor.execute("select * from recipe_board limit 2")
+    cursor.execute("select * from recipe_board limit 20")
     # 결과 받고 컨트롤하기
-    data = cursor.fetchall()
-    	
+
+     # cursor.description 사용
+    # for desc in cursor.description:
+    #     print(desc)
+
+    # 컬럼 이름 받아오기
+    columns = [col[0] for col in cursor.description]
+    
+    # 결과를 딕셔너리로 변환
+    data = [dict(zip(columns, row)) for row in cursor.fetchall()]
+    # print(data[0])
+
+    # data = cursor.fetchall()
+    # print("col : ",cursor.description)	
+    # print("val : ",data)	
     
     # DB 연결 종료
     db.commit()
@@ -107,14 +120,15 @@ class HelloWorld(Resource):
         
 
 # 레시피보드 테이블 데이터 전체 select하는 쿼리문,, 클래스,,?
-@api.route('/MainBoard')  # 데코레이터 이용, '/hello' 경로에 클래스 등록
+@api.route('/MainBoard', methods=['GET'])  # 데코레이터 이용, '/hello' 경로에 클래스 등록
 class MainBoard(Resource):
     
 
     def get(self):  # GET 요청시 리턴 값에 해당 하는 dict를 JSON 형태로 반환
-        data = setQuery("select * from recipe_board limit 2")
+        data = setQuery("select * from recipe_board limit 20")
+        # data = [obj.__dict__ for obj in data]
         
-        return jsonify({'result': data})
+        return jsonify(data)
 #================================================
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
