@@ -14,13 +14,13 @@ import Header from './components/header/Header';
 function App() {
   const modeState = useSelector(state => state.backMode)
   const dispatch = useDispatch(modechange());
-
+  
   return (
     <div id={modeState? "darkMode" : "lightMode"} className='App'>
         <div id="modeBtn" onClick={()=>dispatch(modechange())}>
           <img src={modeState? dark : light}/>
         </div>
-      
+        
         <Header/>
         <div className=''>
           <Routes>
