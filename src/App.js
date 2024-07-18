@@ -1,7 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom';
 import FrontBoard from './pages/frontBoard/FrontBoard';
-import Counter from './pages/Counter';
+
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -20,12 +20,12 @@ function App() {
         <div id="modeBtn" onClick={()=>dispatch(modechange())}>
           <img src={modeState? dark : light}/>
         </div>
-        
+
         <Header/>
         <div className=''>
           <Routes>
             <Route path='/' element={<FrontBoard/>}></Route>
-            <Route path='/num' element={<Counter/>}></Route>
+            
 
           </Routes>
         </div>
