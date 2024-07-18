@@ -5,19 +5,30 @@ import './FrontBoard.scss'
 import Up from '../../img/상승.png'
 import Down from '../../img/하강.png'
 import RecipeItem from '../../components/recipeitem/RecipeItem';
+import Pagination from '../../components/customhook/pagination/Pagination';
+import { sendGet } from '../../util/util';
 
-function setTag(){
-    let list = []
-    for (let i =0; i< 30; i++)
-    {
-        list.push(<RecipeItem/>)
-    }
-    return list;
+
+function setView(list){
+    const result = list.map((item, i)=>{
+        return <RecipeItem key={item.RCP_SNO} item={item} idx ={i} />
+    })
+    return result;
 }
 
 const FrontBoard = () => {
     const [viewTable, setViewTable] = useState(true);
-
+    const [mainBoard, setMainBoard] = useState([]);
+    const [maxPage, setMaxPage] = useState(0);
+    
+    let curPage = 0;
+    
+    useEffect(()=>{
+        setMaxPage(5);
+        
+        sendGet("http://192.168.219.63:3000/MainBoard", {page : 1}, setMainBoard)
+        console.log(2)
+    },[])
     // 비동기 post 요청 및 데이터 전송 예제
     // function test(){
     //     axios
@@ -61,7 +72,11 @@ const FrontBoard = () => {
     //         // })
     // },[])
     
-
+    function handlePageChange(e){
+        curPage = e.selected+1;
+        sendGet("http://192.168.219.63:3000/MainBoard", {page : curPage}, setMainBoard)
+    }
+    
 
     return (
         <div className='inner'>
@@ -81,17 +96,17 @@ const FrontBoard = () => {
                         </th>
                         <td>
                             <div className='rcp_cate st3'>
-                                <div><Dummy/></div>
-                                <div><Dummy/></div>
-                                <div><Dummy/></div>
-                                <div><Dummy/></div>
+                                <div><Dummy List={"type"}/></div>
+                                <div><Dummy List={"state"}/></div>
+                                <div><Dummy List={"ingredient"}/></div>
+                                <div><Dummy List={"method"}/></div>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
             :
-            ""
+            <></>
             }
 
             
@@ -110,7 +125,12 @@ const FrontBoard = () => {
             </div>
 
             <div className='recipeContainer'>
-                    {setTag()}
+                    {mainBoard.length > 0 &&  setView(mainBoard)}
+                    <Pagination
+                                pageCount={maxPage}
+                                onPageChange={(e)=>handlePageChange(e)}
+                                currentPage={curPage}
+                    />
             </div>
 
         </div>
