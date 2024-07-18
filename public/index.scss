@@ -11,6 +11,11 @@ button {
     border :none;
 }
 
+ul{
+    list-style:none;
+    padding-left:0px;
+}
+
 #modeBtn {
     position : fixed;
     left : 90%;
@@ -61,6 +66,7 @@ button {
 .RecipeItem_Container{
     width :350px;
     border-radius:  10px;
+    margin-bottom : 20px;
     p{
         margin :0;
     }
@@ -77,7 +83,6 @@ button {
     
     .titleImg{
         border-radius: 30px;
-
         width : 30px;
         height : 30px;
     }
