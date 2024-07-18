@@ -44,7 +44,7 @@ def setQuery(sql=None, data = None):
     
     # cursor.execute("select * from board")
 
-    cursor.execute("select * from recipe_board limit 20")
+    # cursor.execute("select * from recipe_board limit 20")
     # 결과 받고 컨트롤하기
 
      # cursor.description 사용
@@ -101,9 +101,7 @@ class HelloWorld(Resource):
         # 한글 인코딩 수정
         response = make_response(json.dumps({'result': value}, ensure_ascii=False))  # JSON 응답 생성 및 한글 깨짐 방지 설정
         response.headers['Content-Type'] = 'application/json; charset=utf-8'  # 응답 헤더 설정
-        return response
-        
-        
+        return response      
     
     def delete(self):  # DELETE 요청시 리턴 값에 해당 하는 dict를 JSON 형태로 반환
         #input_DT = request.form['delTest']
@@ -120,46 +118,44 @@ class HelloWorld(Resource):
         return response
         
 
-# 레시피보드 테이블 데이터 전체 select하는 쿼리문,, 클래스,,?
-@api.route('/MainBoard')  # 데코레이터 이용, '/hello' 경로에 클래스 등록
+# 메인보드(기본화면)에 필요한 데이터 전송하는 쿼리문 클래스
+@api.route('/MainBoard') 
 class MainBoard(Resource):
 
-    def get(self):  # GET 요청시 리턴 값에 해당 하는 dict를 JSON 형태로 반환
+    def get(self): 
         # 게시글 번호, 유저아이디, 커멘트, 평점 
         value = request.args.to_dict()
         num = (int(value['page']) - 1) * 100
+        # offset 부분 (페이지 번호 - 1) * 100 
 
-        print(value["page"])
+        # print(value["page"])
         data = setQuery("""select CK_ACT_NM, CK_STA_NM, CK_INPUT_NM, CK_KIND_NM, recipe_board.RCP_SNO, 
                         RCP_TTL, USER_NM, VIEW_CNT, comment_Cnt 
                         from recipe_board 
                         join board_info 
                         on recipe_board.RCP_SNO = board_info.RCP_SNO limit 100 offset %s """, num) 
-                    # offset 부분 (페이지 번호 - 1) * 100 
         # data = [obj.__dict__ for obj in data]
         # get 방식 데이터 받아오는 방법 : print(request.args.to_dict())
+        print(len(data))
 
-        
         return jsonify(data)
     
-
 
 # 전체 정보 조회 클래스
 @api.route('/all_info', methods=['GET']) 
 class all_info(Resource):
 
     def get(self): 
-        data = setQuery("select * from recipe_board limit 20")
+        data = setQuery("select COUNT(*) from recipe_board")
         print(request.data)
-        return jsonify()
+        return jsonify(data)
     
-    def post(self):
-        
-        # 게시글 번호, 유저아이디, 커멘트, 평점 
-        # 1번 게시글 후기 수 2개
-        data = setQuery("인설트 프롬 테이블 recipe_review") 
-        # 1번 게시글 후기 수 3개
-        setQuery("insert  카운터 (셀렉트 where rCp_sno = 1번게시글 프롬 recipe_review) 프롬 테이블 board_info") 
+    # def post(self):
+    #     # 게시글 번호, 유저아이디, 커멘트, 평점 
+    #     # 1번 게시글 후기 수 2개
+    #     data = setQuery("인설트 프롬 테이블 recipe_review") 
+    #     # 1번 게시글 후기 수 3개
+    #     setQuery("insert  카운터 (셀렉트 where rCp_sno = 1번게시글 프롬 recipe_review) 프롬 테이블 board_info") 
 
 #================================================
 if __name__ == '__main__':
