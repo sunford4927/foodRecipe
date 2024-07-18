@@ -26,7 +26,7 @@ const FrontBoard = () => {
     useEffect(()=>{
         setMaxPage(5);
         
-        sendGet("http://192.168.219.63:3000/MainBoard", {page : 1}, setMainBoard)
+        sendGet("http://192.168.219.63:3000/MainBoard?page=1", 1, setMainBoard)
         console.log(2)
     },[])
     // 비동기 post 요청 및 데이터 전송 예제
@@ -74,7 +74,7 @@ const FrontBoard = () => {
     
     function handlePageChange(e){
         curPage = e.selected+1;
-        sendGet("http://192.168.219.63:3000/MainBoard", {page : curPage}, setMainBoard)
+        sendGet("http://192.168.219.63:3000/MainBoard?page="+curPage, {page : curPage}, setMainBoard)
     }
     
 
