@@ -28,8 +28,8 @@ const FrontBoard = () => {
         sendGet("http://192.168.219.63:3000/all_info", null, setTotalData)
         
         
-        sendGet("http://192.168.219.63:3000/MainBoard?page=1", 1, setMainBoard)
-        
+        sendGet("http://192.168.219.63:3000/MainBoard?page=1", {page : 1}, setMainBoard)
+        console.log(2)
     },[])
 
     useEffect(() => {
