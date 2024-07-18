@@ -18,12 +18,20 @@ export function setScore(idx){
     return stars;
 }
 
-export function sendGet(url, data, func){
+export function sendGet(url, data=null, func){
     axios
         .get(url, {
-            data : data
+            data : data,
+            
         })
         .then(res => {
             func(res.data)
         })
-}
+}    //     axios
+//     .delete("hello",{
+//         data: {
+//             key : 1,
+//             title: "플라스크제목"
+//             // 프론트가 데이터 보내는 작업 for delete
+//         }
+//     })

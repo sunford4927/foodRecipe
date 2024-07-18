@@ -19,16 +19,22 @@ function setView(list){
 const FrontBoard = () => {
     const [viewTable, setViewTable] = useState(true);
     const [mainBoard, setMainBoard] = useState([]);
+    const [totalData, setTotalData] = useState(0);
     const [maxPage, setMaxPage] = useState(0);
     
     let curPage = 0;
     
     useEffect(()=>{
-        setMaxPage(5);
+        sendGet("http://192.168.219.63:3000/all_info", null, setTotalData)
+        
         
         sendGet("http://192.168.219.63:3000/MainBoard?page=1", {page : 1}, setMainBoard)
         console.log(2)
     },[])
+
+    useEffect(() => {
+        setMaxPage(parseInt(totalData/100))
+    }, totalData)
     // 비동기 post 요청 및 데이터 전송 예제
     // function test(){
     //     axios
