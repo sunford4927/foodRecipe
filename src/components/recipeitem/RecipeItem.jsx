@@ -2,14 +2,28 @@ import React from 'react';
 import NullImg from '../../img/빈사진.png';
 import { setScore } from '../../util/util';
 
-const RecipeItem = () => {
+function setNumber(num){
+    let result = "조회수 ";
+    if(num>10000)
+    {
+        result += parseFloat(num/10000).toString() + "만";
+    }
+    else{
+        result += parseInt(num).toString();
+    }
+    return result;
+}
+
+const RecipeItem = ( {item , idx}) => {
     return (
-        <div className='RecipeItem_Container'>
-            <img src={NullImg} alt="음식사진" />
+        <div  className='RecipeItem_Container'>
+            <img  src={NullImg} alt="음식사진" />
             <div className='RecipeItem_Text'>
-                <p>♡ 제목 ♡</p>
-                <div ><img className='titleImg' src={NullImg} alt="프로필사진" />유저닉네임</div>
-                <div>{setScore(3)}(32)조회수 4.3만</div>
+                <p>{item.RCP_TTL}</p>
+
+                <img  className='titleImg' src={NullImg} alt="프로필사진" />
+                {item.USER_NM}
+                <div>{setScore(item.SCORE_CNT)}({item.COMMENT_CNT}) {setNumber(item.VEIW_CNT)}</div>
             </div>
         </div>
     );
