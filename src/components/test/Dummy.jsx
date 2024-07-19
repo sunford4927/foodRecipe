@@ -12,10 +12,10 @@ const Dummy = ({List}) => {
             {data && data.map((item)=>{
                 if(item===1)
                 {
-                    return <span key={item} className='first_category'>{item}</span>
+                    return <span key={item} className='first_category cursor'>{item}</span>
                 }
                 else{
-                    return <span key={item}>{item}</span>
+                    return <span key={item} className='cursor' >{item}</span>
                 }
             })}   
         </>

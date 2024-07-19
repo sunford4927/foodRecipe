@@ -21,6 +21,7 @@ const store = createStore(counter);
 // npm i sass
 // npm i react-paginate
 // npm i react-icons
+// npm i npm install firebase : 본인 인증 관련 설치
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>

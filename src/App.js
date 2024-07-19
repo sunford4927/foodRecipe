@@ -10,6 +10,8 @@ import './style/App.css'
 import dark from './img/dark.png'
 import light from './img/light.png'
 import Header from './components/header/Header';
+import Login from './pages/login/Login';
+import CreateUser from './pages/createuser/CreateUser';
 
 function App() {
   const modeState = useSelector(state => state.backMode)
@@ -22,10 +24,11 @@ function App() {
         </div>
 
         <Header/>
-        <div className=''>
+        <div className='contents'>
           <Routes>
             <Route path='/' element={<FrontBoard/>}></Route>
-            
+            <Route path='/login' element={<Login/>}></Route>
+            <Route path='/join' element={<CreateUser/>}></Route>
 
           </Routes>
         </div>
