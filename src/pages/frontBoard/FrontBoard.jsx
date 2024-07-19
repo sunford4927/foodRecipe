@@ -9,6 +9,8 @@ import Pagination from '../../components/customhook/pagination/Pagination';
 import { sendGet } from '../../util/util';
 
 
+
+
 function setView(list){
     const result = list.map((item, i)=>{
         return <RecipeItem key={item.RCP_SNO} item={item} idx ={i} />
@@ -26,8 +28,8 @@ const FrontBoard = () => {
     
     function initPageCount(data){
         
-        setTotalData(data[0].totalCnt);
-        setMaxPage(parseInt(data[0].totalCnt/100));
+        setTotalData(data[0].REVIEW_CNT);
+        setMaxPage(parseInt(data[0].REVIEW_CNT/100));
     }
 
     useEffect(()=>{
@@ -38,12 +40,8 @@ const FrontBoard = () => {
         
     },[])
 
-    useEffect(() => {
-        setMaxPage(parseInt(totalData/100))
-    }, [totalData])
-
     useEffect(()=> {
-        
+        console.log(mainBoard.length)
     }, [mainBoard])
     // 비동기 post 요청 및 데이터 전송 예제
     // function test(){
@@ -105,10 +103,10 @@ const FrontBoard = () => {
                 <tbody>
                     <tr>
                         <th>
-                            <div><span>종류별</span></div>
-                            <div><span>상황별</span></div>
-                            <div><span>재료별</span></div>
-                            <div><span>방법별</span></div>
+                            <div><span className='cursor'>종류별</span></div>
+                            <div><span className='cursor'>상황별</span></div>
+                            <div><span className='cursor'>재료별</span></div>
+                            <div><span className='cursor'>방법별</span></div>
                         </th>
                         <td>
                             <div className='rcp_cate st3'>
@@ -130,16 +128,17 @@ const FrontBoard = () => {
                     {viewTable ? 
                     <div>
                         카테고리 닫기 
-                        <img src={Up} alt="" /> 
+                        <img className='icon' src={Up} alt="" /> 
                     </div>
                     :
                     <div>
                         카테고리 열기
-                        <img src={Down} alt="" /> 
+                        <img className='icon' src={Down} alt="" /> 
                     </div>
                     }
             </div>
 
+            <p>총 {totalData}개의 맛있는 레시피가 있습니다.</p>
             <div className='recipeContainer'>
                     {mainBoard.length > 0 &&  setView(mainBoard)}
                     <Pagination
