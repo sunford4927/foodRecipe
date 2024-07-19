@@ -24,17 +24,26 @@ const FrontBoard = () => {
     
     let curPage = 0;
     
+    function initPageCount(data){
+        setTotalData(data);
+        setMaxPage(parseInt(data/100));
+    }
+
     useEffect(()=>{
-        sendGet("http://192.168.219.63:3000/all_info", null, setTotalData)
+        sendGet("http://192.168.219.63:3000/all_info", null, initPageCount)
         
         
         sendGet("http://192.168.219.63:3000/MainBoard?page=1", {page : 1}, setMainBoard)
-        console.log(2)
+        
     },[])
 
     useEffect(() => {
         setMaxPage(parseInt(totalData/100))
-    }, totalData)
+    }, [totalData])
+
+    useEffect(()=> {
+        
+    }, [mainBoard])
     // 비동기 post 요청 및 데이터 전송 예제
     // function test(){
     //     axios
