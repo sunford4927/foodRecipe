@@ -130,7 +130,7 @@ class MainBoard(Resource):
 
         # print(value["page"])
         data = setQuery("""select CK_ACT_NM, CK_STA_NM, CK_INPUT_NM, CK_KIND_NM, recipe_board.RCP_SNO, 
-                        RCP_TTL, USER_NM, VIEW_CNT, comment_Cnt 
+                        RCP_TTL, USER_NM, VIEW_CNT, REVIEW_CNT 
                         from recipe_board 
                         join board_info 
                         on recipe_board.RCP_SNO = board_info.RCP_SNO limit 100 offset %s """, num) 
@@ -146,7 +146,9 @@ class MainBoard(Resource):
 class all_info(Resource):
 
     def get(self): 
-        data = setQuery("select COUNT(*) from recipe_board")
+        data = setQuery("select COUNT(*) AS totalCnt from recipe_board")
+        # 전달하는 데이터의 키 값은 totalCnt
+        print(data)
         print(request.data)
         return jsonify(data)
     
