@@ -23,7 +23,7 @@ const RecipeItem = ( {item , idx}) => {
 
                 <img  className='titleImg' src={NullImg} alt="프로필사진" />
                 {item.USER_NM}
-                <div>{setScore(item.SCORE_CNT)}({item.COMMENT_CNT}) {setNumber(item.VEIW_CNT)}</div>
+                <div>{setScore(item.SCORE_CNT)}({item.COMMENT_CNT}) {setNumber(item.VIEW_CNT)}</div>
             </div>
         </div>
     );
