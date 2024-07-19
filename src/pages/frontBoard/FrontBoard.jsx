@@ -25,8 +25,9 @@ const FrontBoard = () => {
     let curPage = 0;
     
     function initPageCount(data){
-        setTotalData(data);
-        setMaxPage(parseInt(data/100));
+        
+        setTotalData(data[0].totalCnt);
+        setMaxPage(parseInt(data[0].totalCnt/100));
     }
 
     useEffect(()=>{
