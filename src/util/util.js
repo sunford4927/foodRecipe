@@ -29,7 +29,9 @@ export function sendGet(url, data=null, func){
             console.log(res.data)
             func(res.data)
         })
-}    //     axios
+}
+
+//     axios
 //     .delete("hello",{
 //         data: {
 //             key : 1,
