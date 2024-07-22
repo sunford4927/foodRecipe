@@ -70,6 +70,8 @@ def setQuery(sql=None, data = None):
 
 import pymysql
 import json
+from flask_cors import CORS
+
 # pip install flask_restx
 from flask import Flask, jsonify, request, redirect, url_for, make_response
 from flask_restx import Api, Resource  # Api 구현을 위한 Api 객체 import
@@ -79,7 +81,7 @@ app = Flask(__name__, static_folder='../build', static_url_path='/') # Flask 객
 app.config['JSON_AS_ASCII'] = False
 api = Api(app)  # Flask 객체에 Api 객체 등록
 #===========================================
-
+CORS(app)
 # Get 은 정보 조회
 @api.route('/hello')  # 데코레이터 이용, '/hello' 경로에 클래스 등록
 class HelloWorld(Resource):
@@ -129,11 +131,10 @@ class MainBoard(Resource):
         # offset 부분 (페이지 번호 - 1) * 100 
 
         # print(value["page"])
-        data = setQuery("""select distinct CK_ACT_NM, CK_STA_NM, CK_INPUT_NM, CK_KIND_NM, recipe_board.RCP_SNO, 
-                        RCP_TTL, USER_NM, VIEW_CNT, REVIEW_CNT 
-                        from recipe_board 
-                        join board_info 
-                        on recipe_board.RCP_SNO = board_info.RCP_SNO limit 100 offset %s """, num) 
+        data = setQuery("""select distinct CK_ACT_NM, CK_STA_NM, CK_INPUT_NM, CK_KIND_NM, RECIPE_BOARD.RCP_SNO, 
+                            RCP_TTL, USER_NM, VIEW_CNT, REVIEW_CNT , SCORE_AVG
+                            from recipe_board join board_info
+                            on recipe_board.RCP_SNO = board_info.RCP_SNO limit 100 offset %s """, num) 
         # data = [obj.__dict__ for obj in data]
         # get 방식 데이터 받아오는 방법 : print(request.args.to_dict())
         print(len(data))
