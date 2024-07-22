@@ -1,7 +1,7 @@
 import * as types from '../actions/ActionTypes';
 
 const initialState = {
-    user : { nick : "", id : "", email : "", isLogin : false},
+    user : { user : null, id : ""},
     backMode : false,
 }
 
