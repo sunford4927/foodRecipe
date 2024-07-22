@@ -23,13 +23,14 @@ export function sendGet(url, data=null, func){
     axios
         .get(url, {
             data : data,
-            
         })
         .then(res => {
             console.log(res.data)
             func(res.data)
         })
-}    //     axios
+}
+
+//     axios
 //     .delete("hello",{
 //         data: {
 //             key : 1,

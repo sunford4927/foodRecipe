@@ -15,6 +15,7 @@ function setNumber(num){
 }
 
 const RecipeItem = ( {item , idx}) => {
+    console.log(item)
     return (
         <div  className='RecipeItem_Container cursor'>
             <img  src={NullImg} alt="음식사진" />
@@ -23,7 +24,7 @@ const RecipeItem = ( {item , idx}) => {
 
                 <img  className='titleImg' src={NullImg} alt="프로필사진" />
                 {item.USER_NM}
-                <div>{setScore(item.SCORE_CNT)}({item.COMMENT_CNT}) {setNumber(item.VIEW_CNT)}</div>
+                <div>{setScore(item.SCORE_CNT)}({item.REVIEW_CNT != null ?item.REVIEW_CNT : 0}) {setNumber(item.VIEW_CNT)}</div>
             </div>
         </div>
     );
