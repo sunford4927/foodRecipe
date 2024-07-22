@@ -2,7 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 import FrontBoard from './pages/frontBoard/FrontBoard';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { modechange } from './redux/actions';
@@ -15,7 +15,11 @@ import CreateUser from './pages/createuser/CreateUser';
 
 function App() {
   const modeState = useSelector(state => state.backMode)
-  const dispatch = useDispatch(modechange());
+  const dispatch = useDispatch();
+  const state = useSelector(state => state)
+  useEffect(()=>{
+    console.log(state)
+  },[state.user])
   
   return (
     <div id={modeState? "darkMode" : "lightMode"} className='App'>

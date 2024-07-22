@@ -1,7 +1,7 @@
 import * as types from '../actions/ActionTypes';
 
 const initialState = {
-    user : { user : null, id : ""},
+    user : { auth : null, id : ""},
     backMode : false,
 }
 
@@ -13,6 +13,7 @@ const counterReducer = (state = initialState, action) => {
           backMode : !state.backMode,
         }
         case types.SETUSERINFO:
+          console.log(1);
           return {
             ...state,
             
