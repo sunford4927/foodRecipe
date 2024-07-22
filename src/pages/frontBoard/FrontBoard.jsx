@@ -11,6 +11,7 @@ import { sendGet } from '../../util/util';
 
 
 
+
 function setView(list){
     const result = list.map((item, i)=>{
         return <RecipeItem key={item.RCP_SNO} item={item} idx ={i} />
@@ -24,26 +25,21 @@ const FrontBoard = () => {
     const [totalData, setTotalData] = useState(0);
     const [maxPage, setMaxPage] = useState(0);
     
+    
+  
+
     let curPage = 0;
     
     function initPageCount(data){
-        
         setTotalData(data[0].totalCnt);
-        setMaxPage(Math.floor(parseInt(data[0].totalCnt)/100));
-        
+        setMaxPage(Math.floor(parseInt(data[0].totalCnt)/100));     
     }
 
     useEffect(()=>{
-        sendGet("http://192.168.219.63:3000/all_info", null, initPageCount)
-        
-        
-        sendGet("http://192.168.219.63:3000/MainBoard?page=1", {page : 1}, setMainBoard)
-        
+        sendGet("http://192.168.219.111:5000/all_info", null, initPageCount);
+        sendGet("http://192.168.219.111:5000/MainBoard?page=1", {page : 1}, setMainBoard);  
     },[])
 
-    useEffect(()=> {
-        console.log(maxPage)
-    }, [maxPage])
     // 비동기 post 요청 및 데이터 전송 예제
     // function test(){
     //     axios
@@ -89,7 +85,7 @@ const FrontBoard = () => {
     
     function handlePageChange(e){
         curPage = e.selected+1;
-        sendGet("http://192.168.219.63:3000/MainBoard?page="+curPage, {page : curPage}, setMainBoard)
+        sendGet("http://192.168.219.111:5000/MainBoard?page="+curPage, {page : curPage}, setMainBoard)
     }
     
 

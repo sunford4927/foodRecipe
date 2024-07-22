@@ -25,7 +25,6 @@ export function sendGet(url, data=null, func){
             data : data,
         })
         .then(res => {
-            console.log(res.data)
             func(res.data)
         })
 }
