@@ -6,7 +6,7 @@ function setNumber(num){
     let result = "조회수 ";
     if(num>10000)
     {
-        result += parseFloat(num/10000).toString() + "만";
+        result += parseFloat(num/10000).toFixed(1).toString() + "만";
     }
     else{
         result += parseInt(num).toString();
@@ -16,7 +16,7 @@ function setNumber(num){
 
 const RecipeItem = ( {item , idx}) => {
     return (
-        <div  className='RecipeItem_Container'>
+        <div  className='RecipeItem_Container cursor'>
             <img  src={NullImg} alt="음식사진" />
             <div className='RecipeItem_Text'>
                 <p>{item.RCP_TTL}</p>
