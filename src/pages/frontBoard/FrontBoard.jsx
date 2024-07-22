@@ -28,8 +28,9 @@ const FrontBoard = () => {
     
     function initPageCount(data){
         
-        setTotalData(data[0].REVIEW_CNT);
-        setMaxPage(parseInt(data[0].REVIEW_CNT/100));
+        setTotalData(data[0].totalCnt);
+        setMaxPage(Math.floor(parseInt(data[0].totalCnt)/100));
+        
     }
 
     useEffect(()=>{
@@ -41,8 +42,8 @@ const FrontBoard = () => {
     },[])
 
     useEffect(()=> {
-        console.log(mainBoard.length)
-    }, [mainBoard])
+        console.log(maxPage)
+    }, [maxPage])
     // 비동기 post 요청 및 데이터 전송 예제
     // function test(){
     //     axios
