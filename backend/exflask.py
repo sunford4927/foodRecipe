@@ -129,8 +129,8 @@ class MainBoard(Resource):
         # offset 부분 (페이지 번호 - 1) * 100 
 
         # print(value["page"])
-        data = setQuery("""select CK_ACT_NM, CK_STA_NM, CK_INPUT_NM, CK_KIND_NM, recipe_board.RCP_SNO, 
-                        RCP_TTL, USER_NM, VIEW_CNT, REVEIW_CNT 
+        data = setQuery("""select distinct CK_ACT_NM, CK_STA_NM, CK_INPUT_NM, CK_KIND_NM, recipe_board.RCP_SNO, 
+                        RCP_TTL, USER_NM, VIEW_CNT, REVIEW_CNT 
                         from recipe_board 
                         join board_info 
                         on recipe_board.RCP_SNO = board_info.RCP_SNO limit 100 offset %s """, num) 

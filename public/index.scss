@@ -1,9 +1,23 @@
+$blue: #3498db;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+    list-style:none;
+    
+}
+
+
+html {
+
+}
 body {
     margin : 0;
     font-size : 24px; 
-    display :flex;
-    justify-content: center;
-
+    height :100%;
+}
+#root{
+    height:100%
 }
 
 button {
@@ -16,6 +30,11 @@ ul{
     padding-left:0px;
 }
 
+.icon{
+    width :45px;
+    height : 45px;
+}
+
 #modeBtn {
     position : fixed;
     left : 90%;
@@ -25,6 +44,17 @@ ul{
         width :45px;
         height : 45px;
     }
+}
+
+.contents{
+    width :100%;
+
+}
+
+#lightMode, #darkMode{
+    width :100%;
+
+
 }
 
 #darkMode
@@ -44,6 +74,11 @@ ul{
     .RecipeItem_Container{
         border :2px solid #000;
     }
+
+    input{
+        background-color: rgb(245, 239, 239);;
+        color : rgb(17, 17, 17);
+    }
 }
 
 #lightMode{
@@ -61,12 +96,22 @@ ul{
     .RecipeItem_Container{
         border :2px solid #fff;
     }
+
+    input{
+        background-color: rgb(17, 17, 17);
+        color : rgb(245, 239, 239);
+    }
+}
+
+.cursor{
+    cursor: pointer;
 }
 
 .RecipeItem_Container{
     width :350px;
     border-radius:  10px;
     margin-bottom : 20px;
+
     p{
         margin :0;
     }
@@ -89,3 +134,30 @@ ul{
     
 }
 
+.inner{
+    width :70%;
+    margin : auto;
+    height: calc(100% - 100px)
+}
+
+.bHover:hover{
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+}
+
+.blueBtn {
+    border-color: $blue;
+    color: #fff;
+    box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
+    transition: all 150ms ease-in-out;
+    border-radius: 5px;
+    padding : 10px;
+
+}
+
+.twoBtn{
+    width : 150px;
+}
+
+.oneBtn{
+    width : 100%;
+}
