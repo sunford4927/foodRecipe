@@ -4,6 +4,7 @@ export const modechange = () => ({
     type : types.BACKMODECHANGE
 });
 
-export const setuserinfo = () => ({
-    type : types.SETUSERINFO
+export const setuserinfo = (user) => ({
+    type : types.SETUSERINFO,
+    user : user,
 })
