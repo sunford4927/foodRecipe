@@ -29,6 +29,7 @@ export function sendGet(url, data=null, func){
         })
 }
 
+export const URL = "http://192.168.219.111:5000";
 //     axios
 //     .delete("hello",{
 //         data: {

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
 import Dummy from '../../components/test/Dummy';
 import './FrontBoard.scss'
 import Up from '../../img/상승.png'
 import Down from '../../img/하강.png'
 import RecipeItem from '../../components/recipeitem/RecipeItem';
 import Pagination from '../../components/customhook/pagination/Pagination';
-import { sendGet } from '../../util/util';
+import { sendGet, URL } from '../../util/util';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -25,7 +25,7 @@ const FrontBoard = () => {
     const [totalData, setTotalData] = useState(0);
     const [maxPage, setMaxPage] = useState(0);
     
-    
+    const nav = useNavigate();
   
 
     let curPage = 0;
@@ -36,8 +36,8 @@ const FrontBoard = () => {
     }
 
     useEffect(()=>{
-        sendGet("http://192.168.219.111:5000/all_info", null, initPageCount);
-        sendGet("http://192.168.219.111:5000/MainBoard?page=1", {page : 1}, setMainBoard);  
+        sendGet(URL+"/all_info", null, initPageCount);
+        sendGet(URL+"/MainBoard?page=1", {page : 1}, setMainBoard);  
     },[])
 
     // 비동기 post 요청 및 데이터 전송 예제
@@ -85,7 +85,7 @@ const FrontBoard = () => {
     
     function handlePageChange(e){
         curPage = e.selected+1;
-        sendGet("http://192.168.219.111:5000/MainBoard?page="+curPage, {page : curPage}, setMainBoard)
+        sendGet(URL+"/MainBoard?page="+curPage, {page : curPage}, setMainBoard)
     }
     
 
