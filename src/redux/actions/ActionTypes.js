@@ -1,5 +1,2 @@
-
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
 export const BACKMODECHANGE = 'BACKMODECHANGE';
 export const SETUSERINFO = "SETUSERINFO";

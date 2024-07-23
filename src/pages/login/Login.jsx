@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { changeState, loginEmail, loginGoogle } from '../../util/auth/firebase';
+import React, { useEffect, useState } from 'react';
+import { changeState, getCurUser, loginEmail, loginGoogle, logout } from '../../util/auth/firebase';
 import './Login.scss'
 import googleIcon from "../../img/구글아이콘.png"
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setuserinfo } from '../../redux/actions';
-import { fetchSignInMethodsForEmail } from 'firebase/auth';
+
+
 
 
 const Login = () => {
@@ -15,11 +16,16 @@ const Login = () => {
     const dispatch = useDispatch();    
     const nav = useNavigate();
 
+    
     function checkLogin(){
-        let is = changeState()
-        setIsLogin(changeState());
-        console.log(is().isUnsubsoribad);
+        logout();
+        changeState(setIsLogin);
     }
+
+    useEffect(()=>{
+        
+        checkLogin();
+    },[])
     return (
         <div className='Logininner'>
             <div className='inner login'>
@@ -31,11 +37,13 @@ const Login = () => {
                     <button className='blueBtn twoBtn bHover' onClick={(e)=>{nav("/join")}
                                                 } >회원가입</button>    
                     <button className='blueBtn twoBtn bHover' onClick={()=>{
+                                                        isLogin ?
+                                                        logout() :
                                                         loginEmail(email,password).then(res => {
-                                                            dispatch(setuserinfo(res.user));
-                                                            checkLogin();
+                                                            dispatch(setuserinfo());
                                                             
-                                                        })
+                                                            nav("/");
+                                                        })                                                      
                                                         .catch((error) => {
                                                             console.log(error.code)
                                                             if(error.code == "auth/missing-email")
@@ -46,20 +54,18 @@ const Login = () => {
                                                             {
                                                                 alert("간편로그인으로 가입된 사용자 입니다")
                                                             }
-                                                            
                                                         });
                                                     }
-                                                } >로그인</button>    
+                                                } >{isLogin?"로그아웃" : "로그인"}</button> 
                 </div> 
                 <br />
                 <div style={{display : 'flex', justifyContent : 'center'}}>
                     <button className='bHover' onClick={()=>{
                                             loginGoogle()
                                             .then(function (result) {
-                                                dispatch(setuserinfo(result.user));
-                                                const email = fetchSignInMethodsForEmail(result.user,result.user.email)
-                                                .then(res => console.log(res))
-                                                
+                                                //console.log(result);
+                                                dispatch(setuserinfo());
+                                                nav("/");
                                             })
                                             .catch(function (error) {
                                                 
