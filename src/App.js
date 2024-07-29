@@ -12,33 +12,39 @@ import light from './img/light.png'
 import Header from './components/header/Header';
 import Login from './pages/login/Login';
 import CreateUser from './pages/createuser/CreateUser';
+import UpArrow from './img/위쪽화살표.png'
+import { upScroll } from './util/util';
+import RankingBoard from './pages/ranking/RankingBoard';
+
+
 
 function App() {
-  const modeState = useSelector(state => state.backMode)
-  const dispatch = useDispatch();
-  const state = useSelector(state => state)
-  useEffect(()=>{
-    console.log(state)
-  },[state.user])
-  
-  return (
-    <div id={modeState? "darkMode" : "lightMode"} className='App'>
-        <div id="modeBtn" onClick={()=>dispatch(modechange())}>
-          <img src={modeState? dark : light}/>
-        </div>
+    const modeState = useSelector(state => state.backMode)
+    const dispatch = useDispatch();
+    const state = useSelector(state => state)
+    useEffect(() => {
+        console.log(state)
+    }, [state.user])
 
-        <Header/>
-        <div className='contents'>
-          <Routes>
-            <Route path='/' element={<FrontBoard/>}></Route>
-            <Route path='/login' element={<Login/>}></Route>
-            <Route path='/join' element={<CreateUser/>}></Route>
+    return (
+        <div id={modeState ? "darkMode" : "lightMode"} className='App'>
+            <div id="modeBtn" >
+                <img onClick={() => dispatch(modechange())} src={modeState ? dark : light} />
+                <img onClick={()=>upScroll()} src={UpArrow} />
+            </div>
 
-          </Routes>
+            <Header />
+            <div className='contents'>
+                <Routes>
+                    <Route path='/' element={<FrontBoard />}></Route>
+                    <Route path='/login' element={<Login />}></Route>
+                    <Route path='/join' element={<CreateUser />}></Route>
+                    <Route path='/rank' element={<RankingBoard />}></Route>
+                </Routes>
+            </div>
+
         </div>
-        
-    </div>
-  );
+    );
 }
 
 export default App;

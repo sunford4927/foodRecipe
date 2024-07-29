@@ -60,11 +60,13 @@ export const loginGoogle = async () => {
         linkWithPopup(curUser, provider)
 
         console.log("계정연결 완료")
+        return curUser;
     }
     else{
         // 비로그인 상태일 땐 구글로그인 
         const googleResult = await signInWithPopup(auth, provider)
         console.log("google Login Success")
+        return googleResult.user
     }
 };
 

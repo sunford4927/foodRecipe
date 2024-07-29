@@ -3,6 +3,7 @@ import * as types from '../actions/ActionTypes';
 const initialState = {
     isLogin : false,
     backMode : false,
+    user : null,
 }
 
 const counterReducer = (state = initialState, action) => {
@@ -16,6 +17,7 @@ const counterReducer = (state = initialState, action) => {
           return {
             ...state,
             isLogin : !state.isLogin,
+            user : action.user,
           }
       default:
         return state;
