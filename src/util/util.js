@@ -19,7 +19,7 @@ export function setScore(idx){
     return stars;
 }
 
-export function sendGet(url, data=null, func){
+export function sendGet(url, func, data=null){
     
     axios
         .get(url, {
