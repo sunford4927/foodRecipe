@@ -27,8 +27,8 @@ const FrontBoard = () => {
     }
 
     useEffect(()=>{
-        sendGet(URL+"/all_info", null, initPageCount);
-        sendGet(URL+"/MainBoard?page=1", {page : 1}, setMainBoard);  
+        sendGet(URL+"/all_info", initPageCount);
+        sendGet(URL+"/MainBoard?page=1", setMainBoard);  
     },[])
 
     // 비동기 post 요청 및 데이터 전송 예제
@@ -76,7 +76,7 @@ const FrontBoard = () => {
     
     function handlePageChange(e){
         curPage = e.selected+1;
-        sendGet(URL+"/MainBoard?page="+curPage, {page : curPage}, setMainBoard)
+        sendGet(URL+"/MainBoard?page="+curPage, setMainBoard)
     }
     
 

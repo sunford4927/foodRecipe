@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const listData = ["스크랩 순", "추천 순", "평점 순"]
 
 const RankingBoard = () => {
-    const [data, setData] = useState([]);
+    const [dataList, setDataList] = useState([]);
     const [curBtn, setCurBtn] = useState(null);
     //let curBtn = null;
     let backMode = useSelector(state => state.backMode)
@@ -68,9 +68,10 @@ const RankingBoard = () => {
                 idx = 3;
                 break;
         }
+
         if(idx != 0)
         {
-            sendGet(URL+"/getrank?type="+idx,setData);
+            sendGet(URL+"/getrank?type="+idx, setDataList);
         }
         
     }
@@ -82,7 +83,7 @@ const RankingBoard = () => {
                 <button onClick={(e)=> ClickButton(e)} className='rank_menu'>{listData[2]}</button>
             </div>
             <div className='recipeContainer'>
-                {data.length > 0  && setView(data)}
+                {dataList.length > 0  && setView(dataList)}
             </div>
         </div>
     );
