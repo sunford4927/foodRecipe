@@ -29,4 +29,3 @@ class AllInfo(Resource):
         print(data)
         print(request.data)
         return jsonify(data)
-    
