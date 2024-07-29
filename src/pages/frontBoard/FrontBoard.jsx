@@ -3,10 +3,10 @@ import Dummy from '../../components/test/Dummy';
 import './FrontBoard.scss'
 import Up from '../../img/상승.png'
 import Down from '../../img/하강.png'
-import RecipeItem from '../../components/recipeitem/RecipeItem';
 import Pagination from '../../components/customhook/pagination/Pagination';
-import { sendGet, setView, URL } from '../../util/util';
+import { sendGet, URL } from '../../util/util';
 import { useNavigate } from 'react-router-dom';
+import RecipeBox from '../../components/recipebox/RecipeBox';
 
 
 
@@ -125,16 +125,14 @@ const FrontBoard = () => {
                     </div>
                     }
             </div>
+            
+            <RecipeBox total={totalData} data={mainBoard}/>
 
-            <p>총 {totalData}개의 맛있는 레시피가 있습니다.</p>
-            <div className='recipeContainer'>
-                    {mainBoard.length > 0 &&  setView(mainBoard)}
-                    <Pagination
-                                pageCount={maxPage}
-                                onPageChange={(e)=>handlePageChange(e)}
-                                currentPage={curPage}
-                    />
-            </div>
+            <Pagination
+                        pageCount={maxPage}
+                        onPageChange={(e)=>handlePageChange(e)}
+                        currentPage={curPage}
+            />
 
         </div>
     );
