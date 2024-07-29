@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setuserinfo } from '../../redux/actions';
 
-
+// 파이어베이스 데이터 베이스 확인 주소
+// /https://console.firebase.google.com/project/testbase-9e244/overview?hl=ko
 
 
 const Login = () => {
@@ -30,7 +31,7 @@ const Login = () => {
         <div className='Logininner'>
             <div className='inner login'>
                 <h2>로그인</h2>
-                <h2>{isLogin ? "로그인 된 상태 입니다" : "로그아웃 된 상태 입니다."}</h2>
+                
                 <input type="text" onChange={e => setEmail(e.target.value)} placeholder='아이디' name="email"/> <br/>
                 <input type="password" name='pw' onChange={e => setPassword(e.target.value)}placeholder='비밀번호'/>  <br/> 
                 <div style={{display: "flex", justifyContent : "space-around"}}>
@@ -40,7 +41,7 @@ const Login = () => {
                                                         isLogin ?
                                                         logout() :
                                                         loginEmail(email,password).then(res => {
-                                                            dispatch(setuserinfo());
+                                                            dispatch(setuserinfo(res.user));
                                                             
                                                             nav("/");
                                                         })                                                      
@@ -63,8 +64,8 @@ const Login = () => {
                     <button className='bHover' onClick={()=>{
                                             loginGoogle()
                                             .then(function (result) {
-                                                //console.log(result);
-                                                dispatch(setuserinfo());
+                                                console.log(result);
+                                                dispatch(setuserinfo(result));
                                                 nav("/");
                                             })
                                             .catch(function (error) {

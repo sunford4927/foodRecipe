@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .entity {
+            width: 20px;
+            height: 20px;
+            margin: 2px;
+            text-align: center;
+            line-height: 20px;
+        }
+        .square {
+            background-color: red;
+        }
+        .triangle {
+            background-color: green;
+        }
+        .circle {
+            background-color: blue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="simulation" class="container"></div>
+    <script>
+        class Entity {
+            constructor(type, x, y) {
+                this.type = type;
+                this.x = x;
+                this.y = y;
+                this.health = 100;
+                this.stamina = 100;
+            }
+
+            update() {
+                this.health -= 1;
+                this.stamina -= 1;
+                if (this.health <= 0 || this.stamina <= 0) {
+                    this.alive = false;
+                }
+            }
+
+            eat(entity) {
+                this.stamina += 20; // 먹이를 먹으면 스테미너가 20 상승
+                entity.alive = false;
+            }
+        }
+
+        class Square extends Entity {
+            constructor(x, y) {
+                super('square', x, y);
+            }
+        }
+
+        class Triangle extends Entity {
+            constructor(x, y) {
+                super('triangle', x, y);
+            }
+        }
+
+        class Circle extends Entity {
+            constructor(x, y) {
+                super('circle', x, y);
+                this.generation = 0;
+            }
+
+            update() {
+                super.update();
+                if (this.health % 20 === 0) {
+                    this.generate();
+                }
+            }
+
+            generate() {
+                this.generation += 1;
+                entities.push(new Circle(Math.random() * 400, Math.random() * 400));
+            }
+        }
+
+        const entities = [
+            new Square(50, 50),
+            new Triangle(100, 100),
+            new Circle(150, 150)
+        ];
+
+        function simulate() {
+            const container = document.getElementById('simulation');
+            container.innerHTML = '';
+            entities.forEach(entity => {
+                if (entity.alive !== false) {
+                    entity.update();
+                    const div = document.createElement('div');
+                    div.classList.add('entity');
+                    if (entity.type === 'square') div.classList.add('square');
+                    if (entity.type === 'triangle') div.classList.add('triangle');
+                    if (entity.type === 'circle') div.classList.add('circle');
+                    div.style.transform = `translate(${entity.x}px, ${entity.y}px)`;
+                    container.appendChild(div);
+                }
+            });
+
+            // Check for interactions
+            for (let i = 0; i < entities.length; i++) {
+                for (let j = 0; j < entities.length; j++) {
+                    if (i !== j && entities[i].alive !== false && entities[j].alive !== false) {
+                        if (entities[i].type === 'square' && entities[j].type === 'triangle') {
+                            if (Math.abs(entities[i].x - entities[j].x) < 20 && Math.abs(entities[i].y - entities[j].y) < 20) {
+                                entities[i].eat(entities[j]);
+                            }
+                        } else if (entities[i].type === 'triangle' && entities[j].type === 'circle') {
+                            if (Math.abs(entities[i].x - entities[j].x) < 20 && Math.abs(entities[i].y - entities[j].y) < 20) {
+                                entities[i].eat(entities[j]);
+                            }
+                        }
+                    }
+                }
+            }
+
+            requestAnimationFrame(simulate);
+        }
+
+        simulate();
+    </script>
+</body>
+</html>
