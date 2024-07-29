@@ -1,6 +1,7 @@
 import axios from 'axios'
 import star from '../img/별.png'
 import emptyStar from '../img/빈별.png'
+import RecipeItem from '../components/recipeitem/RecipeItem'
 
 export function setScore(idx){
     let stars = []
@@ -30,6 +31,18 @@ export function sendGet(url, data=null, func){
 }
 
 export const URL = "http://192.168.219.111:5000";
+
+
+export function setView(list){
+    const result = list.map((item, i)=>{
+        return <RecipeItem key={item.RCP_SNO} item={item} idx ={i} />
+    })
+    return result;
+}
+
+export function upScroll() {
+    window.scrollTo(0, 0)
+}
 //     axios
 //     .delete("hello",{
 //         data: {

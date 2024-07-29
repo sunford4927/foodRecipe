@@ -5,19 +5,10 @@ import Up from '../../img/상승.png'
 import Down from '../../img/하강.png'
 import RecipeItem from '../../components/recipeitem/RecipeItem';
 import Pagination from '../../components/customhook/pagination/Pagination';
-import { sendGet, URL } from '../../util/util';
+import { sendGet, setView, URL } from '../../util/util';
 import { useNavigate } from 'react-router-dom';
 
 
-
-
-
-function setView(list){
-    const result = list.map((item, i)=>{
-        return <RecipeItem key={item.RCP_SNO} item={item} idx ={i} />
-    })
-    return result;
-}
 
 const FrontBoard = () => {
     const [viewTable, setViewTable] = useState(true);
