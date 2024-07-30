@@ -37,8 +37,8 @@ const FrontBoard = () => {
     useEffect(() => {
         sendGet(URL + "/all_info", initPageCount);
         sendGet(URL + "/MainBoard?page=1", setMainBoard);
-        dispatch(addCategoryTag(dummyList));
         dispatch(clearCategory());
+        dispatch(addCategoryTag(dummyList));
     }, [])
 
     // 비동기 post 요청 및 데이터 전송 예제

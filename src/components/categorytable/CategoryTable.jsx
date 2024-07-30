@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import Dummy from '../test/Dummy';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCategoryTag, clearCategory } from '../../redux/actions';
 import Up from '../../img/상승.png'
 import Down from '../../img/하강.png'
+
 
 const CategoryTable = () => {
 
     const [viewTable, setViewTable] = useState(true);
     
     const dummyList = useSelector(state => state.categoryTag)
+
     useEffect(() => {
 
+        
     },[])
     return (
         <div>
