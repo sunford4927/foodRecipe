@@ -23,7 +23,7 @@ const RankingBoard = () => {
             tag[0].style.backgroundColor = "#00CED1"
         }
         
-        //sendGet(,setData);
+        sendGet(URL+"/getrank?type=SCRAP_CNT", setDataList);
     },[])
     
     
