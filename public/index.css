@@ -1,8 +1,22 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+}
+
+  a:hover,
+a:active {
+  text-decoration: none;
+  color: #fff;
+  background-color: #f59000;
 }
 
 body {
