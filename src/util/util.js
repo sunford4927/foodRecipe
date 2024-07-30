@@ -30,6 +30,17 @@ export function sendGet(url, func, data=null){
         })
 }
 
+export function sendPost(url, func=null, data=null)
+{
+    axios
+        .post(url, {
+            data : data
+        })
+        .then(res => {
+            func(res.data)
+        })
+}
+
 export const URL = "http://192.168.219.111:5000";
 
 
@@ -43,6 +54,15 @@ export function setView(list){
 export function upScroll() {
     window.scrollTo(0, 0)
 }
+
+export function pathToStr(str){
+    return str.replace("/","$");
+}
+
+export function strToPath(str){
+    return str.replace("$","/");
+}
+
 //     axios
 //     .delete("hello",{
 //         data: {
