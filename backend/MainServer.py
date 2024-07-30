@@ -5,7 +5,7 @@ from flask_cors import CORS
 from hello import test
 from MainBoard import MainBoard, AllInfo 
 from RankBoard import getrank
-from CategoryBoard import category
+from CategoryBoard import category, cateCnt
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
 CORS(app)  # CORS 설정 추가
@@ -20,6 +20,8 @@ api.add_resource(AllInfo, '/all_info')
 api.add_resource(MainBoard, '/MainBoard')
 api.add_resource(getrank, '/getrank')
 api.add_resource(category, '/category_board')
+api.add_resource(cateCnt, '/category_cnt')
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
