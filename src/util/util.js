@@ -37,7 +37,19 @@ export function sendPost(url, func=null, data=null)
             data : data
         })
         .then(res => {
-            func(res.data)
+            // func(res.data)
+        })
+        
+}
+
+export function sendDel(url, func=null, data=null)
+{
+    axios
+        .delete(url, {
+            data : data
+        })
+        .then(res => {
+            // func(res.data)
         })
 }
 

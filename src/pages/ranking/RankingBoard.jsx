@@ -55,21 +55,21 @@ const RankingBoard = () => {
         }
         setCurBtn(e.target);
 
-        let idx = 0;
+        let idx = "";
         switch(e.target.innerText)
         {
             case listData[0]: // 스크랩 순
-                idx = 1;
+                idx = "SCARP_CNT";
                 break;
             case listData[1]: // 추천 순
-                idx = 2;
+                idx = "SUG_CNT";
                 break;
             case listData[2]: // 평점 순
-                idx = 3;
+                idx = "SCORE_AVG";
                 break;
         }
 
-        if(idx != 0)
+        if(idx != "")
         {
             sendGet(URL+"/getrank?type="+idx, setDataList);
         }
