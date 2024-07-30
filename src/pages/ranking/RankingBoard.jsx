@@ -59,7 +59,7 @@ const RankingBoard = () => {
         switch(e.target.innerText)
         {
             case listData[0]: // 스크랩 순
-                idx = "SCARP_CNT";
+                idx = "SCRAP_CNT";
                 break;
             case listData[1]: // 추천 순
                 idx = "SUG_CNT";
