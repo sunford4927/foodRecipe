@@ -9,3 +9,18 @@ export const setuserinfo = (user) => ({
     user : user
     
 })
+
+export const addCategory = (key, data) =>({
+    type : types.ADDCATEGORY,
+    key : key,
+    data : data
+})
+
+export const clearCategory = () => ({
+    type : types.CLEARCATEGORY
+})
+
+export const addCategoryTag = (tagList) => ({
+    type : types.ADDCATEGORYTAG,
+    list : tagList
+})
