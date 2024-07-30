@@ -19,14 +19,18 @@ export function setScore(idx){
     return stars;
 }
 
-export function sendGet(url, func, data=null){
+export function sendGet(url, func = null, data=null){
     
     axios
         .get(url, {
             data : data,
         })
         .then(res => {
-            func(res.data)
+            console.log(res)
+            if(func != null)
+            {
+                func(res.data)
+            }
         })
 }
 
@@ -57,6 +61,7 @@ export const URL = "http://192.168.219.111:5000";
 
 
 export function setView(list){
+    
     const result = list.map((item, i)=>{
         return <RecipeItem key={item.RCP_SNO} item={item} idx ={i} />
     })
@@ -68,11 +73,11 @@ export function upScroll() {
 }
 
 export function pathToStr(str){
-    return str.replace("/","$");
+    return str.replaceAll("/","$");
 }
 
 export function strToPath(str){
-    return str.replace("$","/");
+    return str.replaceAll("$","/");
 }
 
 //     axios
