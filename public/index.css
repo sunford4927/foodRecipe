@@ -70,6 +70,9 @@ ul {
   color: rgb(17, 17, 17);
   background-color: rgb(245, 239, 239);
 }
+#darkMode .Text {
+  color: rgb(17, 17, 17);
+}
 #darkMode button {
   color: rgb(17, 17, 17);
   background-color: rgb(245, 239, 239);
@@ -91,6 +94,9 @@ ul {
 
 #lightMode {
   background-color: rgb(17, 17, 17);
+  color: rgb(245, 239, 239);
+}
+#lightMode .Text {
   color: rgb(245, 239, 239);
 }
 #lightMode button {

@@ -27,6 +27,7 @@ const counterReducer = (state = initialState, action) => {
                 user: action.user,
             }
         case types.ADDCATEGORY:
+            console.log(action)
             let dic = {
                 ...state.category
             }
@@ -51,6 +52,7 @@ const counterReducer = (state = initialState, action) => {
                 category: dic
             }
         case types.CLEARCATEGORY:
+            console.log("clear")
             let cleandic = {
                 ...state.category
             }
