@@ -15,6 +15,8 @@ import CreateUser from './pages/createuser/CreateUser';
 import UpArrow from './img/위쪽화살표.png'
 import { upScroll } from './util/util';
 import RankingBoard from './pages/ranking/RankingBoard';
+import CategoryRecipe from './pages/categoryrecipe/CategoryRecipe';
+import Test from './Test';
 
 
 
@@ -40,6 +42,8 @@ function App() {
                     <Route path='/login' element={<Login />}></Route>
                     <Route path='/join' element={<CreateUser />}></Route>
                     <Route path='/rank' element={<RankingBoard />}></Route>
+                    <Route path='/category/:value' element={<CategoryRecipe />}></Route>
+                    <Route path='/test' element={<Test/>}></Route>
                 </Routes>
             </div>
 
