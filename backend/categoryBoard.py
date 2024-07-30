@@ -6,7 +6,7 @@ class category(Resource):
     def get(self):
         # cateDic = request.args.to_dict()
 
-        # 테스트 용! 프론트 준비되면 삭제하세유
+        # 테스트 용! 프론트 준비되면 삭제
         cateDic = {
 
             "CK_KIND_NM" : "밑반찬",
