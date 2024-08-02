@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Up from '../../img/상승.png'
 import Down from '../../img/하강.png'
 
@@ -10,10 +10,7 @@ const CategoryTable = () => {
     
     const dummyList = useSelector(state => state.categoryTag)
 
-    useEffect(() => {
 
-        
-    },[])
     return (
         <div>
             {viewTable ? 

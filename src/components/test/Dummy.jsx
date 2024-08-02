@@ -25,7 +25,8 @@ const Dummy = ({List, idx}) => {
         dispatch(addCategory(idx,pathToStr(e.target.innerText)))
         
     }
-
+    useEffect(()=>{
+    },[])
 
 
     useEffect(()=>{

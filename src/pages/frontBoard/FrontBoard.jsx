@@ -31,12 +31,12 @@ const FrontBoard = () => {
 
     function initPageCount(data) {
         setTotalData(data[0].totalCnt);
-        setMaxPage(Math.floor(parseInt(data[0].totalCnt) / 100));
+        setMaxPage(Math.ceil(parseInt(data[0].totalCnt) / 100));
     }
 
     useEffect(() => {
-        sendGet(URL + "/all_info", initPageCount);
-        sendGet(URL + "/MainBoard?page=1", setMainBoard);
+        sendGet(URL + "/all_info", initPageCount); // 전체데이터 개수
+        sendGet(URL + "/MainBoard?page=1", setMainBoard); // 현 페이지의 데이터 100개 
         dispatch(clearCategory());
         dispatch(addCategoryTag(dummyList));
     }, [])
