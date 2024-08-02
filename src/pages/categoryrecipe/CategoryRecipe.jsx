@@ -27,7 +27,7 @@ const CategoryRecipe = () => {
     //let { value } = useParams();
     const dic = useSelector(state => state.category)
     const [mainBoard, setMainBoard] = useState([]);
-    const [totalData, setTotalData] = useState(0);
+    const [totalData, setTotalData] = useState(10);
     const [maxPage, setMaxPage] = useState(0);
 
     const nav = useNavigate();
@@ -35,6 +35,7 @@ const CategoryRecipe = () => {
     let curPage = 1;
 
     function initPageCount(data) {
+        console.log(data);
         setTotalData(data[0].CATE_CNT);
         setMaxPage(Math.floor(parseInt(data[0].CATE_CNT) / 100));
     }
@@ -56,6 +57,9 @@ const CategoryRecipe = () => {
         
     },[])
 
+    useEffect(()=>{
+        console.log(totalData);
+    },[totalData])
     useEffect(()=>{
         console.log(dic)
         let isCheck = strCheck(dic)

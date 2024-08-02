@@ -17,16 +17,14 @@ import { upScroll } from './util/util';
 import RankingBoard from './pages/ranking/RankingBoard';
 import CategoryRecipe from './pages/categoryrecipe/CategoryRecipe';
 import Test from './Test';
+import Detailboard from './pages/detailboard/Detailboard';
 
 
 
 function App() {
     const modeState = useSelector(state => state.backMode)
     const dispatch = useDispatch();
-    const state = useSelector(state => state)
-    useEffect(() => {
-        console.log(state)
-    }, [state.user])
+
 
     return (
         <div id={modeState ? "darkMode" : "lightMode"} className='App'>
@@ -43,6 +41,7 @@ function App() {
                     <Route path='/join' element={<CreateUser />}></Route>
                     <Route path='/rank' element={<RankingBoard />}></Route>
                     <Route path='/category/:value' element={<CategoryRecipe />}></Route>
+                    <Route path='/recipe/:pathNo' element={<Detailboard/>}></Route>
                     <Route path='/test' element={<Test/>}></Route>
                 </Routes>
             </div>
