@@ -37,10 +37,9 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-
 //Email 로그인
 export const signupEmail = (email, password) => {
-    console.log(auth.name);
+    
 
     return createUserWithEmailAndPassword(auth, email, password);
 };
