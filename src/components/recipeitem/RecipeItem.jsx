@@ -1,6 +1,7 @@
 import React from 'react';
 import NullImg from '../../img/빈사진.png';
 import { setScore } from '../../util/util';
+import { useNavigate } from 'react-router-dom';
 
 function setNumber(num){
     let result = "조회수 ";
@@ -14,10 +15,16 @@ function setNumber(num){
     return result;
 }
 
+
 const RecipeItem = ( {item , idx}) => {
     
+    const nav = useNavigate();
+    function itemClick(e)
+    {
+        nav('/recipe/' + item.RCP_SNO);
+    }
     return (
-        <div  className='RecipeItem_Container cursor'>
+        <div  className='RecipeItem_Container cursor' onClick={(e)=> itemClick(e)}>
             <img  src={NullImg} alt="음식사진" />
             <div className='RecipeItem_Text'>
                 <p>{item.RCP_TTL}</p>

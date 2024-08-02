@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { signupEmail } from '../../util/auth/firebase';
 import { updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { sendPost, URL } from '../../util/util';
 
 const CreateUser = () => {
     const [email, setEmail] = useState();
@@ -15,6 +16,7 @@ const CreateUser = () => {
             const userCredential = await signupEmail(email, password);
             const user = userCredential.user;
             
+            sendPost(URL+"/userInfo", null, {email : email, nick : nick});
             // displayName 설정
             await updateProfile(user,{
                 displayName: nick

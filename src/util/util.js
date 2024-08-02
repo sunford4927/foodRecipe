@@ -26,7 +26,7 @@ export function sendGet(url, func = null, data=null){
             data : data,
         })
         .then(res => {
-            console.log(res)
+            
             if(func != null)
             {
                 func(res.data)
@@ -80,6 +80,55 @@ export function strToPath(str){
     return str.replaceAll("$","/");
 }
 
+export function strDivide(str){
+    let result = {
+        inputName : [],
+        inputCount : [],
+    }
+    str.replace("[재료]","").split("|").map((item)=>{
+        let list = item.split(" ");
+        result.inputName.push(list[1])
+        result.inputCount.push(list[2])
+    })
+    return result
+}
+
+export function setStarMenu(func)
+{
+    let List = []
+    for(let i =1; i< 6; i++)
+    {
+        List.push(<img key={i} className={'star comdStar'} src={emptyStar} onClick={(e)=>{
+            func(i);
+            changeStar(List,i);
+        }}/>)
+    }
+    return List;
+}
+
+function changeStar(list, idx)
+{
+    let before = document.getElementsByClassName('comdStar');
+
+    for(let i = 0; i< before.length; i++)
+    {
+        if(i<idx)
+        {
+            before[i].src = star;
+        }
+        else
+        {
+            before[i].src = emptyStar;
+        }
+
+    }
+}
+
+
+export const REVIEW = "요리 후기";
+export const COMMENTS = "댓글"
+export const TOCOMMENTS = "대댓글"
+export const ALLUSER = "모든유저"
 //     axios
 //     .delete("hello",{
 //         data: {

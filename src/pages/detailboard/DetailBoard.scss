@@ -1,0 +1,109 @@
+.container{
+    border : 3px solid beige;
+    margin-bottom : 40px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    .mp{
+        margin : 0 auto 0 auto ;
+    }
+    .pp{
+        width : 80px;
+        height : 80px;
+    }
+    .userBox_row{
+        margin-top : -100px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2, p{
+        align-self:flex-start ;
+    }
+
+    h2{
+        margin-bottom: 20px;
+        margin-top:20px;
+    }
+    .sp{
+        width : 50px;
+        height : 50px;
+    }
+}
+.divFlex{
+    width :100%;
+    display: flex;
+    justify-content: space-around;
+    padding : 10px;
+    border-bottom : 1px solid beige;
+}
+
+.divFlexRow{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle{
+    border-radius : 25px;
+}
+
+.fullWidth{
+    width : 100%;
+}
+
+.middleWidth{
+    width : 80%;
+}
+
+.divFlex_between{
+    width :40%;
+    display: flex;
+    justify-content: space-between;
+    padding : 10px;
+    border-bottom : 1px solid beige;
+}
+
+.flex_wrap{
+    display :flex;
+    flex-wrap : wrap;
+}
+
+.flex_justify{
+    justify-content: space-between;
+}
+
+.flex_wrap_row{
+    display :flex;
+    flex-direction: column;
+    flex-wrap : wrap;
+    justify-content: space-between;
+}
+
+.flex_wrap_row_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex_left{
+    align-self: flex-start;
+}
+
+.deTailPut{
+    width:80%;
+    height :40px;
+}
+
+.drop{
+    padding : 5px;
+}
+
+
+
+.border_bottom
+{ 
+    border-top : 1px solid beige;
+}
