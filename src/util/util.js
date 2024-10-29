@@ -57,7 +57,8 @@ export function sendDel(url, func=null, data=null)
         })
 }
 
-export const URL = "http://192.168.219.111:5000";
+//export const URL = "http://192.168.219.111:5000";
+export const URL = "http://192.168.132.1:5000";
 
 
 export function setView(list){

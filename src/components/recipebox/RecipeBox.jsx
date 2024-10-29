@@ -1,5 +1,7 @@
 import React from 'react';
 import { setView } from '../../util/util';
+import PropTypes from 'prop-types';
+
 
 const RecipeBox = ( {total, data} ) => {
     return (
@@ -12,4 +14,14 @@ const RecipeBox = ( {total, data} ) => {
     );
 };
 
+RecipeBox.defaultProps = {
+    total : 30,
+    data : []
+};
+
+RecipeBox.propTypes = {
+    total : PropTypes.number,
+    data : PropTypes.array
+}
 export default RecipeBox;
+
