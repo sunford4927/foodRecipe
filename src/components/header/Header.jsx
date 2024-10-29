@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import SearchOk from '../../img/돋보기.png'
 import Profile from '../../img/프로필.png'
 import MenuBtn from '../../img/메뉴.png'
+import logo from '../../img/logo.png'
 import './Header.scss'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -24,7 +25,7 @@ const Header = () => {
     return (
         <div id='headerLine'>
             <div id='topBox'>
-                <img className='cursor' src="https://recipe1.ezmember.co.kr/img/logo4.png" onClick={() => nav('/')} alt="만개레시피 제목" />
+                <img className='cursor' src={logo} onClick={() => nav('/')} alt="만개레시피 제목" style={{width:280, height:90}} />
                 <div id='searchContainer'>
                     <input type="text" name='searchBox'  />
                     <button><img src={SearchOk} alt="reading glasses" style={size}/></button>
