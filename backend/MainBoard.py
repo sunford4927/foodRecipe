@@ -16,7 +16,7 @@ class MainBoard(Resource):
                             on recipe_board.RCP_SNO = board_info.RCP_SNO limit 100 offset %s """, num) 
         # data = [obj.__dict__ for obj in data]
         # get 방식 데이터 받아오는 방법 : print(request.args.to_dict())
-        print(len(data))
+        print(data)
 
         return jsonify(data)
     
