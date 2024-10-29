@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restx import Api
 from flask_cors import CORS
 
-from hello import test
+# from hello import test
 from MainBoard import MainBoard, AllInfo 
 from RankBoard import getrank
 from CategoryBoard import category, cateCnt
@@ -14,7 +14,7 @@ api = Api(app)
 
 
 # import한 py파일 중 클래스를 API에 추가.. 경로 지정한 겨
-api.add_resource(test, '/HelloTest')
+# api.add_resource(test, '/HelloTest')
 # api.add_resource(test, '/deltest')
 api.add_resource(AllInfo, '/all_info')
 api.add_resource(MainBoard, '/MainBoard')
