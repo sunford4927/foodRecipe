@@ -13,7 +13,7 @@ const initialState = {
     categoryTag : []
 }
 
-const counterReducer = (state = initialState, action) => {
+const counterReducer = (state = initialState, action : types.CategoryActionTypes) => {
     switch (action.type) {
         case types.BACKMODECHANGE:
             return {
@@ -77,3 +77,4 @@ const counterReducer = (state = initialState, action) => {
 
 export default counterReducer;
 
+export type RootState = ReturnType<typeof counterReducer>;
