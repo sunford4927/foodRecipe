@@ -5,7 +5,7 @@ from flask_cors import CORS
 # from hello import test
 from MainBoard import MainBoard, AllInfo 
 from RankBoard import getrank
-from CategoryBoard import category, cateCnt
+from categoryBoard import category, cateCnt
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
 CORS(app)  # CORS 설정 추가
