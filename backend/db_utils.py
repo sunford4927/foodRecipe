@@ -5,8 +5,8 @@ def setQuery(sql=None, data = None):
     db = pymysql.connect(
         host='127.0.0.1',
         user='root',
-        password='1234',
-        db='recipe', 
+        password='12345',
+        db='foodrecipe', 
         charset='utf8mb4'
     )
     
