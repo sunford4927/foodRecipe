@@ -1,27 +1,20 @@
 import React from 'react';
 import { setView } from '../../util/util';
-import PropTypes from 'prop-types';
 
+interface RecipeBoxProps {
+    total?: number;
+    data?: Array<any>; // 데이터의 구조에 맞게 수정 필요
+}
 
-const RecipeBox = ( {total, data} ) => {
+const RecipeBox: React.FC<RecipeBoxProps> = ({ total = 30, data = [] }) => {
     return (
         <>
-            {total != 0 && <p>총 {total}개의 맛있는 레시피가 있습니다.</p>}
+            {total !== 0 && <p>총 {total}개의 맛있는 레시피가 있습니다.</p>}
             <div className='recipeContainer'>
-                    {data.length > 0 &&  setView(data)}
+                {data.length > 0 && setView(data)}
             </div>
         </>
     );
 };
 
-RecipeBox.defaultProps = {
-    total : 30,
-    data : []
-};
-
-RecipeBox.propTypes = {
-    total : PropTypes.number,
-    data : PropTypes.array
-}
 export default RecipeBox;
-

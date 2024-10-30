@@ -1,63 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { sendGet, setView, URL } from '../../util/util';
-import './RankingBoard.scss'
+import './RankingBoard.scss';
 import { useSelector } from 'react-redux';
 
-const listData = ["스크랩 순", "추천 순", "평점 순"]
+const listData: string[] = ["스크랩 순", "추천 순", "평점 순"];
 
-const RankingBoard = () => {
-    const [dataList, setDataList] = useState([]);
-    const [curBtn, setCurBtn] = useState(null);
-    //let curBtn = null;
-    let backMode = useSelector(state => state.backMode)
-    useEffect(() =>{
-        let tag = document.getElementsByClassName('rank_menu');
-        setCurBtn(tag[0]);
+const RankingBoard: React.FC = () => {
+    const [dataList, setDataList] = useState<any[]>([]);
+    const [curBtn, setCurBtn] = useState<HTMLButtonElement | null>(null);
+    const backMode = useSelector((state: { backMode: boolean }) => state.backMode);
+
+    useEffect(() => {
+        const tag = document.getElementsByClassName('rank_menu');
+        setCurBtn(tag[0] as HTMLButtonElement);
         
-        if(backMode)
-        {
-            tag[0].style.backgroundColor = "#1E90FF"
-        }
-        else
-        {
-            tag[0].style.backgroundColor = "#00CED1"
+        if (backMode) {
+            (tag[0] as HTMLButtonElement).style.backgroundColor = "#1E90FF";
+        } else {
+            (tag[0] as HTMLButtonElement).style.backgroundColor = "#00CED1";
         }
         
-        sendGet(URL+"/getrank?type=SCRAP_CNT", setDataList);
-    },[])
+        sendGet(URL + "/getrank?type=SCRAP_CNT", setDataList);
+    }, []);
     
-    
-    useEffect(()=>{
-        if(curBtn)
-        {
-            if(backMode)
-            {
-                curBtn.style.backgroundColor = "#1E90FF"
-            }
-            else
-            {
-                curBtn.style.backgroundColor = "#00CED1"
-            }
+    useEffect(() => {
+        if (curBtn) {
+            curBtn.style.backgroundColor = backMode ? "#1E90FF" : "#00CED1";
         }
-    }, [backMode])
-    function ClickButton(e){
-        if(curBtn)
-        {
+    }, [backMode, curBtn]);
+
+    function ClickButton(e: React.MouseEvent<HTMLButtonElement>) {
+        if (curBtn) {
             curBtn.style.backgroundColor = "";
         }
-        if(backMode)
-        {
-            e.target.style.backgroundColor = "#1E90FF"
-        }
-        else
-        {
-            e.target.style.backgroundColor = "#00CED1"
-        }
-        setCurBtn(e.target);
+        
+        const target = e.currentTarget;
+        target.style.backgroundColor = backMode ? "#1E90FF" : "#00CED1";
+        setCurBtn(target as HTMLButtonElement);
 
         let idx = "";
-        switch(e.target.innerText)
-        {
+        switch (target.innerText) {
             case listData[0]: // 스크랩 순
                 idx = "SCRAP_CNT";
                 break;
@@ -69,21 +51,26 @@ const RankingBoard = () => {
                 break;
         }
 
-        if(idx != "")
-        {
-            sendGet(URL+"/getrank?type="+idx, setDataList);
+        if (idx !== "") {
+            sendGet(URL + "/getrank?type=" + idx, setDataList);
         }
-        
     }
+
     return (
         <div className='inner'>
-            <div >
-                <button onClick={(e)=> ClickButton(e)} className='rank_menu'>{listData[0]}</button>
-                <button onClick={(e)=> ClickButton(e)} className='rank_menu'>{listData[1]}</button>
-                <button onClick={(e)=> ClickButton(e)} className='rank_menu'>{listData[2]}</button>
+            <div>
+                {listData.map((item, index) => (
+                    <button 
+                        key={index} 
+                        onClick={ClickButton} 
+                        className='rank_menu'
+                    >
+                        {item}
+                    </button>
+                ))}
             </div>
             <div className='recipeContainer'>
-                {dataList.length > 0  && setView(dataList)}
+                {dataList.length > 0 && setView(dataList)}
             </div>
         </div>
     );
