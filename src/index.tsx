@@ -7,10 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 // Redux 관련 불러오기
 import { createStore } from 'redux';
-import counter from "./redux/reducer/index.js"
+import counter from "./redux/reducer/index.ts"
 import { Provider } from 'react-redux';
 
 const store = createStore(counter);
+
 
 // 설치 완료 리스트
 // npm i react-router-dom 
@@ -23,7 +24,7 @@ const store = createStore(counter);
 // npm i react-icons
 // npm i firebase : 본인 인증 관련 설치
 // npm i http-proxy-middleware
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   //<React.StrictMode>
   <Provider store={store}>
