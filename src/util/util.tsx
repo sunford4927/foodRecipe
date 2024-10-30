@@ -64,7 +64,9 @@ export function sendDel(url : string, func=null, data=null)
 }
 
 //export const URL = "http://192.168.219.111:5000";
-export const URL = "http://192.168.56.1:5000";
+// export const URL = "http://192.168.56.1:5000";
+export const URL = "http://192.168.1.69:5000"; //상현ip
+
 
 
 export function setView(list : any){
