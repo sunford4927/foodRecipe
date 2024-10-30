@@ -4,12 +4,12 @@ import * as types from '../actions/ActionTypes';
 
 
 // 상태 타입 정의
-interface State {
+export interface State {
     isLogin: boolean;
     backMode: boolean;
     user: types.User | null; // 사용자 타입을 명확히
     category: types.Category;
-    categoryTag: string[]; // 필요한 경우 구체적인 타입으로 변경
+    categoryTag: types.categoryTagType[]; // 필요한 경우 구체적인 타입으로 변경
 }
 
 // 초기 상태 정의
@@ -26,7 +26,7 @@ const initialState: State = {
     categoryTag: [],
 };
 
-const counterReducer = (state: State = initialState, action: types.CategoryActionTypes): State => {
+const counterReducer = (state: State = initialState, action: types.CategoryActionTypes) => {
     switch (action.type) {
         case types.BACKMODECHANGE:
             return {
@@ -87,7 +87,7 @@ const counterReducer = (state: State = initialState, action: types.CategoryActio
 
 export default counterReducer;
 
-export type RootState = ReturnType<typeof counterReducer>;
+// export type RootState = ReturnType<typeof counterReducer>;
 
 
 // import * as types from '../actions/ActionTypes';

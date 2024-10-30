@@ -53,11 +53,11 @@ const FrontBoard: React.FC = () => {
         <div className='inner'>
             <CategoryTable />
             <RecipeBox total={totalData} data={mainBoard} />
-            {/* <Pagination
+            <Pagination
                 pageCount={maxPage}
                 onPageChange={handlePageChange}
                 currentPage={curPage}
-            /> */}
+            />
         </div>
     );
 };
