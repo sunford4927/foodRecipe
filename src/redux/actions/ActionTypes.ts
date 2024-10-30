@@ -47,7 +47,13 @@ interface ClearCategoryAction{
 interface AddCategoryTagAction{
     type : typeof ADDCATEGORYTAG;
     // list : any[];
-    list: string[]; // 카테고리 태그 리스트 타입
+    list: categoryTagType[]; // 카테고리 태그 리스트 타입
+}
+
+
+export interface categoryTagType {
+    List: string; 
+    idx : number;
 }
 
 export type CategoryActionTypes = 
