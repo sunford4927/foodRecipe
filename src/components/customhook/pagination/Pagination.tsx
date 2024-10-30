@@ -2,8 +2,13 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import "./Pagination.scss"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+interface pType  {
+    pageCount : number;
+    onPageChange : any;
+    currentPage : any;
+}
 
-const Pagination = ({ pageCount, onPageChange, currentPage }) => {
+const Pagination : React.FC<pType> = ({ pageCount, onPageChange, currentPage }) => {
     return (
         <ReactPaginate
             pageRangeDisplayed={4}
