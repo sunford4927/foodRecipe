@@ -4,7 +4,7 @@ import * as types from '../actions/ActionTypes';
 
 
 // 상태 타입 정의
-interface State {
+export interface State {
     isLogin: boolean;
     backMode: boolean;
     user: types.User | null; // 사용자 타입을 명확히
