@@ -22,9 +22,11 @@
       "noEmit": true,
       "jsx": "react-jsx",
       "incremental": true,
-      "baseUrl": "src"
+      "baseUrl": "src",
+
     },
     "include": [
       "src"
-, "tsconfig.json"    ]
+, "tsconfig.json"    ],
+
 }
