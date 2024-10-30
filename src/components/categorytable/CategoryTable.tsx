@@ -2,17 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Up from '../../img/상승.png'
 import Down from '../../img/하강.png'
+import { State } from 'redux/reducer';
 
-interface RootState {
-    categoryTag: string[]; // Redux 상태에서 categoryTag의 타입을 정의
-}
 
 
 const CategoryTable : React.FC = () => {
 
     const [viewTable, setViewTable] = useState<boolean>(true);
     
-    const dummyList = useSelector((state : RootState) => state.categoryTag)
+    const dummyList = useSelector((state : State) => state.categoryTag)
 
 
     return (
