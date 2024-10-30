@@ -6,11 +6,16 @@ import App from './App.js';
 import { BrowserRouter } from 'react-router-dom';
 
 // Redux 관련 불러오기
-import { createStore } from 'redux';
-import counter from "./redux/reducer/index.ts"
+// import { createStore } from 'redux';
+// import counter from "./redux/reducer/index.ts"
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './redux/reducer/index.ts';
 import { Provider } from 'react-redux';
 
-const store = createStore(counter);
+// const store = createStore(counter);
+const store = configureStore({
+  reducer: counterReducer,
+});
 
 
 // 설치 완료 리스트
