@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Up from '../../img/상승.png'
 import Down from '../../img/하강.png'
 import { State } from 'redux/reducer';
-
+// import State from 'redux/reducer/index'
 
 
 const CategoryTable : React.FC = () => {
