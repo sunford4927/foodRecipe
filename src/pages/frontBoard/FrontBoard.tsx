@@ -44,6 +44,7 @@ const FrontBoard: React.FC = () => {
     }, [dispatch]);
 
     function handlePageChange(e: { selected: number }) {
+        
         curPage = e.selected + 1;
         sendGet(`${URL}/MainBoard?page=${curPage}`, setMainBoard);
     }
@@ -52,11 +53,11 @@ const FrontBoard: React.FC = () => {
         <div className='inner'>
             <CategoryTable />
             <RecipeBox total={totalData} data={mainBoard} />
-            <Pagination
+            {/* <Pagination
                 pageCount={maxPage}
                 onPageChange={handlePageChange}
                 currentPage={curPage}
-            />
+            /> */}
         </div>
     );
 };
