@@ -56,6 +56,7 @@ class HelloWorld(Resource):
         # 키 꺼내는 방법 ['']
         print("data : ",request.data)
         
+        # 10/30 커밋 테스트 좀 해보려고 주석 작성
         sql = "DELETE FROM board WHERE title=%s"
         #("delete from LIKELIST where lk_senid = #{lk_senid} and lk_recid = #{lk_recid}")    
         value = request.get_json()['title']
