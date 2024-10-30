@@ -16,7 +16,7 @@ class MainBoard(Resource):
                             on recipe_board.RCP_SNO = board_info.RCP_SNO limit 100 offset %s """, num) 
         # data = [obj.__dict__ for obj in data]
         # get 방식 데이터 받아오는 방법 : print(request.args.to_dict())
-        print(data)
+        # print(data)
 
         return jsonify(data)
     
@@ -26,6 +26,6 @@ class AllInfo(Resource):
     def get(self): 
         data = setQuery("select COUNT(*) AS totalCnt from recipe_board")
         # 전달하는 데이터의 키 값은 totalCnt
-        print(data)
-        print(request.data)
+        # print(data)
+        # print(request.data)
         return jsonify(data)
