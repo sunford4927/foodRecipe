@@ -3,7 +3,7 @@ import star from '../img/별.png'
 import emptyStar from '../img/빈별.png'
 import RecipeItem from '../components/recipeitem/RecipeItem'
 
-export function setScore(idx){
+export function setScore(idx : any){
     let stars = []
     
     for(let i = 0; i<5; i++)
@@ -19,7 +19,7 @@ export function setScore(idx){
     return stars;
 }
 
-export function sendGet(url, func = null, data=null){
+export function sendGet(url : string, func : any = null , data : any =null){
     
     axios
         .get(url, {
@@ -34,7 +34,13 @@ export function sendGet(url, func = null, data=null){
         })
 }
 
-export function sendPost(url, func=null, data=null)
+interface postData {
+    email: string;
+    nick: string;
+}
+
+
+export function sendPost(url : string, func=null, data : postData)
 {
     axios
         .post(url, {
@@ -46,7 +52,7 @@ export function sendPost(url, func=null, data=null)
         
 }
 
-export function sendDel(url, func=null, data=null)
+export function sendDel(url : string, func=null, data=null)
 {
     axios
         .delete(url, {
@@ -61,9 +67,9 @@ export function sendDel(url, func=null, data=null)
 export const URL = "http://192.168.56.1:5000";
 
 
-export function setView(list){
+export function setView(list : any){
     
-    const result = list.map((item, i)=>{
+    const result = list.map((item : any, i : number)=>{
         return <RecipeItem key={item.RCP_SNO} item={item} idx ={i} />
     })
     return result;
@@ -73,28 +79,34 @@ export function upScroll() {
     window.scrollTo(0, 0)
 }
 
-export function pathToStr(str){
+export function pathToStr(str : string){
     return str.replaceAll("/","$");
 }
 
-export function strToPath(str){
+export function strToPath(str : string){
     return str.replaceAll("$","/");
 }
 
-export function strDivide(str){
-    let result = {
+interface Result {
+    inputName: string[];
+    inputCount: string[];
+}
+
+
+export function strDivide(str : string){
+    let result : Result= {
         inputName : [],
         inputCount : [],
     }
     str.replace("[재료]","").split("|").map((item)=>{
-        let list = item.split(" ");
+        let list : string[]= item.split(" ");
         result.inputName.push(list[1])
         result.inputCount.push(list[2])
     })
     return result
 }
 
-export function setStarMenu(func)
+export function setStarMenu(func :any)
 {
     let List = []
     for(let i =1; i< 6; i++)
@@ -107,15 +119,15 @@ export function setStarMenu(func)
     return List;
 }
 
-function changeStar(list, idx)
+function changeStar(list : any, idx : any)
 {
-    let before = document.getElementsByClassName('comdStar');
+    let before : HTMLCollectionOf<HTMLImageElement> = document.getElementsByClassName('comdStar') as HTMLCollectionOf<HTMLImageElement>;
 
     for(let i = 0; i< before.length; i++)
     {
         if(i<idx)
         {
-            before[i].src = star;
+            before[i].src  = star;
         }
         else
         {
