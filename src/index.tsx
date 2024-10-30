@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 // Redux 관련 불러오기
 import { createStore } from 'redux';
-import counter from "./redux/reducer/index.js"
+import counter from "./redux/reducer/index"
 import { Provider } from 'react-redux';
 
 const store = createStore(counter);
