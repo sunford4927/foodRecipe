@@ -1,0 +1,186 @@
+[33mcommit 21e7286fab854ce4449e2f3cd319f775875c078e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Wed Oct 30 22:00:31 2024 +0900
+
+    10/30 지원 커밋 테스트
+
+[33mcommit 1e49c3ac34885f13ad40a3e1078038b410be22bf[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Wed Oct 30 21:12:35 2024 +0900
+
+    10/30 지원 카테고리탭, idex.ts 수정
+
+[33mcommit 706ee37dc87661821422ba6d8d03c70ebc29e621[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Wed Oct 30 20:28:29 2024 +0900
+
+    10/30 지원 타입스크립트로 변환 작업
+
+[33mcommit 98c484cbcf3d96a2174b4823b6eac1b1db02e418[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Wed Oct 30 20:11:24 2024 +0900
+
+    10/30 지원 index.ts, type 수정
+
+[33mcommit 568c4d1b9acf4b0b9200c19495245cd3be08f751[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Wed Oct 30 18:56:49 2024 +0900
+
+    10/30 ip 연결
+
+[33mcommit fc9438c6fb43af241b379486e5079c8ca10a3cf3[m
+Merge: 4116823 c427d80
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Tue Oct 29 19:16:44 2024 +0900
+
+    타입스크립트로 변경
+
+[33mcommit 411682376386c210e9a8503b8b9e3533fb65dedb[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Tue Oct 29 19:15:10 2024 +0900
+
+    타입스크립트로 변경
+
+[33mcommit 637dcc4bc82a67742b74add69fb66a1ffdfb5619[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Tue Oct 29 14:27:11 2024 +0900
+
+    로고 변경
+
+[33mcommit fcf3c3e8f6757efc3cad0820cbecad012e1e98b9[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Tue Jul 30 18:57:57 2024 +0900
+
+    지원 쿼리 CATE_CNT 수정
+
+[33mcommit e69f1f27bf4893ab483afda18cdd959250f3ee63[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Tue Jul 30 14:22:55 2024 +0900
+
+    지원 프론트 랭크 수정 및 이것저것 수정
+
+[33mcommit 6713adc123990c3d1af55557130bdd3b8a0e0100[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Tue Jul 30 13:48:44 2024 +0900
+
+    지원 랭크 수정 및 POST TEST
+
+[33mcommit 9e2205a94e22de610fd91077d06825d52b2376c0[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Mon Jul 29 19:44:34 2024 +0900
+
+    지원 카테고리별 출력 클래스 추가
+
+[33mcommit 0729a7967e3137142a5765d5d715ce38edb90314[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Mon Jul 29 17:08:18 2024 +0900
+
+    지원 메인서버 수정
+
+[33mcommit cee14a73d9108d3361f2b22eecaf84e3f599b5dc[m
+Merge: f8ee85f 4fab671
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Tue Jul 23 14:18:57 2024 +0900
+
+    지원 커밋
+
+[33mcommit f8ee85f37d895b03d5869dadb09c4d26e94298e7[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Mon Jul 22 16:41:02 2024 +0900
+
+    지원 커밋
+
+[33mcommit 7c418cea8143b5be675a4f2652044b0c2c6e0e01[m
+Merge: e160964 b95e371
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Mon Jul 22 09:45:04 2024 +0900
+
+    지원 커밋
+
+[33mcommit e160964148ff11c6fec9fa3a75fc645e031b2f61[m
+Merge: 2228f5b 547b11d
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Mon Jul 22 09:42:14 2024 +0900
+
+    지원 푸시 위한 커밋, 쿼리문 중복 수정
+
+[33mcommit 2228f5bcf2b777a471393d3e55941eff8ba7040c[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Fri Jul 19 17:57:16 2024 +0900
+
+    지원 푸시 위한 커밋
+
+[33mcommit 5c8200ece53e1ea988f18e73f2b4202c235e855c[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Fri Jul 19 16:11:18 2024 +0900
+
+    지원 푸시 위한 커밋 메인화면 쿼리문 수정
+
+[33mcommit 07d988eee66242b3786d64004c7bfce19706761b[m
+Merge: e0da11b 15a77b8
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 18 20:59:10 2024 +0900
+
+    Merge branch 'main' of https://github.com/sunford4927/foodRecipe
+
+[33mcommit e0da11ba859636250ac425e44531828aed8e3383[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 18 20:58:47 2024 +0900
+
+    지원 전체 데이터 수정염
+
+[33mcommit 041b50cb56f49c55645d10b2fc2986bbbc7fb1b7[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 18 20:47:10 2024 +0900
+
+    지원 쿼리문 수정이염
+
+[33mcommit 52470bedcc39ddac698da7e3b36d9f98ed87ed18[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 18 20:06:39 2024 +0900
+
+    지원 쿼리문 수정 및 상현 수정
+
+[33mcommit b0e0b45ba6a74b5bdb6318c87a4a765074f2f615[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 18 14:41:24 2024 +0900
+
+    지원 커밋1
+
+[33mcommit 1a2bfa334c5c508621e657d76cc1785b104a7d4d[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 18 12:49:58 2024 +0900
+
+    지원 푸시
+
+[33mcommit d827c7ad3249ec1ad4c3515c570105c066b8d440[m
+Merge: 6f908db 241d215
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 11 19:01:05 2024 +0900
+
+    Merge branch 'main' of https://github.com/sunford4927/foodRecipe
+
+[33mcommit 6f908dba655856a1e1ef503a31709ae7270f336e[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 11 19:00:43 2024 +0900
+
+    지원 푸시 이거 되는 거 맞냐1
+
+[33mcommit 241d215d858d555133fbbe7e64dda9e748ebf2a8[m
+Merge: 7c0504f 9311d96
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 11 18:49:28 2024 +0900
+
+    Merge branch 'main' of https://github.com/sunford4927/foodRecipe
+
+[33mcommit 7c0504f236b181c4ad3fc05e8a7b50fc2ee6fdd1[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 11 18:49:26 2024 +0900
+
+    지원 커밋
+
+[33mcommit 519743fe511ae0a5bd14a8404aff5b8a7301d0b6[m
+Author: [1;31mjw39[m <akdlwb1212@naver.com>
+Date:   Thu Jul 11 11:33:11 2024 +0900
+
+    오늘 푸시
