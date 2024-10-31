@@ -3,6 +3,9 @@ import star from '../img/별.png'
 import emptyStar from '../img/빈별.png'
 import RecipeItem from '../components/recipeitem/RecipeItem'
 
+// 로컬 스토리지에 저장할 이메일 정보에 대한 키값
+export const LOCALEMAIL : string = "EMAIL"
+
 export function setScore(idx : any){
     let stars = []
     
@@ -155,11 +158,6 @@ export const inputRegexs = {
     nicknameRegex: /^[a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣]{2,10}$/,
 };
 
-//     axios
-//     .delete("hello",{
-//         data: {
-//             key : 1,
-//             title: "플라스크제목"
-//             // 프론트가 데이터 보내는 작업 for delete
-//         }
-//     })
+
+// 0 개발, 1 배포
+export const DEVALOPTYPE = 0;
