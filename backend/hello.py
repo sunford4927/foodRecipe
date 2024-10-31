@@ -5,7 +5,8 @@ from db_utils import testQu
   
 class test(Resource):
     def post(self): 
-        print(request.get_json())
+       
+        # print(request.get_json())
         # print("getjson1 : ",request.get_json()['data']['name'])
         # print("getjson2 : ",request.get_json()['data']['id'])
         # print("getjson3 : ",request.get_json()['data']['pw'])
@@ -20,8 +21,8 @@ class test(Resource):
     
 
     def delete(self):  
-        print(request.get_json())
-        print("deljson1 : ",request.get_json()['name'])
+        # print(request.get_json())
+        # print("deljson1 : ",request.get_json()['name'])
 
         sql = "delete from test where name = (%s)"
         value = request.get_json()['name']

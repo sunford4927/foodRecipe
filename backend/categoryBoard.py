@@ -50,5 +50,5 @@ class cateCnt(Resource):
                     isInput = True
 
         data = setQuery(query)
-        print(query)
+        # print(query)
         return jsonify(data)

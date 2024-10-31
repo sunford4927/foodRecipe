@@ -5,6 +5,7 @@ from flask_cors import CORS
 # from hello import test
 from MainBoard import MainBoard, AllInfo 
 from RankBoard import getrank
+from DetailInfo import detailInfo, getComment, getReview
 from categoryBoard import category, cateCnt
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
@@ -21,6 +22,9 @@ api.add_resource(MainBoard, '/MainBoard')
 api.add_resource(getrank, '/getrank')
 api.add_resource(category, '/category_board')
 api.add_resource(cateCnt, '/category_cnt')
+api.add_resource(detailInfo, '/detail_board')
+api.add_resource(getReview, '/getReview')
+api.add_resource(getComment, '/getComment')
 
 
 if __name__ == '__main__':
