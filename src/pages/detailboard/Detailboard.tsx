@@ -9,7 +9,7 @@ import TIME from '../../img/시계.png';
 import KAKAO from '../../img/카카오톡.png';
 import FACEBOOK from '../../img/페이스북.png';
 import TWITER from '../../img/트위터.png';
-import { ALLUSER, COMMENTS, REVIEW, sendGet, strDivide, URL } from '../../util/util';
+import { ALLUSER, COMMENTS, REVIEW, sendGet, strDivide, URL } from '../../util/util.tsx';
 import ReviewComments from '../../components/reviewcomments/ReviewComments';
 import { useSelector } from 'react-redux';
 import RepleBox from '../../components/replebox/RepleBox';
@@ -66,6 +66,7 @@ const Detailboard: React.FC = () => {
     }, [inputList, Name]);
 
     function initData(data: any) {
+        console.log(data)
         const result: InputList = { ...data[0], CK_INPUT_CON: strDivide(data[0].CK_INPUT_CON) };
         setInputList(result);
     }

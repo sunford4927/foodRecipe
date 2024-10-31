@@ -141,9 +141,20 @@ function changeStar(list : any, idx : any)
 
 
 export const REVIEW = "요리 후기";
-export const COMMENTS = "댓글"
-export const TOCOMMENTS = "대댓글"
-export const ALLUSER = "모든유저"
+export const COMMENTS = "댓글";
+export const TOCOMMENTS = "대댓글";
+export const ALLUSER = "모든유저";
+
+// 회원가입 정규식
+export const inputRegexs = {
+    // 아이디 : 문자로 시작하여, 영문자, 숫자, 하이픈(-), 언더바(_)를 사용하여 3~20자 이내
+    idRegex: /^[a-zA-Z][a-zA-Z0-9_-]{2,19}$/,
+    // 비밀번호 : 최소 8자 이상, 최소한 하나의 대문자, 하나의 소문자, 하나의 숫자, 하나의 특수문자를 포함, 공백 허용하지 않음
+    pwRegex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?!.*\s).{8,}$/,
+    // 닉네임 : 영어 대/소문자, 숫자, 한글 자모음 조합, 2~10자 이내
+    nicknameRegex: /^[a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣]{2,10}$/,
+};
+
 //     axios
 //     .delete("hello",{
 //         data: {
