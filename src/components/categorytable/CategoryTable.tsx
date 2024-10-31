@@ -24,7 +24,7 @@ const CategoryTable : React.FC = () => {
                 <tbody>
                     <tr>
                         <th>
-                            <div><span className='cursor'>종류별</span></div>
+                            <div><span className='cursorz'>종류별</span></div>
                             <div><span className='cursor'>상황별</span></div>
                             <div><span className='cursor'>재료별</span></div>
                             <div><span className='cursor'>방법별</span></div>
