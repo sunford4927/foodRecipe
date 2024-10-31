@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { signupEmail } from '../../util/auth/firebase';
+import { checkError, signupEmail } from '../../util/auth/firebase';
 import { updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { DEVALOPTYPE, inputRegexs, sendPost, URL } from '../../util/util.tsx';
+import warnning from '../../img/경고.png'
+
 
 interface inputValueType {
     emailId: string, // 입력된 이메일 아이디 데이터
@@ -21,14 +23,14 @@ interface inputValueType {
 const CreateUser: React.FC = () => {
     const [inputValue, setInputValue] = useState<inputValueType>({
         emailId: "", // 입력된 이메일 아이디 데이터
-        emailAddress: "", // 선택된 이메일 도메인 데이터
-        validEmail: false, // 이메일 인증 여부 
+        emailAddress: "naver.com", // 선택된 이메일 도메인 데이터
+        validEmail: DEVALOPTYPE === 1 ? false : true, // 이메일 인증 여부 
         pw: "", // 입력된 패스워드 데이터
-        validPw: false, // 패스워드 정규식 충족여부
+        validPw: DEVALOPTYPE === 1 ? false : true, // 패스워드 정규식 충족여부
         pwCheck: "", // 입력된 패스워드 확인 데이터
-        correctPwCheck: false,  // 패스워드 데이터와 일치하는지 여부
+        correctPwCheck: DEVALOPTYPE === 1 ? false : true,  // 패스워드 데이터와 일치하는지 여부
         nickName: "", // 입력된 사용자 이름 데이터
-        validNickName: false, // 닉네임 정규식 중복확인 여부
+        validNickName: DEVALOPTYPE === 1 ? false : true, // 닉네임 정규식 중복확인 여부
         nonNickNameDuplication: true // 닉네임 중복확인 여부
     })
 
@@ -48,6 +50,8 @@ const CreateUser: React.FC = () => {
         nickname: "사용할 수 있는 닉네임 입니다.",
     });
 
+    const [pwWarnning, setPwWarnning] = useState<boolean>(false)
+
     const submitRequirements: boolean =
         Boolean(inputValue.emailId) &&
         Boolean(inputValue.emailAddress) &&
@@ -63,12 +67,18 @@ const CreateUser: React.FC = () => {
 
     const nav = useNavigate();
 
+    function msgBox(e : React.MouseEvent<HTMLImageElement>) : void {
+        console.log(e)
+        let tag = 
+
+    }
+
     const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
             const userCredential = await signupEmail(inputValue.emailId + "@" + inputValue.emailAddress, inputValue.pw);
             const user = userCredential.user;
-
+            console.log(inputValue)
             await sendPost(URL + "/userInfo", null, { email: inputValue.emailId + "@" + inputValue.emailAddress, nick: inputValue.nickName });
 
             // displayName 설정
@@ -76,12 +86,8 @@ const CreateUser: React.FC = () => {
                 displayName: inputValue.nickName
             });
             nav(-1);
-        } catch (error: unknown) {
-            if (error instanceof Error) {
-                console.log(error.message); // Error 객체일 경우
-            } else {
-                console.log('Unknown error:', error); // 다른 타입의 에러
-            }
+        } catch (error :any) {
+            checkError(error.code)
         }
     };
 
@@ -198,6 +204,12 @@ const CreateUser: React.FC = () => {
                         placeholder='비밀번호 확인'
                         // required
                     /> 
+                    { 
+                        pwWarnning && <div style={{position: "fixed", top : e.pageY, left: e.pageX, backgroundColor : "brown"}}>
+                        112313
+                                </div>
+                    }        
+                    <img className='star' src={warnning} alt="" onMouseEnter={(e)=> msgBox(e)}/>
                     &nbsp; {inputValue.correctPwCheck ? passMessage.pwCheck: alertMessage.pwCheck}
                     <br />
                     <input
@@ -238,8 +250,14 @@ const CreateUser: React.FC = () => {
                         >
                             가입
                         </button>
+                        
                     </div>
                 </form>
+                <button onClick={()=>{
+                    console.log(inputValue)
+                }}>
+                    테스트
+                </button>
             </div>
         </div>
     );

@@ -147,7 +147,7 @@ const Detailboard: React.FC = () => {
                                 USER_NM: item.USER_NM,
                                 REVIEW_REG_DT: item.REVIEW_REG_DT,
                                 REVIEW_SCORE: item.REVIEW_SCORE,
-                                value: item.REVIEW_COMMENT,
+                                value: item.REVIEW,
                                 show: isCheck
                             }} 
                         />

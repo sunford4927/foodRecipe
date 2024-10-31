@@ -37,10 +37,6 @@ export function sendGet(url : string, func : any = null , data : any =null){
         })
 }
 
-interface postData {
-    email: string;
-    nick: string;
-}
 
 
 export function sendPost(url : string, func=null, data : any)
