@@ -18,7 +18,7 @@ const Pagination: React.FC<pType> = ({ pageCount, onPageChange, currentPage }) =
             pageCount={pageCount}
             onPageChange={onPageChange}
             containerClassName={"pagination"}
-            renderOnZeroPageCount={() => null} // 페이지 수가 0일 때는 아무 것도 렌더링하지 않음
+            renderOnZeroPageCount={() => currentPage} // 페이지 수가 0일 때는 아무 것도 렌더링하지 않음
             pageLinkClassName={"pagination__link"}
             activeLinkClassName={"pagination__link__active"}
         />
