@@ -69,7 +69,7 @@ const CreateUser: React.FC = () => {
 
     function msgBox(e : React.MouseEvent<HTMLImageElement>) : void {
         console.log(e)
-        let tag = 
+        
 
     }
 
@@ -204,11 +204,11 @@ const CreateUser: React.FC = () => {
                         placeholder='비밀번호 확인'
                         // required
                     /> 
-                    { 
+                    {/* { 
                         pwWarnning && <div style={{position: "fixed", top : e.pageY, left: e.pageX, backgroundColor : "brown"}}>
                         112313
                                 </div>
-                    }        
+                    }         */}
                     <img className='star' src={warnning} alt="" onMouseEnter={(e)=> msgBox(e)}/>
                     &nbsp; {inputValue.correctPwCheck ? passMessage.pwCheck: alertMessage.pwCheck}
                     <br />
