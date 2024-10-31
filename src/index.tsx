@@ -11,6 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './redux/reducer/index.ts';
 import { Provider } from 'react-redux';
+import './index.scss'
 
 // const store = createStore(counter);
 const store = configureStore({

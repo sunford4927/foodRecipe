@@ -24,39 +24,39 @@ export interface Category {
 
 
 interface BackModeChangeAction {
-    type : typeof BACKMODECHANGE;
+    type: typeof BACKMODECHANGE;
 }
 
 interface SetUserInfoAction {
-    type : typeof SETUSERINFO;
+    type: typeof SETUSERINFO;
     //user : any; // 타입 수정해야됨
     user: User;
 }
 
-interface AddCategoryAction{
-    type : typeof ADDCATEGORY;
-    key : number;
+interface AddCategoryAction {
+    type: typeof ADDCATEGORY;
+    key: number;
     // data : any;
     data: string; // 카테고리 데이터 타입
 }
 
-interface ClearCategoryAction{
-    type : typeof CLEARCATEGORY;
+interface ClearCategoryAction {
+    type: typeof CLEARCATEGORY;
 }
 
-interface AddCategoryTagAction{
-    type : typeof ADDCATEGORYTAG;
+interface AddCategoryTagAction {
+    type: typeof ADDCATEGORYTAG;
     // list : any[];
     list: categoryTagType[]; // 카테고리 태그 리스트 타입
 }
 
 
 export interface categoryTagType {
-    List: string; 
-    idx : number;
+    List: string;
+    idx: number;
 }
 
-export type CategoryActionTypes = 
+export type CategoryActionTypes =
     | BackModeChangeAction
     | SetUserInfoAction
     | AddCategoryAction
