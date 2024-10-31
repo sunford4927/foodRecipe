@@ -13,13 +13,20 @@ class upLoadRC(Resource):
         user_email = value['user_email']
         
         check_sql = '''SELECT COUNT(*) FROM recipe_review WHERE RCP_SNO = %s AND USER_EMAIL = %s'''
-        count = getQuery(check_sql, (sno, user_email))
+        count_result = getQuery(check_sql, (sno, user_email))
+        count = count_result[0]['COUNT(*)'] if count_result else 0 
+        # 위 작업 안 하면 [{'COUNT(*)': 1}] 라고 나옴.
+        # 댓글/후기 작성 시 화면 렌더링 // 댓글창 비우기
+
         print("counttttttttttttttttttttttttttt", count)
         
-        if count > 0:
-            error_message = "이미 리뷰를 작성했습니다."
-            print(error_message)
-            return jsonify({"error": "이미 리뷰를 작성했습니다."}), 400
+        # if count > 0:
+        #     error_message = "이미 리뷰를 작성했습니다."
+        #     print(error_message)
+        #     return jsonify({"count:", count}), 400
+        
+        # if count == 0:
+        #     return jsonify({"count": count}), 200
         
         if not (identify and sno and user_nm and user_email):
             error_message = "필수 필드가 누락됨"
