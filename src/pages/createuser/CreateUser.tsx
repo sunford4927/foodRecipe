@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { signupEmail } from '../../util/auth/firebase';
 import { updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { inputRegexs, sendPost, URL } from '../../util/util.tsx';
+import { DEVALOPTYPE, inputRegexs, sendPost, URL } from '../../util/util.tsx';
 
 interface inputValueType {
     emailId: string, // 입력된 이메일 아이디 데이터
@@ -93,8 +93,17 @@ const CreateUser: React.FC = () => {
                     <input
                         type="text"
                         onChange={e => {
+                            
                             // 이메일 아이디 정규식 코드
-                            const check = inputRegexs.idRegex.test(e.target.value);
+                            let check = false;
+                            if(DEVALOPTYPE === 0)
+                            {
+                                check = true;
+                            }
+                            else if(DEVALOPTYPE === 1)
+                            {
+                                check = inputRegexs.idRegex.test(e.target.value);
+                            }
 
                             setInputValue(
                                 {
@@ -130,7 +139,16 @@ const CreateUser: React.FC = () => {
                         name='pw'
                         onChange={e => {
                             // 비밀번호 정규식 코드
-                            const check = inputRegexs.pwRegex.test(e.target.value);
+                            let check = false;
+                            if(DEVALOPTYPE === 0)
+                            {
+                                check = true;
+                            }
+                            else if(DEVALOPTYPE === 1)
+                            {
+                                check = inputRegexs.pwRegex.test(e.target.value);
+                            }
+                            
 
                             setInputValue(
                                 {
@@ -152,10 +170,20 @@ const CreateUser: React.FC = () => {
                         onChange={e => {
                             // 비밀번호 확인 유효성 검사 코드
                             let check = false;
-                            if (inputValue.pw === e.target.value)
+                            if(DEVALOPTYPE === 0)
                             {
                                 check = true;
                             }
+                            else if(DEVALOPTYPE === 1)
+                            {
+                                if (inputValue.pw === e.target.value)
+                                    {
+                                        check = true;
+                                    }
+                            }
+                            
+                            
+
 
 
                             setInputValue(
@@ -177,8 +205,16 @@ const CreateUser: React.FC = () => {
                         name='nick'
                         onChange={e => {
                             // 닉네임 정규식 코드
-                            const check = inputRegexs.nicknameRegex.test(e.target.value);
-
+                            let check = false;
+                            if(DEVALOPTYPE === 0)
+                            {
+                                check = true;
+                            }
+                            else if(DEVALOPTYPE === 1)
+                            {
+                                check = inputRegexs.nicknameRegex.test(e.target.value);
+                            }
+                            
                             setInputValue(
                                 {
                                     ...inputValue,
@@ -198,9 +234,7 @@ const CreateUser: React.FC = () => {
                             type="submit"
                             className='blueBtn oneBtn bHover'
                             disabled={!submitRequirements}
-                            onClick = {() =>{
-                                console.log(1)
-                            }}
+                            
                         >
                             가입
                         </button>

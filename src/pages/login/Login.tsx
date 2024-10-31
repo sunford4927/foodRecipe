@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setuserinfo } from '../../redux/actions';
 import { UserCredential } from 'firebase/auth';
 import { userInfoType } from 'redux/actions/ActionTypes';
+import { LOCALEMAIL } from 'util/util';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState<string>('');
@@ -52,9 +53,10 @@ const Login: React.FC = () => {
                         className='blueBtn twoBtn bHover'
                         onClick={() => {
                             if (isLogin) {
-                                console.log(isLogin)
+                                localStorage.removeItem(LOCALEMAIL)
                                 logout();
                             } else {
+                                // 로그인 버튼 상호작용시 
                                 loginEmail(email, password)
                                     .then((res) => {
                                         console.log(res.user)
@@ -63,11 +65,9 @@ const Login: React.FC = () => {
                                                 nick: res.user.displayName,
                                                 email: res.user.email
                                             }
-                                            console.log(1)
+                                            localStorage.setItem(LOCALEMAIL, userInfo.email)
                                             dispatch(setuserinfo(userInfo));
-                                            console.log(2)
                                             nav("/");
-                                            console.log(3)
                                         }
 
 
@@ -91,15 +91,16 @@ const Login: React.FC = () => {
                     <button
                         className='bHover'
                         onClick={() => {
+                            // 구글 버튼 상호작용시 
                             loginGoogle()
                                 .then((result: any) => {
                                     const userInfo: userInfoType = {
                                         nick: result.providerData[0].displayName,
                                         email: result.providerData[0].email,
                                     }
+                                    localStorage.setItem(LOCALEMAIL, userInfo.email)
                                     dispatch(setuserinfo(userInfo));
                                     nav("/");
-
                                 })
                                 .catch(error => {
                                     console.error(error);
