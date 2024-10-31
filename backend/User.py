@@ -5,14 +5,14 @@ from db_utils import PostQuery, getQuery
 class insertUser(Resource):
     def post(self):
         value = request.get_json()['data']
-        print(value)
+        # print(value)
 
-        email = value['email']
-        nm = value['nick']
+        user_nm = value['nick']
+        user_email = value['email']
         
         insU_sql = '''insert into recipe_user (user_nm, user_email)
                             VALUES (%s,%s); '''
-        print("insertttttttttttttttttt:" , insU_sql)
+        # print("insertttttttttttttttttt:" , insU_sql)
 
 
-        PostQuery(insU_sql, (nm, email))
+        PostQuery(insU_sql, (user_nm, user_email))

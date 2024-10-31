@@ -14,7 +14,6 @@ class category(Resource):
                     from RECIPE_BOARD R join BOARD_INFO B
                     on R.RCP_SNO = B.RCP_SNO WHERE """
   
-        # CK_ACT_NM, CK_STA_NM, CK_INPUT_NM, , 
         for ckNM in cateDic :
             if (ckNM == 'page') :
                 continue
@@ -37,8 +36,7 @@ class cateCnt(Resource):
         query = """select COUNT(R.RCP_SNO) AS CATE_CNT
                     from RECIPE_BOARD R join BOARD_INFO B
                     on R.RCP_SNO = B.RCP_SNO WHERE """
-  
-        # CK_ACT_NM, CK_STA_NM, CK_INPUT_NM, , 
+   
         for ckNM in cateDic :
             if (ckNM == 'page') :
                 continue
