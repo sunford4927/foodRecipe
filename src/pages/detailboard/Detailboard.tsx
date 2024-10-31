@@ -171,7 +171,7 @@ const Detailboard: React.FC = () => {
                 ))}
             </div>
 
-            {!isCheck && <RepleBox type={ALLUSER} />}
+            {!isCheck && <RepleBox type={ALLUSER} pageNumber={String(pathNo)}/>}
         </div>
     );
 };

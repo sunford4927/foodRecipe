@@ -29,7 +29,7 @@ const CreateUser: React.FC = () => {
         correctPwCheck: false,  // 패스워드 데이터와 일치하는지 여부
         nickName: "", // 입력된 사용자 이름 데이터
         validNickName: false, // 닉네임 정규식 중복확인 여부
-        nonNickNameDuplication: false // 닉네임 중복확인 여부
+        nonNickNameDuplication: true // 닉네임 중복확인 여부
     })
 
     // 조건에 부합하지 않는 경우 빨간글씨 경고 문구
@@ -91,7 +91,7 @@ const CreateUser: React.FC = () => {
                 <h2>회원가입</h2>
                 <form onSubmit={handleSignup} >
                     <input
-                        type="email"
+                        type="text"
                         onChange={e => {
                             // 이메일 아이디 정규식 코드
                             const check = inputRegexs.idRegex.test(e.target.value);
@@ -107,7 +107,7 @@ const CreateUser: React.FC = () => {
                         }
                         placeholder='이메일'
                         name="emailId"
-                        required
+
                     /> &nbsp; @ &nbsp;
                     <select name="emailAddress" onChange={e => {
                         setInputValue(
@@ -117,7 +117,9 @@ const CreateUser: React.FC = () => {
                             }
                         )
                     }
-                    }>
+                    }
+                    
+                    >
                         <option value="naver.com">naver.com</option>
                         <option value="kakao.com">kakao.com</option>
                         <option value="gmail.com">gmail.com</option>
@@ -140,7 +142,7 @@ const CreateUser: React.FC = () => {
                         }
                         }
                         placeholder='비밀번호'
-                        required
+                        // required
                     />  
                     &nbsp; {inputValue.validPw ? passMessage.pw: alertMessage.pw}
                     <br/>
@@ -166,7 +168,7 @@ const CreateUser: React.FC = () => {
                         }
                         }
                         placeholder='비밀번호 확인'
-                        required
+                        // required
                     /> 
                     &nbsp; {inputValue.correctPwCheck ? passMessage.pwCheck: alertMessage.pwCheck}
                     <br />
@@ -187,7 +189,7 @@ const CreateUser: React.FC = () => {
                         }
                         }
                         placeholder='닉네임'
-                        required
+                        // required
                     />  
                     &nbsp; {inputValue.nickName ? passMessage.nickname: alertMessage.nickname}
                     <br />
@@ -196,6 +198,9 @@ const CreateUser: React.FC = () => {
                             type="submit"
                             className='blueBtn oneBtn bHover'
                             disabled={!submitRequirements}
+                            onClick = {() =>{
+                                console.log(1)
+                            }}
                         >
                             가입
                         </button>

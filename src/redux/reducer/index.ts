@@ -7,7 +7,7 @@ import * as types from '../actions/ActionTypes';
 export interface State {
     isLogin: boolean;
     backMode: boolean;
-    user: string | null; // 사용자 타입을 명확히
+    user: types.userInfoType; // 사용자 타입을 명확히
     category: types.Category;
     categoryTag: types.categoryTagType[]; // 필요한 경우 구체적인 타입으로 변경
 }
@@ -16,7 +16,10 @@ export interface State {
 const initialState: State = {
     isLogin: false,
     backMode: false,
-    user: null,
+    user: {
+        nick : "",
+        email : "",
+    },
     category: {
         CK_KIND_NM: '전체',
         CK_STA_NM: '전체',

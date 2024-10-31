@@ -21,7 +21,10 @@ export interface Category {
     CK_ACT_NM: string;
 }
 
-
+export interface userInfoType {
+    nick : string,
+    email : string
+}
 
 interface BackModeChangeAction {
     type: typeof BACKMODECHANGE;
@@ -30,7 +33,7 @@ interface BackModeChangeAction {
 interface SetUserInfoAction {
     type: typeof SETUSERINFO;
     //user : any; // 타입 수정해야됨
-    user: string;
+    user: userInfoType;
 }
 
 interface AddCategoryAction {

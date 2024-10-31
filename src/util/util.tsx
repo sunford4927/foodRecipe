@@ -40,7 +40,7 @@ interface postData {
 }
 
 
-export function sendPost(url : string, func=null, data : postData)
+export function sendPost(url : string, func=null, data : any)
 {
     axios
         .post(url, {
