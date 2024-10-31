@@ -3,8 +3,8 @@ import pymysql
 def setQuery(sql=None, data = None):
     # MySQL 데이터베이스 연결
     db = pymysql.connect(
-        host='127.0.0.1',
-        user='root',
+        host='192.168.1.69',
+        user='recipeuser',
         password='12345',
         db='foodrecipe', 
         charset='utf8mb4'
@@ -31,10 +31,10 @@ def setQuery(sql=None, data = None):
 def testQu(sql = None, data = None):
     # MySQL 데이터베이스 연결
     db = pymysql.connect(
-        host='127.0.0.1',
-        user='root',
-        password='1234',
-        db='recipe', 
+        host='192.168.1.69',
+        user='food_recipe',
+        password='12345',
+        db='foodrecipe', 
         charset='utf8mb4'
     )
     

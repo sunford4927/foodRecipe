@@ -7,7 +7,7 @@ class getrank(Resource):
 
         typeDic = request.args.to_dict()
 
-        print("typename : ", typeDic['type'])
+        # print("typename : ", typeDic['type'])
 
         Ranktype = (typeDic['type']) 
     
