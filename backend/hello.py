@@ -1,7 +1,7 @@
 import json
 from flask_restx import Resource
 from flask import jsonify, request, make_response
-from db_utils import testQu
+from db_utils import testQu, getQuery
   
 class test(Resource):
     def post(self): 

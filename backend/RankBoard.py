@@ -1,6 +1,6 @@
 from flask_restx import Resource
 from flask import jsonify, request
-from db_utils import setQuery
+from db_utils import getQuery
 
 class getrank(Resource):
     def get(self):
@@ -14,7 +14,7 @@ class getrank(Resource):
 
         for key in typeDic :
             if Ranktype == typeDic[key] :
-                data = setQuery(f""" SELECT DISTINCT R.RCP_SNO, R.RCP_TTL, R.USER_NM, B.REVIEW_CNT,
+                data = getQuery(f""" SELECT DISTINCT R.RCP_SNO, R.RCP_TTL, R.USER_NM, B.REVIEW_CNT,
                                     B.VIEW_CNT, B.SCRAP_CNT, B.SUG_CNT, B.SCORE_AVG
                                     FROM RECIPE_BOARD R
                                     JOIN (

@@ -1,6 +1,6 @@
 from flask_restx import Resource
 from flask import jsonify, request
-from db_utils import setQuery 
+from db_utils import getQuery 
 from funcAll import frontToDB
 
 class category(Resource):
@@ -25,7 +25,7 @@ class category(Resource):
                     query += f'{ckNM} LIKE "{frontToDB(cateDic[ckNM])}"'
                     isInput = True
 
-        data = setQuery(query+"limit 100 offset %s ", num)
+        data = getQuery(query+"limit 100 offset %s ", num)
         return jsonify(data)
 
         
@@ -49,6 +49,6 @@ class cateCnt(Resource):
                     query += f'R.{ckNM} LIKE "{frontToDB(cateDic[ckNM])}"'
                     isInput = True
 
-        data = setQuery(query)
+        data = getQuery(query)
         # print(query)
         return jsonify(data)
