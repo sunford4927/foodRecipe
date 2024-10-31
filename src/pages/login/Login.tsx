@@ -54,6 +54,7 @@ const Login: React.FC = () => {
                             } else {
                                 loginEmail(email, password)
                                     .then(res => {
+                                        console.log(res)
                                         dispatch(setuserinfo(res.user));
                                         nav("/");
                                     })
@@ -77,9 +78,10 @@ const Login: React.FC = () => {
                         className='bHover' 
                         onClick={() => {
                             loginGoogle()
-                                .then(result => {
-                                    console.log(result);
-                                    dispatch(setuserinfo(result));
+                                .then((result : any) => {
+                                    console.log(result.providerData[0].email);
+                                    console.log(typeof(result))
+                                    dispatch(setuserinfo(result.providerData[0].email));
                                     nav("/");
                                 })
                                 .catch(error => {

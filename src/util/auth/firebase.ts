@@ -14,7 +14,8 @@ import { // authentication 설정
     onAuthStateChanged,
     AuthCredential,
     getRedirectResult,
-    linkWithPopup
+    linkWithPopup,
+    UserCredential
 } from "firebase/auth";
 
 
@@ -38,14 +39,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 //Email 로그인
-export const signupEmail = (email, password) => {
-    
+export const signupEmail = (email: string, password: string) => {
+
 
     return createUserWithEmailAndPassword(auth, email, password);
 };
 
 //Email 회원가입
-export const loginEmail = (email, password) => {
+export const loginEmail = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password);
 };
 
@@ -61,7 +62,7 @@ export const loginGoogle = async () => {
         console.log("계정연결 완료")
         return curUser;
     }
-    else{
+    else {
         // 비로그인 상태일 땐 구글로그인 
         const googleResult = await signInWithPopup(auth, provider)
         console.log("google Login Success")
@@ -71,8 +72,6 @@ export const loginGoogle = async () => {
 
 
 export const logout = async () => {
-
-
     try {
         await signOut(auth);
         //setAuthInfo(initialState);
@@ -81,7 +80,7 @@ export const logout = async () => {
     }
 };
 
-export const changeState = async (func) => {
+export const changeState = async (func: (state: boolean) => void) => {
     // onAuthStateChanged 는 auth객체에 로그인 유무에대한 이벤트를 등록한다
     // func 에 setState 함수를 받아서 불리언데이터를 변경시킴
     return onAuthStateChanged(auth, (humen) => {

@@ -7,7 +7,7 @@ import * as types from '../actions/ActionTypes';
 export interface State {
     isLogin: boolean;
     backMode: boolean;
-    user: types.User | null; // 사용자 타입을 명확히
+    user: string | null; // 사용자 타입을 명확히
     category: types.Category;
     categoryTag: types.categoryTagType[]; // 필요한 경우 구체적인 타입으로 변경
 }
