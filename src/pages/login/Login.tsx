@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { changeState, getCurUser, loginEmail, loginGoogle, logout } from '../../util/auth/firebase';
+import { changeState, checkError, getCurUser, loginEmail, loginGoogle, logout } from '../../util/auth/firebase';
 import './Login.scss';
 import googleIcon from "../../img/구글아이콘.png";
 import { useNavigate } from 'react-router-dom';
@@ -73,12 +73,7 @@ const Login: React.FC = () => {
 
                                     })
                                     .catch((error) => {
-                                        // console.log(error.code);
-                                        if (error.code === "auth/missing-email") {
-                                            alert("이메일을 잘못 입력하셨습니다");
-                                        } else if (error.code === "auth/invalid-credential") {
-                                            alert("간편로그인으로 가입된 사용자입니다");
-                                        }
+                                        checkError(error.code)
                                     });
                             }
                         }}
@@ -103,7 +98,7 @@ const Login: React.FC = () => {
                                     nav("/");
                                 })
                                 .catch(error => {
-                                    console.error(error);
+                                    checkError(error.code)
                                 });
                         }}
                     >
