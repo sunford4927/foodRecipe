@@ -7,11 +7,11 @@ export const CLEARCATEGORY = "CLEARCATEGORY";
 
 
 // 사용자 타입 정의 (구체적인 속성으로 수정하세요)
-export interface User {
-    id: number; // 예시
-    name: string; // 예시
-    // 필요한 추가 속성
-}
+// export interface User {
+//     id: number; // 예시
+//     name: string; // 예시
+//     // 필요한 추가 속성
+// }
 
 // 카테고리 타입 정의
 export interface Category {
@@ -30,7 +30,7 @@ interface BackModeChangeAction {
 interface SetUserInfoAction {
     type: typeof SETUSERINFO;
     //user : any; // 타입 수정해야됨
-    user: User;
+    user: string;
 }
 
 interface AddCategoryAction {
