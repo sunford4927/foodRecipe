@@ -129,7 +129,7 @@ const CreateUser: React.FC = () => {
                     }
                     
                     >
-                        <option value="naver.com">naver.com</option>
+                        <option value="naver.com" selected>naver.com</option>
                         <option value="kakao.com">kakao.com</option>
                         <option value="gmail.com">gmail.com</option>
                     </select> {inputValue.validEmail ? passMessage.email: alertMessage.email} 

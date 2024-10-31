@@ -160,4 +160,4 @@ export const inputRegexs = {
 
 
 // 0 개발, 1 배포
-export const DEVALOPTYPE = 0;
+export const DEVALOPTYPE :number = 0;
