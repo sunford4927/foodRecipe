@@ -15,6 +15,7 @@ import RankingBoard from './pages/ranking/RankingBoard';
 import CategoryRecipe from './pages/categoryrecipe/CategoryRecipe';
 import Test from './Test';
 import Detailboard from './pages/detailboard/Detailboard';
+import InsertRecipe from './pages/insertboard/InsertRecipe';
 
 const App: React.FC = () => {
     const modeState = useSelector((state: { backMode: boolean }) => state.backMode);
@@ -44,6 +45,7 @@ const App: React.FC = () => {
                     <Route path='/rank' element={<RankingBoard />} />
                     <Route path='/category/:value' element={<CategoryRecipe />} />
                     <Route path='/recipe/:pathNo' element={<Detailboard />} />
+                    <Route path='/insertrecipe' element={<InsertRecipe />} />
                     <Route path='/test' element={<Test />} />
                 </Routes>
             </div>
