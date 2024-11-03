@@ -6,23 +6,21 @@ import logo from '../../img/logo.png';
 import './Header.scss';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { userInfoType } from 'redux/actions/ActionTypes';
+import { usePreventRefresh } from 'components/customhook/refresh/Refresh';
 
 const size = {
     width: '40px',
     height: '40px'
 };
 
-interface User {
-    displayName: string;
-}
-
 const Header: React.FC = () => {
     const nav = useNavigate();
     const isLogin = useSelector((state: any) => state.isLogin);
-    const user = useSelector((state: { user: User | null }) => state.user);
-
+    const user = useSelector((state: { user: userInfoType}) => state.user);
+    usePreventRefresh();
     useEffect(() => {
-        console.log(isLogin);
+        console.log(user.nick);
     }, [isLogin]);
 
     return (
@@ -42,7 +40,7 @@ const Header: React.FC = () => {
                     </button>
                 </div>
                 <div id='iconContainer'>
-                    <p>{user ? `${user.displayName} 님 환영합니다` : ""}</p>
+                    <p>{user.nick !== ""  ? `${user.nick} 님 환영합니다` : ""}</p>
                     <img 
                         onClick={() => nav("/login")} 
                         className='cursor' 
