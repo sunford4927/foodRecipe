@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import FrontBoard from './pages/frontBoard/FrontBoard';
 import { useSelector, useDispatch } from 'react-redux';
-import { modechange } from './redux/actions';
+import { modechange, setuserinfo } from './redux/actions';
 import './style/App.css';
 import dark from './img/dark.png';
 import light from './img/light.png';
@@ -10,17 +10,39 @@ import Header from './components/header/Header';
 import Login from './pages/login/Login';
 import CreateUser from './pages/createuser/CreateUser';
 import UpArrow from './img/위쪽화살표.png';
-import { upScroll } from './util/util';
+import { LOCALEMAIL, upScroll } from './util/util';
 import RankingBoard from './pages/ranking/RankingBoard';
 import CategoryRecipe from './pages/categoryrecipe/CategoryRecipe';
 import Test from './Test';
 import Detailboard from './pages/detailboard/Detailboard';
 import InsertRecipe from './pages/insertboard/InsertRecipe';
+import { State } from 'redux/reducer';
+import { auth, getCurUser } from 'util/auth/firebase';
+import { userInfoType } from 'redux/actions/ActionTypes';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const App: React.FC = () => {
     const modeState = useSelector((state: { backMode: boolean }) => state.backMode);
     const dispatch = useDispatch();
 
+    const user = useSelector((state : State) => state.user)
+    // 브라우저에 렌더링 시 한 번만 실행하는 코드
+    useEffect(() => {
+        // 세션에 저장된 이메일 정보가 있고 리덕스에 저장된 이메일이 없으면 다시 리덕스에 유저정보저장
+        const email = localStorage.getItem(LOCALEMAIL);
+        if(email && user.email==="")
+        {
+            onAuthStateChanged (auth, (user) =>{
+                if(user){
+                    const userInfo : userInfoType= {
+                        nick : String(user.displayName),
+                        email : String(user.email)
+                    }
+                    dispatch(setuserinfo(userInfo));
+                }
+            })           
+        }
+    },[auth]);
     return (
         <div id={modeState ? "darkMode" : "lightMode"} className='App'>
             <div id="modeBtn">

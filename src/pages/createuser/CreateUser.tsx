@@ -168,6 +168,8 @@ const CreateUser: React.FC = () => {
                         placeholder='비밀번호'
                         // required
                     />  
+                    <img className='star' src={warnning} alt="" onMouseEnter={(e)=> msgBox(e)}/>
+                    
                     &nbsp; {inputValue.validPw ? passMessage.pw: alertMessage.pw}
                     <br/>
                     <input
@@ -209,7 +211,7 @@ const CreateUser: React.FC = () => {
                         112313
                                 </div>
                     }         */}
-                    <img className='star' src={warnning} alt="" onMouseEnter={(e)=> msgBox(e)}/>
+                    
                     &nbsp; {inputValue.correctPwCheck ? passMessage.pwCheck: alertMessage.pwCheck}
                     <br />
                     <input

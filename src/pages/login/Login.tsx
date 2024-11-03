@@ -59,7 +59,7 @@ const Login: React.FC = () => {
                                 // 로그인 버튼 상호작용시 
                                 loginEmail(email, password)
                                     .then((res) => {
-                                        console.log(res.user)
+                                        
                                         if (res.user.displayName !== null && res.user.email !== null) {
                                             const userInfo: userInfoType = {
                                                 nick: res.user.displayName,
