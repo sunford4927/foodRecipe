@@ -1,0 +1,35 @@
+.bundleContainer {
+    display: flex;
+    flex-direction: column; /* 세로 방향으로 정렬 */
+    margin: 20px;
+}
+
+.inputRow {
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+    // margin-bottom: 10px;
+}
+
+.nestedInputs {
+    margin-left: 170px; /* 들여쓰기 추가 */
+    // margin-bottom: 10px;
+    // margin-top: -10px;
+   
+}
+
+.AddBundleTitle {
+    // 메인재료 inputbox
+    border: 1px solid #ccc; // 테두리 스타일 (선택 사항)
+}
+
+// 각 재료 input 박스 사이 왼쪽 간격
+.addInput input {
+    // margin-right: 10px; /* 입력 필드 사이에 10px 여백 추가 */
+    margin-left: 20px;
+}
+
+.addbundle{
+    display: flex;
+    align-items: center;
+    // 왜 재료묶음 추가가 가운데로 안 가는 거지?? 확인 필요
+}

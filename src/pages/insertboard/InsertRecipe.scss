@@ -1,0 +1,15 @@
+.category-selects {
+    display: flex; // select가 카테고리 옆에 나란히 있도록 설정
+    display: inline-block; // select가 카테고리 옆에 나란히 있도록 설정
+    margin-left: 10px; // span과의 간격
+    
+  
+    .select-category {
+      margin-right: 20px; // 각 select 요소 사이의 간격
+      display: inline-block;
+      
+    }
+  }
+
+
+  

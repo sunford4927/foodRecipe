@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { foodCategory, pathToStr, strToPath } from '../../util/util';
+import { recipeCategory, pathToStr, strToPath } from '../../util/util';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCategory } from '../../redux/actions';
 import { State } from 'redux/reducer'; 
@@ -12,7 +12,7 @@ interface DummyType {
 }
 
 const Dummy: React.FC<DummyType> = ({ List, idx }) => {
-    const data = foodCategory(List)
+    const data = recipeCategory(List)
 
 
     const dispatch = useDispatch();
