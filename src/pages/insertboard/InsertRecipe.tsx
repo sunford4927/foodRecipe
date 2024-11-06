@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './InsertRecipe.scss';
 import { recipeCategory, recipeInfo } from 'util/util';
-import AddInput from 'components/inputInfo/AddInput';
-import AddBundle from 'components/inputInfo/AddBundle';
+// import AddInput from 'components/inputInfo/AddInput';
+import AddBundle from 'components/insertInfo/AddBundle';
+import AddStep from 'components/insertInfo/AddStep';
 
 const InsertRecipe = () => {
   // for 카테고리 상태를 관리
@@ -86,6 +87,7 @@ const InsertRecipe = () => {
   return (
     <div>
       <div>레시피 등록</div> 
+      <hr/>
       <span>레시피 제목</span>
       <input type="text" name="RCP_TTL" placeholder="예) 소고기 미역국" />
       <br />
@@ -134,8 +136,8 @@ const InsertRecipe = () => {
           );
         })}
       </div>
-      <br/>
-
+      
+      <p className='gray_info'>분류를 바르게 설정해주시면, 이용자들이 쉽게 레시피를 검색할 수 있어요.</p>
       <span>요리 정보</span>
         <div className="category-selects">
           {Object.keys(foodInfoDic).map((key, idx) => {
@@ -165,17 +167,29 @@ const InsertRecipe = () => {
             );
           })}
         </div>
-        <br/>
+        <hr/>
 
-        <span>재료 정보</span>
+        <span>재료 정보</span> <span className='gray_info'>※재료 한번에 입력 버튼을 통해 재료를 "," 쉼표로 구분하여 한 번에 입력할 수 있어요.</span>
+        <p className='gray_info'>재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</p>
         {bundles.map((_, index) => (
           <AddBundle key={index} />
         ))}
         
-        <button onClick={removeBundle} className='cursor addbundle' disabled={bundles.length <= 1}>재료 묶음 삭제 </button> 
+        <button onClick={removeBundle} className='cursor removebundle' disabled={bundles.length <= 1}>재료 묶음 삭제 </button> 
         {/* bundles.length가 1 이하면 삭제 버튼 비활성화 */}
-        <br/>
-        <button onClick={addBundle} className='cursor'>재료 묶음 추가 </button> 
+        <hr/>
+        <p className='gray_info'>※양념, 양념장, 소스, 드레싱, 토핑, 시럽, 육수 밑간 등으로 구분해서 작성해주세요.</p>
+        
+        <button onClick={addBundle} className='cursor addbundle'>재료 묶음 추가 </button> 
+        <hr/>
+        <p>요리순서</p>
+        <p className='gray_info'>요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없지 적어주세요.</p>
+        <p className='gray_info'>예) 10분간 익혀주세요 ▷ 10분간 약한불로 익혀주세요.</p>
+        <p className='gray_info'>마늘편은 익혀주세요 ▷ 마늘편을 충분히 익혀주셔야 매운 맛이 사라집니다.</p>
+        <p className='gray_info'>꿀을 조금 넣어주세요 ▷ 꿀이 없는 경우, 설탕 1스푼으로 대체 가능합니다.</p>
+
+        <button>순서 추가</button> <button>순서 삭제</button>
+        <AddStep />
         
 
 

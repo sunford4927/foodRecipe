@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 import AddInput from './AddInput'; 
-import './InputInfo.scss'; 
+import './InsertInfo.scss'; 
 
 const AddBundle = () => {
     const [inputTitle, setInputTitle] = useState("재료"); // '재료'라는 기본값을 가진 inputTitle 상태 생성

@@ -1,5 +1,5 @@
 import React from 'react';
-import './InputInfo.scss';
+import './InsertInfo.scss';
 
 interface AddInputProps {
     placeholder: string; // placeholder prop을 string으로 정의
