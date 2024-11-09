@@ -48,9 +48,11 @@ const AddStep = () => {
       // 이전 배열에 새 plh 추가한 새로운 updateInputs 생성
       const fixedOrder = ['밀가루 100g, 소금 2큰술, 물 100g', '국자, 볼', '약불', '팁을 입력하세요'];
       // 배열에 나타날 항목들이 항상 특정 순서대로 정렬되도록 보장
-      const filteredInputs = updatedInputs.filter((input) => input !== '');
+      // const filteredInputs = updatedInputs.filter((input) => input !== '');
+    
       // updatedInputs 이 배열에 있는 값 중 빈 문자열 제거
-      return fixedOrder.filter((input) => filteredInputs.includes(input));
+      // fixedOrder 에 임의로 정해진 텍스트 순서를 필터함수를 통해 개발자가 원하는 고정 순서로 변환하여 저장하는거?
+      return fixedOrder.filter((input) => updatedInputs.includes(input));
     });
   };
 
