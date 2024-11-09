@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './InsertInfo.scss';
+import ImgBox from 'components/custominput/imgbox/ImgBox';
 
 const AddStep = () => {
   // 입력 필드들의 placeholder를 배열로 저장
@@ -62,7 +63,8 @@ const AddStep = () => {
         <span className="green_step">Step1</span>
         <input type="text" className="StepInput" />
         {/* 스크롤 기능 만들기 */}
-        <input type="file" className="StepInput" />
+        <ImgBox number={2}/>
+
         {/* 썸네일 기능, input 이미지 바꾸기, 사이즈 조정하기, Step 옆에 두기 */}
       </div>
 
