@@ -1,5 +1,5 @@
 import React from 'react';
-import NullImg from '../../../img/빈사진.gif'
+import NullImg from '../../img/빈사진.gif'
 
 interface ImgBox {
     number: Number; // placeholder prop을 string으로 정의

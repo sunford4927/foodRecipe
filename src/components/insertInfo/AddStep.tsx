@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './InsertInfo.scss';
-import ImgBox from 'components/custominput/imgbox/ImgBox';
+// import ImgBox from 'components/custominput/imgbox/ImgBox';
+import ImgBox from './ImgBox';
 
-const AddStep = () => {
+interface AddStepNumber {
+  stepNum : number;
+}
+
+const AddStep: React.FC<AddStepNumber> = ({stepNum}) => {
   // 입력 필드들의 placeholder를 배열로 저장
   const [inputPlh, setInputPlh] = useState<string[]>([]);
 
@@ -11,13 +16,19 @@ const AddStep = () => {
   // set: 중복되지 않는 유일한 값들을 저장하는 자료구조
   const [clicked, setClicked] = useState<Set<string>>(new Set());
 
+  const [value, setValue] = useState("");
+
+  useEffect(()=>{
+    console.log(value)
+    return console.log(value);
+  },[])
   // 버튼 클릭 시 추가할 placeholder 값 결정
   const BtnStepInfo = (stepInfo: string) => {
     // set.has(value) , value가 있다면 t, 없으면 f
     if (clicked.has(stepInfo)) {
       return; // 선택한 단어가 있으면 바로 리턴 ㄱ
     }
-
+  
     // prevClicked: 이전 상태값!!, 상태 업데이트를 위한 콜백 함수 형태로 전달된 인자
     // (prevClicked) => new Set(prevClicked).add(stepInfo) 이 콜백 함수가 인자로 전달된 것
     // setClicked 함수가 실행되면 이전 상태값을 받아 새로운 set 객체 생성, 그 후 stepInfo 값 추가
@@ -57,14 +68,15 @@ const AddStep = () => {
     });
   };
 
+
   return (
     <div>
       <div>
-        <span className="green_step">Step1</span>
-        <input type="text" className="StepInput" />
+        <span className="green_step">{'Step' + stepNum}</span>
+        <input type="text" className="StepInput" onChange={(e)=>setValue(e.target.value)} />
         {/* 스크롤 기능 만들기 */}
-        <ImgBox number={2}/>
-
+        <ImgBox number={stepNum}/>
+        
         {/* 썸네일 기능, input 이미지 바꾸기, 사이즈 조정하기, Step 옆에 두기 */}
       </div>
 
