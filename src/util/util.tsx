@@ -179,6 +179,61 @@ export const inputRegexs = {
 // 0 개발, 1 배포
 export const DEVALOPTYPE :number = 0;
 
+// window.onload = function() {
+//     console.log("");
+//     console.log("[window onload] : [start]");
+//     console.log(""); 
+
+//     // [이벤트 함수 호출]
+//     checkScreenSize();
+// };
+
+
+// /* [html 화면 사이즈 변경 이벤트 감지] */
+// window.onresize = function() {
+//     console.log("");
+//     console.log("[window onresize] : [start]");
+//     console.log(""); 
+
+//     // [이벤트 함수 호출]
+//     checkScreenSize();
+// };
+
+// 화면크기 검토 
+// 576px 미만
+export const VIEWTYPE1 : number = 0
+// 567px 이상
+export const VIEWTYPE2 : number = 1;
+// 786px 이상
+export const VIEWTYPE3 : number = 2;
+// 992px 이상
+export const VIEWTYPE4 : number = 3;
+
+// view 크기 체그하는 함수
+export function checkScreenSize() : number{
+    //화면 해상도 확인
+    //location이나 history 같은 전역 변수를 ESLint가 참조할 수 있게 주석으로 명시해 주는 것이다.
+    // eslint-disable-next-line no-restricted-globals
+    let screenWidth = screen.availWidth;
+    // eslint-disable-next-line no-restricted-globals
+    let screenHeight = screen.availHeight;
+
+    if (screenWidth >= 992){
+        return VIEWTYPE4;
+    }
+    else if (screenWidth >= 768) {
+        return VIEWTYPE3;
+    }
+    else if (screenWidth >= 567) {
+        return VIEWTYPE2;
+    }
+    else {
+        return VIEWTYPE1;
+    } 
+};  
+
+
+
 // recipeTitle
 // cookIntro
 // movieURL
