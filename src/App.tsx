@@ -61,7 +61,7 @@ const App: React.FC = () => {
             </div>
 
             <Header />
-            <div className='contents'>
+            <div className='contents col-12'>
                 <Routes>
                     <Route path='/' element={<FrontBoard />} />
                     <Route path='/login' element={<Login />} />
