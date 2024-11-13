@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './InsertInfo.scss';
 // import ImgBox from 'components/custominput/imgbox/ImgBox';
 import ImgBox from './ImgBox';
-import { rootCnt, rootP } from 'util/util';
 
 interface AddStepNumber {
   stepNum : number;

@@ -1,9 +1,6 @@
 import * as types from './ActionTypes';
 
 
-export const modechange = () => ({
-    type : types.BACKMODECHANGE
-});
 
 export const setuserinfo = (user : types.userInfoType) => ({
     type : types.SETUSERINFO,

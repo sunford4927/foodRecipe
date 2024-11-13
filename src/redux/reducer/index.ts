@@ -35,11 +35,6 @@ const initialState: State = {
 
 const counterReducer = (state: State = initialState, action: types.CategoryActionTypes) => {
     switch (action.type) {
-        case types.BACKMODECHANGE:
-            return {
-                ...state,
-                backMode: !state.backMode,
-            };
         case types.SETUSERINFO:
             return {
                 ...state,

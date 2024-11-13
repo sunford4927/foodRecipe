@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import FrontBoard from './pages/frontBoard/FrontBoard';
 import { useSelector, useDispatch } from 'react-redux';
-import { modechange, setuserinfo } from './redux/actions';
-import './style/App.css';
+import {  setuserinfo } from './redux/actions';import './style/App.css';
 import dark from './img/dark.png';
 import light from './img/light.png';
 import Header from './components/header/Header';
@@ -46,14 +45,10 @@ const App: React.FC = () => {
         }
     },[auth]);
     return (
-        <div id={modeState ? "darkMode" : "lightMode"} className='App'>
+        <div className='App col-xs-12 col-sm-12 col-md-7 col-lg-8'>
             <div id="modeBtn">
                 <img 
-                    onClick={() => dispatch(modechange())} 
-                    src={modeState ? dark : light} 
-                    alt="mode toggle" 
-                />
-                <img 
+                    className='star'
                     onClick={() => upScroll()} 
                     src={UpArrow} 
                     alt="scroll to top" 
@@ -61,7 +56,7 @@ const App: React.FC = () => {
             </div>
 
             <Header />
-            <div className='contents col-12'>
+            <div className='contents'>
                 <Routes>
                     <Route path='/' element={<FrontBoard />} />
                     <Route path='/login' element={<Login />} />

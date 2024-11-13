@@ -1,4 +1,3 @@
-export const BACKMODECHANGE = 'BACKMODECHANGE';
 export const SETUSERINFO = "SETUSERINFO";
 export const ADDCATEGORY = "ADDCATEGORY";
 export const ADDCATEGORYTAG = "ADDCATEGORYTAG";
@@ -28,9 +27,6 @@ export interface userInfoType {
     email : string
 }
 
-interface BackModeChangeAction {
-    type: typeof BACKMODECHANGE;
-}
 
 interface SetUserInfoAction {
     type: typeof SETUSERINFO;
@@ -73,7 +69,6 @@ export interface categoryTagType {
 }
 
 export type CategoryActionTypes =
-    | BackModeChangeAction
     | SetUserInfoAction
     | AddCategoryAction
     | ClearCategoryAction
