@@ -6,6 +6,8 @@ interface AddInputProps {
 }
 
 const AddInput: React.FC<AddInputProps> = ({ placeholder }) => {
+  
+
   return (
     <div className='addInput'>
         <input type='text' name='inputMain' placeholder={placeholder} />
@@ -15,5 +17,6 @@ const AddInput: React.FC<AddInputProps> = ({ placeholder }) => {
     </div>
   );
 }
+
 
 export default AddInput;

@@ -1,42 +1,42 @@
-.category-selects {
-    display: flex; // select가 카테고리 옆에 나란히 있도록 설정
-    display: inline-block; // select가 카테고리 옆에 나란히 있도록 설정
-    margin-left: 10px; // span과의 간격
+// .category-selects {
+//     display: flex; // select가 카테고리 옆에 나란히 있도록 설정
+//     display: inline-block; // select가 카테고리 옆에 나란히 있도록 설정
+//     margin-left: 10px; // span과의 간격
     
   
-    .select-category {
-      margin-right: 20px; // 각 select 요소 사이의 간격
-      display: inline-block;
+//     .select-category {
+//       margin-right: 20px; // 각 select 요소 사이의 간격
+//       display: inline-block;
       
-    }
-  }
+//     }
+//   }
 
-// input{
-//   margin-left: 20px;
+// // input{
+// //   margin-left: 20px;
+// // }
+
+// .gray_info{
+//   color: gray;
+//   font-size: 15px;
 // }
 
-.gray_info{
-  color: gray;
-  font-size: 15px;
-}
 
+// // .removebundle {
+// //   background-color: aqua;
+// //   border-color: red;
+// //   // 여긴 걍 테스트 용
+// // 나이트모드 때문에 안 먹음
+// //   // 왜 재료묶음 추가가 가운데로 안 가는 거지?? 확인 필요
 
-// .removebundle {
-//   background-color: aqua;
-//   border-color: red;
-//   // 여긴 걍 테스트 용
-// 나이트모드 때문에 안 먹음
-//   // 왜 재료묶음 추가가 가운데로 안 가는 거지?? 확인 필요
+// //   // .gray_info{
+// //   //     color: red;
+// //   // }
+// // }
 
-//   // .gray_info{
-//   //     color: red;
-//   // }
+// .green_step{
+//   color: #74b243;
+//   font-size: 30px;
 // }
-
-.green_step{
-  color: #74b243;
-  font-size: 30px;
-}
 
 
 

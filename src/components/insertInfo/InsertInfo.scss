@@ -1,54 +1,54 @@
-// AddBundle.tsx
-// .bundleContainer {
-//     // display: flex;
-//     // flex-direction: column; /* 세로 방향으로 정렬 */
-//     // margin: 20px;
-//     // 이자식때문에 추가 삭제 버튼 100%로 활성화되어서 가운데로 감 그래서 지움
+// // AddBundle.tsx
+// // .bundleContainer {
+// //     // display: flex;
+// //     // flex-direction: column; /* 세로 방향으로 정렬 */
+// //     // margin: 20px;
+// //     // 이자식때문에 추가 삭제 버튼 100%로 활성화되어서 가운데로 감 그래서 지움
+// // }
+
+// .inputRow {
+//     display: flex;
+//     align-items: center; /* 수직 정렬 */
+//     // margin-bottom: 10px;
 // }
 
-.inputRow {
-    display: flex;
-    align-items: center; /* 수직 정렬 */
-    // margin-bottom: 10px;
-}
+// .nestedInputs {
+//     margin-left: 170px; /* 들여쓰기 추가 */
+//     // margin-bottom: 10px;
+//     // margin-top: -10px;
+// }
 
-.nestedInputs {
-    margin-left: 170px; /* 들여쓰기 추가 */
-    // margin-bottom: 10px;
-    // margin-top: -10px;
-}
+// .AddBundleTitle {
+//     // 메인재료 inputbox
+//     border: 1px solid #ccc; // 테두리 스타일 (선택 사항)
+// }
 
-.AddBundleTitle {
-    // 메인재료 inputbox
-    border: 1px solid #ccc; // 테두리 스타일 (선택 사항)
-}
+// // AddInput.tsx
+// // 각 재료 input 박스 사이 왼쪽 간격
+// .addInput{
+//     // margin-right: 10px; /* 입력 필드 사이에 10px 여백 추가 */
+//     margin-left: 20px;
+// }
 
-// AddInput.tsx
-// 각 재료 input 박스 사이 왼쪽 간격
-.addInput{
-    // margin-right: 10px; /* 입력 필드 사이에 10px 여백 추가 */
-    margin-left: 20px;
-}
+// // AddStep.tsx
+// .green_box{
+//     border: 1px solid green;
+//     padding: 10px;
+// }
 
-// AddStep.tsx
-.green_box{
-    border: 1px solid green;
-    padding: 10px;
-}
-
-.Addfunc{
-    border: 1px solid gainsboro;
-    margin-right: 10px;
-    padding: 5px;
+// .Addfunc{
+//     border: 1px solid gainsboro;
+//     margin-right: 10px;
+//     padding: 5px;
   
-}
-
-.AddFunImg{
-    background-color: green !important;
-    color: white !important;
-}
-
-// .StepInput{
-//     width: 600px;
-//     height: 300px;
 // }
+
+// .AddFunImg{
+//     background-color: green !important;
+//     color: white !important;
+// }
+
+// // .StepInput{
+// //     width: 600px;
+// //     height: 300px;
+// // }
