@@ -13,7 +13,7 @@ import { ALLUSER, COMMENTS, REVIEW, sendGet, strDivide, URL } from '../../util/u
 import ReviewComments from '../../components/reviewcomments/ReviewComments';
 import { useSelector } from 'react-redux';
 import RepleBox from '../../components/replebox/RepleBox';
-
+import { Button } from 'react-bootstrap';
 interface InputList {
     USER_NM: string;
     RCP_TTL: string;
@@ -72,11 +72,12 @@ const Detailboard: React.FC = () => {
     }
 
     return (
-        <div className='inner'>
-            <div className='container'>
-                <div>
-                    <img className='mp' src={NullImg} alt="상세 음식사진" />
-                </div>
+        <div >
+            <Button variant='primary'>Secondary</Button>
+            <div>
+                
+                <img className='mx-auto' src={NullImg} alt="상세 음식사진" />
+                
                 <div className='userBox_row'>
                     <img className='pp cursor' src={Profile} alt="프로필 사진" />
                     <span>{inputList.USER_NM}</span>

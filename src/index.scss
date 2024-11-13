@@ -1,3 +1,23 @@
+$primary: #fd7e14;  // primary 색상 변경
+$theme-colors: (
+  "primary":    green,
+  "secondary":  green,
+  "success":    green,
+  "info":       green,
+  "warning":    green,
+  "danger":     green,
+  "light":      green,
+  "dark":       green
+) ;
+// 부트스트랩의 SCSS 파일을 불러오기
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";  // 부트스트랩의 기본 변수들을 불러옵니다.
+
+// 이제 부트스트랩 SCSS 파일을 불러옵니다.
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+
 // 좀 더 복잡하게 레이아웃을 구성해보자. 
 // lg 사이즈 이상일때는 8:4, md에서 lg 사이에서는 7:5, md 미만에서는 12로 꽉채우는 반응형 레이아웃을 만들어본다. 
 // 어렵지 않다. class="col-lg-8 col-md-7 border" 처럼 그냥 나열만 하면 된다.
