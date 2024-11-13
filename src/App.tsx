@@ -45,7 +45,7 @@ const App: React.FC = () => {
         }
     },[auth]);
     return (
-        <div className='App col-xs-12 col-sm-12 col-md-7 col-lg-8'>
+        <div className='App col-xs-12 col-sm-9 col-md-7 col-lg-8'>
             <div id="modeBtn">
                 <img 
                     className='img_size_fix '

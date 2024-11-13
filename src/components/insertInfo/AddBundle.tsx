@@ -3,6 +3,7 @@ import AddInput from './AddInput';
 import './InsertInfo.scss'; 
 import { useSelector } from 'react-redux';
 import { State } from 'redux/reducer';
+import {Button} from 'react-bootstrap'
 
 const AddBundle = () => {
     const count = useSelector((state: State)=>state.num)
@@ -50,11 +51,11 @@ const AddBundle = () => {
                     </div>
                 );
             })}
-            <button className='cursor' onClick={addInputGroup}>추가</button> 
+            <Button variant="primary" className='cursor' onClick={addInputGroup}>추가</Button> 
             {inputGroups.length > 2 && ( // inputGroups 길이가 2보다 클 때만 삭제 버튼 보이기
             <button className='cursor' onClick={removeInputGroup}>삭제</button> 
         )} 
-        <div>{count}</div>
+        {/* <div>{count}</div> */}
         </div>
     );
 }
