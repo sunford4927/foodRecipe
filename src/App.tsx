@@ -48,7 +48,7 @@ const App: React.FC = () => {
         <div className='App col-xs-12 col-sm-9 col-md-7 col-lg-8'>
             <div id="modeBtn">
                 <img 
-                    className='star'
+                    className='img_size_fix '
                     onClick={() => upScroll()} 
                     src={UpArrow} 
                     alt="scroll to top" 

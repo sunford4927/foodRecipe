@@ -2,12 +2,57 @@
 // lg 사이즈 이상일때는 8:4, md에서 lg 사이에서는 7:5, md 미만에서는 12로 꽉채우는 반응형 레이아웃을 만들어본다. 
 // 어렵지 않다. class="col-lg-8 col-md-7 border" 처럼 그냥 나열만 하면 된다.
 
-.star{
-    width: 10px;
-    height: 10px;
-}
+// 576 미만 12
+// 576 이상 12
+// 768 이상 7
+// 992 이상 8
 .App{
     margin :auto;
+}
+.star{
+    width: 20px;
+    height: 20px;
+}
+
+.img_size_fix
+{
+    position :fixed;
+    top : 92%;
+
+}
+
+// a 태그 기본 스타일 제거
+a {
+    color: #000; text-decoration: none; outline: none
+} 
+a:hover, a:active {
+    text-decoration: none; color:#fff; background-color:#f59000;
+}
+
+@media (min-width: 0px) {
+    .img_size_fix {
+        width: 30px;
+        height: 30px;
+        left : 88%;
+    }
+}
+@media (min-width: 576px) {
+
+
+}
+
+  
+@media (min-width: 768px) {
+    .img_size_fix {
+        left : 92%;
+    }
+}
+
+@media (min-width: 992px) {
+    .img_size_fix {
+        width: 50px;
+        height: 50px;
+    }
 }
 
 // $blue: #3498db;
@@ -19,12 +64,7 @@
     
 // }
 
-// a {
-//     color: #fff; text-decoration: none; outline: none
-// } 
-// a:hover, a:active {
-//     text-decoration: none; color:#fff; background-color:#f59000;
-// }
+
 
 
 // body {

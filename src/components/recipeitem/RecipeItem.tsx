@@ -2,6 +2,7 @@ import React from 'react';
 import NullImg from '../../img/빈사진.png';
 import { setScore } from '../../util/util';
 import { useNavigate } from 'react-router-dom';
+import "./RecipeItem.scss"
 
 interface RecipeItemProps {
     item: {
@@ -33,14 +34,14 @@ const RecipeItem: React.FC<RecipeItemProps> = ({ item }) => {
     }
 
     return (
-        <div className='RecipeItem_Container cursor' onClick={itemClick}>
-            <img src={NullImg} alt="음식사진" />
+        <div className='RecipeItem_Container cursor mx-auto' onClick={itemClick}>
+            <img className='RecipeItem_img' src={NullImg} alt="음식사진" />
             <div className='RecipeItem_Text'>
-                <p>{item.RCP_TTL}</p>
+                <p className='RecipeItem_title'>{item.RCP_TTL}</p>
                 <img className='titleImg' src={NullImg} alt="프로필사진" />
                 {item.USER_NM}
                 <div>
-                    {setScore(item.SCORE_AVG)}({item.REVIEW_CNT !== null ? item.REVIEW_CNT : 0}) {setNumber(item.VIEW_CNT)}
+                    {setScore(item.SCORE_AVG)}({item.REVIEW_CNT !== null ? item.REVIEW_CNT : 0}) <span className='smallText'>{setNumber(item.VIEW_CNT)}</span>
                 </div>
             </div>
         </div>
