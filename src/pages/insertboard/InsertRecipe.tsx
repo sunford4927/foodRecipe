@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './InsertRecipe.scss';
 import { recipeCategory, recipeInfo } from 'util/util';
 // import AddInput from 'components/inputInfo/AddInput';
@@ -6,6 +6,30 @@ import AddBundle from 'components/insertInfo/AddBundle';
 import AddStep from 'components/insertInfo/AddStep';
 
 const InsertRecipe = () => {
+
+  // 레시피 제목
+  const [rcpTtl, setRcpTtl] = useState<string>("");
+  
+  const handelRcpTtl = (e : React.ChangeEvent<HTMLInputElement>) => {
+    setRcpTtl(e.target.value)
+  }
+  
+  // 요리 소개
+  const [cookInfo, setCookInfo] = useState<string>("");
+
+  const handelCookInfo = (e : React.ChangeEvent<HTMLInputElement>) => {
+    setCookInfo(e.target.value)
+  }
+
+  useEffect(()=> {
+    console.log(rcpTtl);
+    console.log(cookInfo);
+  }, [cookInfo])
+
+
+
+
+
   // for 카테고리 상태를 관리
   const [categories, setCategories] = useState({
     kind: "종류별",   // 'kind'의 기본값 설정
@@ -51,7 +75,7 @@ const InsertRecipe = () => {
     time: "시간",
     level: "난이도"
   });
-
+  
   const handleSelectI = (key: keyof typeof ckInfo) => (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCkInfo({
       ...ckInfo,
@@ -70,13 +94,20 @@ const InsertRecipe = () => {
     time: recipeInfo("time") || [],
     level: recipeInfo("level") || []
   };
+  
+  // 이건 value 확인하기 위한 용!
+  // useEffect(()=>{
+  //   console.log(categories);
+  //   console.log(ckInfo);
+  // },[ckInfo])
+
 
   const [bundles, setBundles] = useState([1]); //기본적으로 하나의 bundle
-
+  
   const addBundle = () => {
     setBundles([...bundles, bundles.length + 1]);
   }
-
+  
   const removeBundle = () => {
     if (bundles.length > 1) {
       setBundles(bundles.slice(0, -1)); // 1개 이상 있을 때 삭제 버튼 누르면 뒤에 거 짤라버리겠다.
@@ -90,23 +121,23 @@ const InsertRecipe = () => {
     // console.log('11111111111111111111111111111');
     setStepNumber([...stepNumber, <AddStep stepNum={stepNumber.length + 1} />])
   }
-
+  
 
   // 순서를 삭제하는 함수
   const removeStepFunc = (index: number) => {
     if (stepNumber.length > 0) {
       // 해당 인덱스를 제외한 새로운 배열 생성
-      // const newStepNumber = stepNumber.filter((item, i) => {
-      //     console.log(i, " == ", index)
-      //     if(i !== index )
-      //     {
-      //       return item;
-      //     }
-      //   }
-      // );
-
-      let newStepNumber = [...stepNumber]
-      newStepNumber = newStepNumber.slice(index);
+      const newStepNumber = stepNumber.filter((item, i) => {
+          console.log(i, " == ", index)
+          if(i !== index )
+          {
+            return {
+              ...item,
+              stepNum : index > i ? i : i-1
+            };
+          }
+        }
+      );
       console.log(newStepNumber)
         // 삭제 후, 남은 요소들의 stepNum을 새로 할당하여 순서를 재정렬
       // const updatedSteps = newStepNumber.map((step, i) => ({
@@ -116,7 +147,7 @@ const InsertRecipe = () => {
 
       // setStepNumber(updatedSteps);
       
-      setStepNumber([...newStepNumber])
+      setStepNumber(newStepNumber)
     }
 
   }
@@ -126,14 +157,22 @@ const InsertRecipe = () => {
       <div>레시피 등록</div>
       <hr />
       <span>레시피 제목</span>
-      <input type="text" name="RCP_TTL" placeholder="예) 소고기 미역국" />
+      <input 
+        type="text" 
+        name="RCP_TTL" 
+        placeholder="예) 소고기 미역국"
+        onChange={handelRcpTtl}  />
       <br />
       <span>요리 소개</span>
-      <input type="text" name="CK-INFO" placeholder="요리에 대한 간단한 소개" />
+      <input 
+        type="text" 
+        name="CK_INFO" 
+        placeholder="요리에 대한 간단한 소개"
+        onChange={handelCookInfo} />
       <br />
-      <span>동영상</span>
+      {/* <span>동영상</span>
       <input type="text" name="recipe_video" placeholder="동영상 URL을 입력하세요" />
-      <br />
+      <br /> */}
       <span>카테고리</span>
 
       {/* 카테고리 선택을 위한 div */}
@@ -153,10 +192,11 @@ const InsertRecipe = () => {
             >
               {/* 기본 선택 옵션: 종류별, 상황별 등 */}
               <option
+                // value=""
                 // option의 value 정하는 곳
-                value={typeKey === "kind" ? "종류별" :
-                  typeKey === "state" ? "상황별" :
-                    typeKey === "act" ? "방법별" : "재료별"}
+                // value={typeKey === "kind" ? "종류별" :
+                //   typeKey === "state" ? "상황별" :
+                //     typeKey === "act" ? "방법별" : "재료별"}
                 disabled // 기본 옵션은 선택할 수 없게 비활성화
               >
                 {/* 사용자에게 보여지는 옵션의 텍스트 정하는 곳 */}
@@ -166,7 +206,9 @@ const InsertRecipe = () => {
               </option>
               {/* 각 카테고리의 옵션을 동적으로 생성 */}
               {/* 카테고리 안 data 가져와서 map 함수 실행 */}
-              {foodCateDic[typeKey].map((item, index) => (
+              {foodCateDic[typeKey]
+              .filter(item => item !== "전체")
+              .map((item, index) => (
                 <option key={index} value={item}>{item}</option>
               ))}
             </select>
@@ -189,8 +231,8 @@ const InsertRecipe = () => {
                 onChange={handleSelectI(typeKey)}
               >
                 <option
-                  value={typeKey === "inbun" ? "인원" :
-                    typeKey === "time" ? "시간" : "난이도"}
+                  // value={typeKey === "inbun" ? "인원" :
+                  //   typeKey === "time" ? "시간" : "난이도"}
                   disabled
                 >
                   {typeKey === "inbun" ? "인원" :

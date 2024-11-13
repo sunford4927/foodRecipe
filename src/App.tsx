@@ -20,6 +20,8 @@ import { State } from 'redux/reducer';
 import { auth, getCurUser } from 'util/auth/firebase';
 import { userInfoType } from 'redux/actions/ActionTypes';
 import { onAuthStateChanged } from 'firebase/auth';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App: React.FC = () => {
     const modeState = useSelector((state: { backMode: boolean }) => state.backMode);
