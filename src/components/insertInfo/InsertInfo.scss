@@ -1,12 +1,13 @@
-// .inputForm{
-//     margin-bottom: 100px;
-// }
-
 .inputForm input {
     background-color: #f5f5f5;
     padding: 6px 12px 6px 15px;
     display: inline;
   }
+
+.my-custom-button{
+    --bs-btn-bg: #fd7e14;
+
+}
 
 // .inputForm .inputMain,
 // .inputForm .inputNote {
@@ -20,6 +21,7 @@
 
 // 어차피 웹 상에선 안 보임
 @media (min-width: 0px) {
+    // AddInput.tsx
     .inputForm{
         max-width: 90vw;
     }
@@ -37,6 +39,7 @@
 }
 
 @media (min-width: 576px) {
+    // AddInput.tsx
     .inputForm{
         max-width: 75vw;
     }
@@ -47,7 +50,6 @@
         width: 35vw;
         margin: 6px 5px 3px 0px;
     }
-
     .inputForm .inputUnit,
     .inputForm .inputNote{
         margin-bottom: 10px;
@@ -57,6 +59,7 @@
 
   
 @media (min-width: 768px) {
+    // AddInput.tsx
     .inputForm{
         max-width: 62vw;
     }
@@ -66,12 +69,10 @@
     .inputForm .inputNote {
         margin: 5px 4px 7px 0px;
     }
-
     .inputForm .inputMain,
     .inputForm .inputNote {
         width: 15vw;
     }
-    
     .inputForm .inputQuantity,
     .inputForm .inputUnit {
         width: 12vw;
@@ -80,22 +81,20 @@
 }
 
 @media (min-width: 992px) {
+    // AddInput.tsx
     .inputForm{
         max-width: 62vw;
     }
-
     .inputForm .inputMain,
     .inputForm .inputQuantity,
     .inputForm .inputUnit,
     .inputForm .inputNote {
         margin: 5px 6px 7px 0px;
     }
-    
     .inputForm .inputMain,
     .inputForm .inputNote {
         width: 17vw;
     }
-    
     .inputForm .inputQuantity,
     .inputForm .inputUnit {
         width: 12vw;

@@ -51,7 +51,7 @@ const AddBundle = () => {
                     </div>
                 );
             })}
-            <Button variant="primary" className='cursor' onClick={addInputGroup}>추가</Button> 
+            <Button variant='primary' className='cursor' onClick={addInputGroup}>추가</Button> 
             {inputGroups.length > 2 && ( // inputGroups 길이가 2보다 클 때만 삭제 버튼 보이기
             <button className='cursor' onClick={removeInputGroup}>삭제</button> 
         )} 

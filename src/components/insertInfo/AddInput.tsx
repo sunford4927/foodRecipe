@@ -18,12 +18,7 @@ const AddInput: React.FC<AddInputProps> = ({ placeholder }) => {
         <Form.Control type="text" className='inputNote' placeholder='예) 비고' />
       </Form.Group>
     </Form>
-    // <div className='addInput'>
-    //     <input type='text' name='inputMain' placeholder={placeholder} />
-    //     <input type='text' name='inputQuantity' placeholder='10(수량)' />
-    //     <input type='text' name='inputUnit' placeholder='예) g, ml(단위)' />
-    //     <input type='text' name='inputNote' placeholder='예) 비고' />
-    // </div>
+
   );
 }
 
