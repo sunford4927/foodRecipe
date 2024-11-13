@@ -27,9 +27,12 @@
     .inputForm .inputQuantity,
     .inputForm .inputUnit,
     .inputForm .inputNote {
-        width: 42vw;
-        margin: 5px 3px 100px 3px;
-        
+        width: 43vw;
+        margin: 5px 3px 3px 3px;
+    }
+    .inputForm .inputUnit,
+    .inputForm .inputNote{
+        margin-bottom: 10px;
     }
 }
 
