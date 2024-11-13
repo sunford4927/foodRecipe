@@ -1,8 +1,11 @@
 import React, { useState } from 'react'; 
 import AddInput from './AddInput'; 
 import './InsertInfo.scss'; 
+import { useSelector } from 'react-redux';
+import { State } from 'redux/reducer';
 
 const AddBundle = () => {
+    const count = useSelector((state: State)=>state.num)
     const [inputTitle, setInputTitle] = useState("재료"); // '재료'라는 기본값을 가진 inputTitle 상태 생성
     const [inputGroups, setInputGroups] = useState([0, 1]); // 총 2개의 AddInput을 위해 초기화
     const ingredients = ['돼지고기', '양배추', '참기름', '소금', '고추가루 약간']; // AddInput placeholder 기본 재료 목록
@@ -18,7 +21,7 @@ const AddBundle = () => {
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputTitle(e.target.value); // 사용자가 입력한 값으로 inputTitle 상태 업데이트
+        setInputTitle(e.target.value); // 사용자가 입력한 값으로 inputTitle 상태 업데이트z
     };
 
     return (
@@ -29,7 +32,7 @@ const AddBundle = () => {
                     name="inputTitle"
                     value={inputTitle} // 입력 필드의 값으로 inputTitle 상태 사용
                     className='AddBundleTitle' 
-                    onChange={handleChange} // 값이 변경될 때 handleChange 함수 호출
+                    // onChange={handleChange} // 값이 변경될 때 handleChange 함수 호출
                 />
                 <AddInput placeholder={ingredients[0]} /> {/* 첫 번째 AddInput은 '돼지고기'로 고정 */}
             </div>
@@ -51,6 +54,7 @@ const AddBundle = () => {
             {inputGroups.length > 2 && ( // inputGroups 길이가 2보다 클 때만 삭제 버튼 보이기
             <button className='cursor' onClick={removeInputGroup}>삭제</button> 
         )} 
+        <div>{count}</div>
         </div>
     );
 }

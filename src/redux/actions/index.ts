@@ -25,3 +25,14 @@ export const addCategoryTag = (tagList : any) => ({
     type : types.ADDCATEGORYTAG,
     list : tagList
 })
+
+export const Plus = (num : number) => ({
+    type : types.PLUS,
+    num : num
+})
+
+export const minus = (num : number) => ({
+    type : types.MINUS,
+    num : num
+})
+

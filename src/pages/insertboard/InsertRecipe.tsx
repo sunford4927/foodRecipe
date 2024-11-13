@@ -4,8 +4,19 @@ import { recipeCategory, recipeInfo } from 'util/util';
 // import AddInput from 'components/inputInfo/AddInput';
 import AddBundle from 'components/insertInfo/AddBundle';
 import AddStep from 'components/insertInfo/AddStep';
+import { useDispatch, useSelector } from 'react-redux';
+import { State } from '../../redux/reducer/index';
+import { minus, Plus } from  '../../redux/actions/index';
 
-const InsertRecipe = () => {
+const InsertRecipe  = () => {
+
+  const count= useSelector((state : State)=> state.num)
+  const dispatch = useDispatch();
+
+  function add(){
+    let  a : number = 3;
+    dispatch(minus(a));
+  }
   // for 카테고리 상태를 관리
   const [categories, setCategories] = useState({
     kind: "종류별",   // 'kind'의 기본값 설정
@@ -96,18 +107,22 @@ const InsertRecipe = () => {
   const removeStepFunc = (index: number) => {
     if (stepNumber.length > 0) {
       // 해당 인덱스를 제외한 새로운 배열 생성
-      // const newStepNumber = stepNumber.filter((item, i) => {
-      //     console.log(i, " == ", index)
-      //     if(i !== index )
-      //     {
-      //       return item;
-      //     }
-      //   }
-      // );
+      const newStepNumber = stepNumber.filter((item, i) => {
+          console.log(i, " == ", index)
 
-      let newStepNumber = [...stepNumber]
-      newStepNumber = newStepNumber.slice(index);
-      console.log(newStepNumber)
+          if(i !== index )
+          {
+            return {
+              ...item,
+              stepNum : index > i ? i+1 : i-1
+            };
+          }
+        }
+      );
+
+      // let newStepNumber = [...stepNumber]
+      // newStepNumber = newStepNumber.slice(index);
+      // console.log(newStepNumber)
         // 삭제 후, 남은 요소들의 stepNum을 새로 할당하여 순서를 재정렬
       // const updatedSteps = newStepNumber.map((step, i) => ({
       //   ...step,
@@ -120,6 +135,8 @@ const InsertRecipe = () => {
     }
 
   }
+
+
 
   return (
     <div>
@@ -234,7 +251,8 @@ const InsertRecipe = () => {
           {/* <AddStep stepNum={index+1}/> */}
         </div>
       ))}
-      
+      <button onClick={(e)=>add()}>더하기</button>
+      <p>{count}</p>
 
 
 

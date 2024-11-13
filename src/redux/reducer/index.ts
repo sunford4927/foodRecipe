@@ -10,6 +10,7 @@ export interface State {
     user: types.userInfoType; // 사용자 타입을 명확히
     category: types.Category;
     categoryTag: types.categoryTagType[]; // 필요한 경우 구체적인 타입으로 변경
+    num : number;
 }
 
 // 초기 상태 정의
@@ -27,6 +28,9 @@ const initialState: State = {
         CK_ACT_NM: '전체',
     },
     categoryTag: [],
+    num : 100,
+
+        
 };
 
 const counterReducer = (state: State = initialState, action: types.CategoryActionTypes) => {
@@ -83,6 +87,18 @@ const counterReducer = (state: State = initialState, action: types.CategoryActio
                 ...state,
                 categoryTag: [...action.list], // 여기서도 타입 체크 필요
             };
+        case types.PLUS:
+            console.log(action)
+            let number = state.num + action.num;
+            return {
+                ...state,
+                num : number
+            }
+        case types.MINUS:
+            return {
+                ...state,
+                num : state.num - action.num
+            }
         default:
             return state;
     }

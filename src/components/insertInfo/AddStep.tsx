@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './InsertInfo.scss';
 // import ImgBox from 'components/custominput/imgbox/ImgBox';
 import ImgBox from './ImgBox';
+import { rootCnt, rootP } from 'util/util';
 
 interface AddStepNumber {
   stepNum : number;
@@ -70,8 +71,8 @@ const AddStep: React.FC<AddStepNumber> = ({stepNum}) => {
 
 
   return (
-    <div>
-      <div>
+    <div >
+      <div >
         <span className="green_step">{'Step' + stepNum}</span>
         <input type="text" className="StepInput" onChange={(e)=>setValue(e.target.value)} />
         {/* 스크롤 기능 만들기 */}

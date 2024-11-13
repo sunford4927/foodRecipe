@@ -3,6 +3,8 @@ export const SETUSERINFO = "SETUSERINFO";
 export const ADDCATEGORY = "ADDCATEGORY";
 export const ADDCATEGORYTAG = "ADDCATEGORYTAG";
 export const CLEARCATEGORY = "CLEARCATEGORY";
+export const PLUS = "PLUS";
+export const MINUS = "MINUS";
 
 
 
@@ -53,6 +55,17 @@ interface AddCategoryTagAction {
     list: categoryTagType[]; // 카테고리 태그 리스트 타입
 }
 
+interface plus {
+    type : typeof PLUS;
+    num : number;
+}
+
+interface minus {
+    type : typeof MINUS;
+    num : number;
+}
+
+
 
 export interface categoryTagType {
     List: string;
@@ -64,7 +77,9 @@ export type CategoryActionTypes =
     | SetUserInfoAction
     | AddCategoryAction
     | ClearCategoryAction
-    | AddCategoryTagAction;
+    | AddCategoryTagAction
+    | plus
+    | minus;
 
 
 

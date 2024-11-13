@@ -3,6 +3,8 @@ import star from '../img/별.png'
 import emptyStar from '../img/빈별.png'
 import RecipeItem from '../components/recipeitem/RecipeItem'
 
+
+
 export function recipeCategory(List : string){
     const data = {
         type: ["전체", "밑반찬", "메인반찬", "국/탕", "찌개", "디저트", "면/만두", "밥/죽/떡", "퓨전", "김치/젓갈/장류", "양념/소스/잼", "양식", "샐러드", "스프", "빵", "과자", "차/음료/술", "기타"],
@@ -176,3 +178,21 @@ export const inputRegexs = {
 
 // 0 개발, 1 배포
 export const DEVALOPTYPE :number = 0;
+
+// recipeTitle
+// cookIntro
+// movieURL
+// category : 종류별///상황별///재료별///방법별
+// cookInfo
+// 재료정보
+// 요리순서
+// list , setList , index 
+// const list =[{
+//     inputTitle : "",
+//     value : [{
+//         이름 : "",
+//         수량 : "",
+//         단위 : "",
+//         비고 : ""
+//     }]
+// },,,]
