@@ -1,13 +1,18 @@
+.cursor{
+    cursor: pointer;
+}
+
 $primary: #fd7e14;  // primary 색상 변경
+$secondary : white;
 $theme-colors: (
   "primary":    $primary,
-  "secondary":  green,
+  "secondary":  $secondary,
   "success":    green,
   "info":       green,
   "warning":    green,
   "danger":     green,
   "light":      green,
-  "dark":       green
+  "dark":       #818181
 ) ;
 // 부트스트랩의 SCSS 파일을 불러오기
 @import "../node_modules/bootstrap/scss/functions";
@@ -213,9 +218,6 @@ a:hover, a:active {
 //     height: 20px;
 // }
 
-// .cursor{
-//     cursor: pointer;
-// }
 
 // .RecipeItem_Container{
 //     width :350px;
