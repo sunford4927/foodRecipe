@@ -4,9 +4,11 @@ import { recipeCategory, recipeInfo } from 'util/util';
 // import AddInput from 'components/inputInfo/AddInput';
 import AddBundle from 'components/insertInfo/AddBundle';
 import AddStep from 'components/insertInfo/AddStep';
-import { useDispatch, useSelector } from 'react-redux';
-import { State } from '../../redux/reducer/index';
-import { minus, Plus } from  '../../redux/actions/index';
+import DropCate from 'components/insertInfo/DropCate';
+import DropCkInfo from 'components/insertInfo/DropCkInfo';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { State } from '../../redux/reducer/index';
+// import { minus, Plus } from  '../../redux/actions/index';
 
 const InsertRecipe = () => {
 
@@ -45,10 +47,12 @@ const InsertRecipe = () => {
   // keyof: 객체 타입의 키를 유니온 타입으로 반환하는 키워드, 해당 객체의 모든 키를 문자열 리터럴로 나열 "kind"|"state"...
   // keyof typeof categories: 카테고리스 객체의 키만 허용하는 타입을 만들 수 있음
   // 선택된 카테고리를 상태에 업데이트하는 핸들러 함수
+  
   const handleSelectC = (key: keyof typeof categories) => (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCategories({
       ...categories, // 현재의 카테고리 상태를 복사
       [key]: e.target.value, // [key]는 사용자가 선택한 드롭다운 카테고리,categories의 해당 키에 새로운 값을 설정
+      
     });
   };
 
@@ -155,8 +159,6 @@ const InsertRecipe = () => {
 
   }
 
-
-
   return (
     <div>
       <div>레시피 등록</div>
@@ -179,78 +181,19 @@ const InsertRecipe = () => {
       <input type="text" name="recipe_video" placeholder="동영상 URL을 입력하세요" />
       <br /> */}
       <span>카테고리</span>
-
-      {/* 카테고리 선택을 위한 div */}
-      <div className="category-selects">
-        {/* foodCateDic의 키를 기반으로 select 요소를 생성합니다. */}
-        {/* foodCateDic 객체의 모든 키를 배열 형태로 가져옴 */}
-        {Object.keys(foodCateDic).map((key, idx) => {
-          const typeKey = key as keyof foodType;
-          // key를 foodType의 키로 변환
-          // why? key는 foodCateDic을 통해 가져온 key. 이 문자열이 foodType 속성과 동일하다는 것을 명시
-          return (
-            <select
-              key={idx} // 각 select의 고유 키 (0, 1, 2, 3)
-              value={categories[typeKey]} // typeKey가 kind 라면 기본값 "종류별"
-              onChange={handleSelectC(typeKey)} // 선택이 변경될 때 실행할 핸들러
-              className="select-category" // CSS 클래스를 추가
-            >
-              {/* 기본 선택 옵션: 종류별, 상황별 등 */}
-              <option
-                // value=""
-                // option의 value 정하는 곳
-                // value={typeKey === "kind" ? "종류별" :
-                //   typeKey === "state" ? "상황별" :
-                //     typeKey === "act" ? "방법별" : "재료별"}
-                disabled // 기본 옵션은 선택할 수 없게 비활성화
-              >
-                {/* 사용자에게 보여지는 옵션의 텍스트 정하는 곳 */}
-                {typeKey === "kind" ? "종류별" :
-                  typeKey === "state" ? "상황별" :
-                    typeKey === "act" ? "방법별" : "재료별"}
-              </option>
-              {/* 각 카테고리의 옵션을 동적으로 생성 */}
-              {/* 카테고리 안 data 가져와서 map 함수 실행 */}
-              {foodCateDic[typeKey]
-              .filter(item => item !== "전체")
-              .map((item, index) => (
-                <option key={index} value={item}>{item}</option>
-              ))}
-            </select>
-          );
-        })}
-      </div>
+      <DropCate
+        categories={categories}        // 현재 선택된 카테고리 값들
+        handleSelectC={handleSelectC}  // 카테고리 선택이 변경될 때 호출되는 함수
+        foodCateDic={foodCateDic}      // 각 카테고리별 옵션들
+      />
 
       <p className='gray_info'>분류를 바르게 설정해주시면, 이용자들이 쉽게 레시피를 검색할 수 있어요.</p>
       <span>요리 정보</span>
-      <div className="category-selects">
-        {Object.keys(foodInfoDic).map((key, idx) => {
-          const typeKey = key as keyof infoType;
-          const InfoLabels = ["인원", "시간", "난이도"]
-
-          return (
-            <div key={idx} className="select-category">
-              <label>{InfoLabels[idx]}</label>
-              <select
-                value={ckInfo[typeKey]}
-                onChange={handleSelectI(typeKey)}
-              >
-                <option
-                  // value={typeKey === "inbun" ? "인원" :
-                  //   typeKey === "time" ? "시간" : "난이도"}
-                  disabled
-                >
-                  {typeKey === "inbun" ? "인원" :
-                    typeKey === "time" ? "시간" : "난이도"}
-                </option>
-                {foodInfoDic[typeKey].map((item, index) => (
-                  <option key={index} value={item}>{item}</option>
-                ))}
-              </select>
-            </div>
-          );
-        })}
-      </div>
+      <DropCkInfo
+        ckInfo={ckInfo}        // 현재 선택된 카테고리 값들
+        handleSelectI={handleSelectI}  // 카테고리 선택이 변경될 때 호출되는 함수
+        foodInfoDic={foodInfoDic}      // 각 카테고리별 옵션들
+      />
       <hr />
 
       <span>재료 정보</span> <span className='gray_info'>※재료 한번에 입력 버튼을 통해 재료를 "," 쉼표로 구분하여 한 번에 입력할 수 있어요.</span>
