@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { sendGet, setView, URL } from '../../util/util';
 import './RankingBoard.scss';
 import { useSelector } from 'react-redux';
+import { Button, ButtonGroup } from 'react-bootstrap';
 
 const listData: string[] = ["스크랩 순", "추천 순", "평점 순"];
 
@@ -13,30 +14,30 @@ const RankingBoard: React.FC = () => {
     useEffect(() => {
         const tag = document.getElementsByClassName('rank_menu');
         setCurBtn(tag[0] as HTMLButtonElement);
-        
-        if (backMode) {
-            (tag[0] as HTMLButtonElement).style.backgroundColor = "#1E90FF";
-        } else {
-            (tag[0] as HTMLButtonElement).style.backgroundColor = "#00CED1";
-        }
-        
+
+        // if (backMode) {
+        //     (tag[0] as HTMLButtonElement).style.backgroundColor = "#1E90FF";
+        // } else {
+        //     (tag[0] as HTMLButtonElement).style.backgroundColor = "#00CED1";
+        // }
+
         sendGet(URL + "/getrank?type=SCRAP_CNT", setDataList);
     }, []);
-    
-    useEffect(() => {
-        if (curBtn) {
-            curBtn.style.backgroundColor = backMode ? "#1E90FF" : "#00CED1";
-        }
-    }, [backMode, curBtn]);
+
+    // useEffect(() => {
+    //     if (curBtn) {
+    //         curBtn.style.backgroundColor = backMode ? "#1E90FF" : "#00CED1";
+    //     }
+    // }, [backMode, curBtn]);
 
     function ClickButton(e: React.MouseEvent<HTMLButtonElement>) {
-        if (curBtn) {
-            curBtn.style.backgroundColor = "";
-        }
-        
+        // if (curBtn) {
+        //     curBtn.style.backgroundColor = "";
+        // }
+
         const target = e.currentTarget;
-        target.style.backgroundColor = backMode ? "#1E90FF" : "#00CED1";
-        setCurBtn(target as HTMLButtonElement);
+        // // target.style.backgroundColor = backMode ? "#1E90FF" : "#00CED1";
+        // // setCurBtn(target as HTMLButtonElement);
 
         let idx = "";
         switch (target.innerText) {
@@ -58,17 +59,18 @@ const RankingBoard: React.FC = () => {
 
     return (
         <div className='inner'>
-            <div>
+            <ButtonGroup size="sm" className="mb-2">
                 {listData.map((item, index) => (
-                    <button 
-                        key={index} 
-                        onClick={ClickButton} 
+                    <Button
+                        key={index}
+                        onClick={ClickButton}
                         className='rank_menu'
                     >
                         {item}
-                    </button>
+                    </Button>
                 ))}
-            </div>
+            </ButtonGroup>
+
             <div className='recipeContainer'>
                 {dataList.length > 0 && setView(dataList)}
             </div>

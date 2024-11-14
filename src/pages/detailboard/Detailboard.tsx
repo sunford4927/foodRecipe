@@ -73,44 +73,46 @@ const Detailboard: React.FC = () => {
 
     return (
         <div >
-            <Button variant='primary'>Secondary</Button>
-            <div>
-                
-                <img className='mx-auto' src={NullImg} alt="상세 음식사진" />
-                
-                <div className='userBox_row'>
-                    <img className='pp cursor' src={Profile} alt="프로필 사진" />
-                    <span>{inputList.USER_NM}</span>
+            
+                <div className='detail_container_1 '>
+                    <div className='detail_food_imgBox mx-auto'>
+                        <img className='detail_food_img ' src={NullImg} alt="상세 음식사진" />
+                        <img className='detail_profile_img cursor' src={Profile} alt="프로필 사진" />
+                        <p className='detail_profile_name'>{inputList.USER_NM}</p>
+                    </div>
+                    <h2>{inputList.RCP_TTL}</h2>
+                    <p>{inputList.CK_INFO}</p>
+
+                    <div className='divFlex'>
+                        <div className='divFlexRow'>
+                            <img className='sp' src={TOGETHER} alt="인분" />
+                            <span>{inputList.CK_INBUN_NM}</span>
+                        </div>
+                        <div className='divFlexRow'>
+                            <img className='sp' src={TIME} alt="시간" />
+                            <span>{inputList.CK_TIME_NM}</span>
+                        </div>
+                        <div className='divFlexRow'>
+                            <img className='sp' src={LEVEL} alt="난이도" />
+                            <span>{inputList.CK_LEVEL_NM}</span>
+                        </div>
+                    </div>
                 </div>
-                <h2>{inputList.RCP_TTL}</h2>
-                <p>{inputList.CK_INFO}</p>
-                <div className='divFlex'>
-                    <div className='divFlexRow'>
-                        <img className='sp' src={TOGETHER} alt="인분" />
-                        <span>{inputList.CK_INBUN_NM}</span>
-                    </div>
-                    <div className='divFlexRow'>
-                        <img className='sp' src={TIME} alt="시간" />
-                        <span>{inputList.CK_TIME_NM}</span>
-                    </div>
-                    <div className='divFlexRow'>
-                        <img className='sp' src={LEVEL} alt="난이도" />
-                        <span>{inputList.CK_LEVEL_NM}</span>
-                    </div>
-                </div>
+                <div className='grayLine'></div>
                 <div className='divFlex'>
                     <img className='sp circle cursor' src="https://recipe1.ezmember.co.kr/img/mobile/icon_url_copy.gif" alt="URL복사" />
                     <img className='sp cursor' src={KAKAO} alt="카카오톡" />
                     <img className='sp cursor' src={FACEBOOK} alt="페이스북" />
                     <img className='sp cursor' src={TWITER} alt="트위터" />
                 </div>
+                <div className='grayLine'></div>
                 <div className='divFlex'>
                     <img className='cursor' src="https://recipe1.ezmember.co.kr/img/btn2_id.png" alt="아이디확인" />
                     <img className='cursor' src="https://recipe1.ezmember.co.kr/img/btn2_note.png" alt="메모" />
                     <img className='cursor' src="https://recipe1.ezmember.co.kr/img/btn2_error.png" alt="오류신고" />
                     <img className='cursor' src="https://recipe1.ezmember.co.kr/img/btn2_print.png" alt="레시피출력" />
                 </div>
-            </div>
+                <div className='grayLine'></div>
 
             <div className='container'>
                 <h2>재료</h2>
@@ -124,19 +126,19 @@ const Detailboard: React.FC = () => {
                         </div>
                     ))}
                 </div>
+                <div className='grayLine'></div>
                 <h2>조리도구</h2>
-            </div>
-
-            <div className='container'>
+                <div className='grayLine'></div>
                 <h2>조리순서</h2>
-            </div>
-            <div className='container'>
+                <div className='grayLine'></div>
                 <h2>레시피 작성자</h2>
                 <div className='flex_wrap flex_left'>
                     <img className='pp' src={Profile} alt="프로필" />
                     <span>{inputList.USER_NM}</span>
                 </div>
+                <div className='grayLine'></div>
             </div>
+
 
             <div className='container'>
                 <h2>{REVIEW} <span>{reviewList.length}</span></h2>
@@ -155,7 +157,7 @@ const Detailboard: React.FC = () => {
                     </div>
                 ))}
             </div>
-
+            <div className='grayLine'></div>
             <div className='container'>
                 <h2>{COMMENTS} <span>{comdList.length}</span></h2>
                 {comdList.length > 0 && comdList.map((item, index) => (

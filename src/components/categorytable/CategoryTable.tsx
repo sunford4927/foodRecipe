@@ -128,7 +128,7 @@ const CategoryTable: React.FC = () => {
                                 <>
                                     {/* 각 항목을 collapse로 감싸서 드롭다운처럼 보이게 */}
                                     <button
-                                        className="btn btn-primary w-100"
+                                        className="btn btn-outline-primary w-100"
                                         type="button"
                                         aria-expanded="false"
                                         aria-controls={`collapseExample${idx}`}

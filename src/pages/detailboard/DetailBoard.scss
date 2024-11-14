@@ -1,15 +1,115 @@
+.detail_container_1{
 
-@media (min-width: 0px) {
+    .detail_food_imgBox{
+        position: relative;
+        .detail_profile_img
+        {
+            position: absolute;
+            left  : 50%;
+            top : 55%;
+        }
+        .detail_profile_name
+        {
+            position: absolute;
+            left  : 50%;
+            top : 55%;
+        }
+
+            
+    
+    }
 
 }
-@media (min-width: 576px) {
+.grayLine {
+    border-bottom : 2px solid beige;
+}
+.divFlex{
+    width :100%;
+    display: flex;
+    justify-content: space-around;
+    padding : 10px;
+    
+    .divFlexRow{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+    }
 
+
+}
+
+
+@media (min-width: 0px) {
+    .detail_food_imgBox{
+        width: 51vw;
+        .detail_food_img
+        {
+            width :50vw;
+        }
+        .detail_profile_img{
+            width : 30px;
+            height : 30px;
+            margin : -15px 0 0 -15px;
+        }
+        .detail_profile_name
+        {
+            margin : 15px 0 0 -15px;
+        }
+
+    }
+    .sp {
+        width : 20px;
+        height : 20px;
+    }
+
+    .pp
+    {
+        width :30px;
+        height : 30px;
+    }
+}
+@media (min-width: 576px) {
+    .detail_profile_img{
+        width : 40px;
+        height : 40px;
+        margin : -20px 0 0 -20px;
+    }
+    .detail_profile_name
+    {
+        margin : 20px 0 0 -20px;
+    }
 
 }
 
   
 @media (min-width: 768px) {
+    .detail_food_imgBox{
+        width: 50vw;
+        .detail_food_img
+        {
+            width :50vw;
+        }
+        .detail_profile_img{
+            width : 50px;
+            height : 50px;
+            margin : -25px 0 0 -25px;
+        }
+        .detail_profile_name
+        {
+            margin : 25px 0 0 -25px;
+        }
 
+    }
+    .sp {
+        width : 50px;
+        height : 50px;
+    }
+    .pp
+    {
+        width :50px;
+        height : 50px;
+    }
 }
 
 @media (min-width: 992px) {
@@ -49,20 +149,7 @@
 //         height : 50px;
 //     }
 // }
-// .divFlex{
-//     width :100%;
-//     display: flex;
-//     justify-content: space-around;
-//     padding : 10px;
-//     border-bottom : 1px solid beige;
-// }
 
-// .divFlexRow{
-//     display: flex;
-//     justify-content: space-around;
-//     flex-direction: column;
-//     align-items: center;
-// }
 
 // .circle{
 //     border-radius : 25px;
