@@ -1,19 +1,19 @@
-.cursor{
-    cursor: pointer;
-}
-
 $primary: #fd7e14;  // primary 색상 변경
 $secondary : white;
+$info: green;
+$dark : #f5f5f5; // 보통 백그라운드 색상
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
   "success":    green,
-  "info":       green,
+  "info":       $info,
   "warning":    green,
   "danger":     green,
   "light":      green,
-  "dark":       #818181
+  "dark":       $dark
 ) ;
+
+
 // 부트스트랩의 SCSS 파일을 불러오기
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";  // 부트스트랩의 기본 변수들을 불러옵니다.
@@ -21,6 +21,27 @@ $theme-colors: (
 // 이제 부트스트랩 SCSS 파일을 불러옵니다.
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+
+.cursor{
+    cursor: url('./img/커서.png') 2 2, auto;
+}
+
+button,
+[type="button"], // 1
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; // 2
+
+  @if $enable-button-pointers {
+    &:not(:disabled) {
+        cursor: url('./img/커서.png') 2 2, auto;
+    }
+  }
+}
+
+p {
+    margin-bottom: 0;
+  }
 
 
 // 좀 더 복잡하게 레이아웃을 구성해보자. 
@@ -53,6 +74,12 @@ a {
 a:hover, a:active {
     text-decoration: none; color:#fff; background-color:#f59000;
 }
+
+#root {
+    cursor: url('./img/마우스.png') 2 2, auto;
+}
+
+
 
 @media (min-width: 0px) {
     .img_size_fix {

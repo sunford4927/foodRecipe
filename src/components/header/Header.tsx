@@ -16,8 +16,8 @@ const size1 = {
 };
 
 const size2 = {
-    width: '50px',
-    height: '50px'
+    width: '40px',
+    height: '40px'
 };
 
 const Header: React.FC = () => {
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
                             className='cursor'  // 마우스 커서가 손 모양으로 변경
                             src={logo}  // 로고 이미지 경로
                             alt="로고"
-                            style={{ width: 280, height: 60 }}  // 로고 크기 설정
+                            style={{ width: 200, height: 44, marginRight: 10}}  // 로고 크기 설정
                         />
                     </Navbar.Brand>
 
@@ -57,6 +57,7 @@ const Header: React.FC = () => {
                                     placeholder="검색"  // 입력 필드에 나타날 텍스트
                                     aria-label="Search"  // 접근성 향상을 위한 라벨
                                     name="searchBox"  // 검색 입력 필드 이름
+                                    className='searchBox'
                                 />
                                 {/* 돋보기 버튼 (검색 버튼) */}
                                 <Button variant="outline-primary">
@@ -70,13 +71,15 @@ const Header: React.FC = () => {
                             {/* 로그인된 사용자의 닉네임을 표시 */}
                             <Nav.Item>
                                 {user.nick && (  // 사용자가 로그인했을 때만 표시
-                                    <Nav.Link disabled>{`${user.nick} 님 환영합니다`}</Nav.Link>
+                                    <Nav.Link disabled >{`${user.nick} 님 환영합니다`}</Nav.Link>
                                 )}
                             </Nav.Item>
 
                             {/* 프로필 아이콘, 클릭 시 로그인 페이지로 이동 */}
                             <Nav.Item>
-                                <Nav.Link onClick={() => nav("/login")}>
+                                <Nav.Link 
+                                className='cursor'
+                                onClick={() => nav("/login")}>
                                     <img src={Profile} alt="프로필" style={size2} />  {/* 프로필 아이콘 */}
                                 </Nav.Link>
                             </Nav.Item>
@@ -93,11 +96,11 @@ const Header: React.FC = () => {
             </Navbar>
 
             {/* 하단에 고정되는 메뉴 (분류, 랭킹) */}
-            <div id='menuContainer'>
+            <div className='menuContainer'>
                 {/* '분류' 클릭 시 홈으로 이동 */}
-                <span className='cursor' onClick={() => nav('/')}>분류</span>
+                <span className='cursor standard' onClick={() => nav('/')}>분류</span>
                 {/* '랭킹' 클릭 시 랭킹 페이지로 이동 */}
-                <span className='cursor' onClick={() => nav('/rank')}>랭킹</span>
+                <span className='cursor standRank' onClick={() => nav('/rank')}>랭킹</span>
             </div>
         </div>
     );

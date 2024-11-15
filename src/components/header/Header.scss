@@ -1,3 +1,44 @@
+.menuContainer {
+    background-color: rgba(255, 166, 0, 0.849);
+    // margin-top: 10px;
+    // margin-left: 10px;
+    // margin: 10px 11px 0px 11px;
+    // padding-top: 15px;
+    position: relative;
+    // border: 1px solid #000;
+    height: 50px;
+}
+.standard{
+    position: absolute;
+    left: 25%;
+    transform: translate(0, 50%)
+}
+.standRank{
+    position: absolute;
+    right: 25%;
+    transform: translate(0, 50%)
+}
+
+
+
+
+// .search-group .searchBox{
+//     // margin-left: 100px;
+//     padding-right: 300px;
+// }
+
+// @media (min-width: 992px) {
+//     // AddBundle.tsx
+//     .search-group .searchBox{
+//         // margin-left: 100px;
+//         padding-right: 18vw;
+//    }
+    
+
+// }
+
+
+
 // #topBox{
 //     height : 200px;
 //     display: flex;

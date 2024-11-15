@@ -9,15 +9,32 @@
     position: absolute;
 }
 
+// .InputAllBtn .addBtn{
+// padding-right: 15px;
+// }
 .inputForm input {
     background-color: #f5f5f5;
     padding: 6px 12px 6px 15px;
     display: inline;
   }
 
+// .first-item-title + .form-rcpttl,
+// .first-item-title + .form-ckinfo{
+//     background-color: #f5f5f5;
+//     padding: 6px 12px 6px 15px;
+//     display: inline-block;
+//     width: 30vw;
+//     margin-bottom: 1vw;
+//   }
+.inputRow .AddBundleTitle{
+    background-color: #fff5ed;
+    width: 200px;
+    margin-top: 20px;
+
+}
 
 
-// 어차피 웹 상에선 안 보임
+// 425보다 클 때?
 @media (min-width: 0px) {
     // AddBundle.tsx
     .InputAllBtn{
@@ -46,6 +63,21 @@
     }
 }
 
+@media (min-width: 426px) and (max-width: 576px) {
+    // .addBtn{
+    //     left : 5%;
+    // }
+}
+
+// 모바일 환경!!!!!!!!
+@media  (max-width: 425px) {
+    .dropdown-toggle {
+        width: 20vw;
+        // display: block;
+    }
+    
+}
+
 @media (min-width: 576px) {
     // AddBundle.tsx
     .InputAllBtn{
@@ -55,7 +87,7 @@
         right : 7%;
     }
     .addBtn{
-        left : 2%;
+        left : 0%;
     }
 
     // AddInput.tsx
@@ -73,6 +105,10 @@
     .inputForm .inputNote{
         margin-bottom: 10px;
     }
+    .dropdown-toggle {
+        width: 13vw;
+    }
+    
   
 }
 
@@ -85,12 +121,12 @@
     .removeBtn{
         right : 5%;
     }
-    .addBtn{
-        left : 3%;
-    }
+    // .addBtn{
+    //     left : 0%;
+    // }
     // AddInput.tsx
     .inputForm{
-        max-width: 62vw;
+        max-width: 69vw;
     }
     .inputForm .inputMain,
     .inputForm .inputQuantity,
@@ -104,9 +140,12 @@
     }
     .inputForm .inputQuantity,
     .inputForm .inputUnit {
-        width: 12vw;
+        width: 11vw;
     }
-    
+    .dropdown-toggle {
+        width: 9vw; 
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -115,10 +154,10 @@
         max-width: 60vx;
     }
     .removeBtn{
-        right : 10%;
+        right : 7%;
     }
     .addBtn{
-        left : 5%;
+        left : 2%;
     }
     // AddInput.tsx
     .inputForm{
@@ -138,6 +177,13 @@
     .inputForm .inputUnit {
         width: 12vw;
     }
+    /* 기본 드롭다운 버튼의 너비를 설정 */
+    .dropdown-toggle {
+        width: 10vw; /* 원하는 비로 설정 (예: 200px) */
+        // margin-left: 10px;
+    }
+
+
 }
 
 
