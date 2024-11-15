@@ -16,8 +16,8 @@ const size1 = {
 };
 
 const size2 = {
-    width: '40px',
-    height: '40px'
+    width: '45px',
+    height: '45px'
 };
 
 const Header: React.FC = () => {
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
                             className='cursor'  // 마우스 커서가 손 모양으로 변경
                             src={logo}  // 로고 이미지 경로
                             alt="로고"
-                            style={{ width: 200, height: 44, marginRight: 10}}  // 로고 크기 설정
+                            style={{ width: 225, height: 48, marginRight: 10}}  // 로고 크기 설정
                         />
                     </Navbar.Brand>
 

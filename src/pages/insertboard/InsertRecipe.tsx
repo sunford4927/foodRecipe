@@ -33,9 +33,6 @@ const InsertRecipe = () => {
   }, [cookInfo])
 
 
-
-
-
   // for 카테고리 상태를 관리
   const [categories, setCategories] = useState({
     kind: "종류별",   // 'kind'의 기본값 설정
