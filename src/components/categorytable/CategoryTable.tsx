@@ -72,7 +72,7 @@ const CategoryTable: React.FC = () => {
 
 
     return (
-        <div className='container'>
+        <div className='container' style={{ paddingLeft: 0, paddingRight: 0 }}>
 
             {viewTable ?
                 viewSize >= VIEWTYPE3 ?
