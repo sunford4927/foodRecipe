@@ -100,7 +100,7 @@
 @media  (max-width: 425px) {
   .first-item-title{
       display: block;
-      border: 1px solid #dbd80b;
+      // border: 1px solid #dbd80b;
       width: 100%;
       margin-left: 10px;
   }
@@ -108,6 +108,7 @@
   .first-item-title + .form-ckinfo{
     width: 80vw;
     margin-left: 10px;
+    margin-bottom: 12px;
   }
   // 드롭다운 센터에 정렬됨 ;; 왼쪽에 될 줄
   .d-flex.align-items-center {
