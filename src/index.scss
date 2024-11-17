@@ -24,7 +24,12 @@ $theme-colors: (
 
 .cursor{
     cursor: url('./img/커서.png') 2 2, auto;
+
 }
+
+// *{
+//     user-select: none;
+// }
 
 button,
 [type="button"], // 1

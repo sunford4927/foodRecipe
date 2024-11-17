@@ -190,14 +190,14 @@ export const DEVALOPTYPE :number = 0;
 
 
 // /* [html 화면 사이즈 변경 이벤트 감지] */
-// window.onresize = function() {
-//     console.log("");
-//     console.log("[window onresize] : [start]");
-//     console.log(""); 
+window.onresize = function() {
+    console.log("");
+    console.log("[window onresize] : [start]");
+    console.log(""); 
 
-//     // [이벤트 함수 호출]
-//     checkScreenSize();
-// };
+    // [이벤트 함수 호출]
+    checkScreenSize();
+};
 
 // 화면크기 검토 
 // 576px 미만
@@ -214,10 +214,12 @@ export function checkScreenSize() : number{
     //화면 해상도 확인
     //location이나 history 같은 전역 변수를 ESLint가 참조할 수 있게 주석으로 명시해 주는 것이다.
     // eslint-disable-next-line no-restricted-globals
-    let screenWidth = screen.availWidth;
+    //let screenWidth = screen.availWidth;
+    let screenWidth = window.innerWidth
     // eslint-disable-next-line no-restricted-globals
-    let screenHeight = screen.availHeight;
-
+    // let screenHeight = screen.availHeight;
+        // eslint-disable-next-line no-restricted-globals
+    
     if (screenWidth >= 992){
         return VIEWTYPE4;
     }

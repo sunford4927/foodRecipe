@@ -47,6 +47,7 @@ const AddBundle = () => {
         console.log('현재 inputTitle:', inputTitle);
     }, [inputGroups, inputTitle]); // inputGroups가 변경될 때마다 실행됨
 
+
     return (
         <div className="bundleContainer"> {/* 전체 컨테이너 div */}
             <div className="inputRow"> {/* 첫 번째 AddInput */}
