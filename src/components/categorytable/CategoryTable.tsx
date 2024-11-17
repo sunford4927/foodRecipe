@@ -133,6 +133,7 @@ const CategoryTable: React.FC = () => {
                                         aria-expanded="false"
                                         aria-controls={`collapseExample${idx}`}
                                         onClick={()=>changeCollapse(idx)}
+                                        style={{borderRadius : 0}}
                                     >
                                         {titleList[idx]}
                                     </button>

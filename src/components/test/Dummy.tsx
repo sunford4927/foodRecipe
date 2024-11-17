@@ -76,7 +76,7 @@ const Dummy: React.FC<DummyType> = ({ List, idx }) => {
         <>
             {data && data.map((item, index) => {
                 return (
-                    <Link key={item} to={`/category/${"&" + pathToStr(item)}`}>
+                    <Link key={item} to={`/category/${"&" + pathToStr(item)}`} style={{paddingLeft : "5px", paddingRight:"5px"}}>
                         <span onClick={onClickCategory} className={`Text cursor category${idx}`}>
                             {item}
                         </span>
