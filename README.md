@@ -6,7 +6,7 @@
 
 
 ## 📅프로젝트 기간
-2024.07.11 ~
+2024.07.11 ~ 진행중
 
 ## 🎲주요기능
 <ins>개발 목표</ins>
@@ -24,7 +24,7 @@
   <tr>
     <td>Front-End</td>
     <td>
-      <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+      <img src="https://img.shields.io/badge/Typescript-F7DF1E?style=for-the-badge&logo=Tavascript&logoColor=black"/>
       <img src="https://img.shields.io/badge/React-F7DF1E?style=for-the-badge&logo=React&logoColor=black"/>
       <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
       <img src="https://img.shields.io/badge/SCSS-1572B6?style=for-the-badge&logo=sass&logoColor=white"/>
