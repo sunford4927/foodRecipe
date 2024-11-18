@@ -24,7 +24,7 @@
   <tr>
     <td>Front-End</td>
     <td>
-      <img src="https://img.shields.io/badge/Typescript-F7DF1E?style=for-the-badge&logo=Tavascript&logoColor=black"/>
+      <img src="https://img.shields.io/badge/Typescript-F7DF1E?style=for-the-badge&logo=tavascript&logoColor=black"/>
       <img src="https://img.shields.io/badge/React-F7DF1E?style=for-the-badge&logo=React&logoColor=black"/>
       <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
       <img src="https://img.shields.io/badge/SCSS-1572B6?style=for-the-badge&logo=sass&logoColor=white"/>
