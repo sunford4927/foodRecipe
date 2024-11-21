@@ -58,7 +58,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "personalpick.shop",
   "devDependencies": {
     "gh-pages": "^6.2.0",
     "sass": "^1.80.7",

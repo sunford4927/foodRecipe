@@ -1,6 +1,6 @@
 import React from 'react';
 import './InsertInfo.scss';
-import {Form, Button } from 'react-bootstrap';
+import {Form } from 'react-bootstrap';
 import { bundleType } from 'pages/insertboard/InsertRecipe';
 const ingredients = ['돼지고기', '양배추', '참기름', '소금', '고추가루 약간'];
 
