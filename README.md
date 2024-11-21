@@ -72,6 +72,8 @@
 ## ✏서비스 흐름도
 
 ## ✏ER-다이어그램
+![ERD](https://github.com/user-attachments/assets/3ad60a40-df7c-40b4-84c3-3e8d7e608da5)
+
 
 
 
