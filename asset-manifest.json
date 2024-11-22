@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/foodRecipe/static/css/main.644375aa.css",
-    "main.js": "/foodRecipe/static/js/main.81c1603e.js",
+    "main.js": "/foodRecipe/static/js/main.f2d60502.js",
     "static/media/난이도.png": "/foodRecipe/static/media/난이도.de07439ca5f7f2da770b.png",
     "static/media/logo.png": "/foodRecipe/static/media/logo.f94b056caf326f522965.png",
     "static/media/카카오톡.png": "/foodRecipe/static/media/카카오톡.6af80cbc763b5bf1f6ff.png",
@@ -18,10 +18,10 @@
     "static/media/페이스북.png": "/foodRecipe/static/media/페이스북.4f037d961598aff2a0a4.png",
     "index.html": "/foodRecipe/index.html",
     "main.644375aa.css.map": "/foodRecipe/static/css/main.644375aa.css.map",
-    "main.81c1603e.js.map": "/foodRecipe/static/js/main.81c1603e.js.map"
+    "main.f2d60502.js.map": "/foodRecipe/static/js/main.f2d60502.js.map"
   },
   "entrypoints": [
     "static/css/main.644375aa.css",
-    "static/js/main.81c1603e.js"
+    "static/js/main.f2d60502.js"
   ]
 }
