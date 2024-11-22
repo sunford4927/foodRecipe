@@ -12,6 +12,7 @@ from User import insertUser
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
 CORS(app)  # CORS 설정 추가
+# CORS(app, origins="http://localhost:3000")
 app.config['JSON_AS_ASCII'] = False
 api = Api(app)
 

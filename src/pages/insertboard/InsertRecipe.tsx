@@ -11,14 +11,15 @@ import { Button, Form } from 'react-bootstrap';
 // import { State } from '../../redux/reducer/index';
 // import { minus, Plus } from  '../../redux/actions/index';
 
+
 interface inputType {
-  Main: string; 
-  Quantity: string; 
-  Unit: string; 
-  Note: string ;
+  Main: string;
+  Quantity: string;
+  Unit: string;
+  Note: string;
 }
 export interface bundleType {
-  inputTitle: string; 
+  inputTitle: string;
   InputValue: inputType[];
 }
 
@@ -73,6 +74,7 @@ const InsertRecipe = () => {
     act: recipeCategory("method") || [],
   };
 
+
   // 요리 정보 상태 관리
   const [ckInfo, setCkInfo] = useState({
     inbun: "인원",
@@ -93,8 +95,6 @@ const InsertRecipe = () => {
     level: string[];
   }
 
-
-
   const foodInfoDic: infoType = {
     inbun: recipeInfo("inbun") || [],
     time: recipeInfo("time") || [],
@@ -110,31 +110,28 @@ const InsertRecipe = () => {
 
   // handleBundleChange 수정: field는 "Main" | "Quantity" | "Unit" | "Note"만 가능
   const handleBundleChange = (
-    index :number,
+    index: number,
     field: "Main" | "Quantity" | "Unit" | "Note",
-    value : string,
-    inputIndex : number
+    value: string,
+    inputIndex: number
   ) => {
     let changeList = [...bundles];
     // 이벤트가 발생한 인풋 종류 구분하기위한 type
-    if(field === "Main"){
+    if (field === "Main") {
       // index 는 재료 묶음 인덱스
       // idx 는 InputValue의 인덱스
       // updatedBundles[index].InputValue[idx].Main = e.target.value;
       // setBundles(updatedBundles[index])
-      changeList[index].InputValue[inputIndex].Main=value
+      changeList[index].InputValue[inputIndex].Main = value
     }
-    else if(field === "Quantity")
-    {
-      changeList[index].InputValue[inputIndex].Quantity=value
+    else if (field === "Quantity") {
+      changeList[index].InputValue[inputIndex].Quantity = value
     }
-    else if(field === "Unit")
-    {
-      changeList[index].InputValue[inputIndex].Unit=value
+    else if (field === "Unit") {
+      changeList[index].InputValue[inputIndex].Unit = value
     }
-    else if(field === "Note")
-    {
-      changeList[index].InputValue[inputIndex].Note=value
+    else if (field === "Note") {
+      changeList[index].InputValue[inputIndex].Note = value
     }
 
     // if (inputIndex === -1) {
@@ -188,9 +185,9 @@ const InsertRecipe = () => {
       <div className='d-flex align-items-center'>
         <span className='first-item-title'>카테고리</span>
         <DropCate
-          categories={categories}
-          handleSelectC={handleSelectC}
-          foodCateDic={foodCateDic}
+          categories={categories} //state 함수
+          handleSelectC={handleSelectC} // 핸들러 함수
+          foodCateDic={foodCateDic} // 드롭다운에 보여줄 데이터
         />
       </div>
 
