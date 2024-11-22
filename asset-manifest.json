@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.644375aa.css",
-    "main.js": "/static/js/main.8630a61c.js",
-    "static/media/난이도.png": "/static/media/난이도.de07439ca5f7f2da770b.png",
-    "static/media/logo.png": "/static/media/logo.f94b056caf326f522965.png",
-    "static/media/카카오톡.png": "/static/media/카카오톡.6af80cbc763b5bf1f6ff.png",
-    "static/media/트위터.png": "/static/media/트위터.c6e48e60f856cb822273.png",
-    "static/media/시계.png": "/static/media/시계.e23a0957c6fd687ef691.png",
-    "static/media/구글아이콘.png": "/static/media/구글아이콘.cadee8cdb0c0afb1a713.png",
-    "static/media/위쪽화살표.png": "/static/media/위쪽화살표.0cb70a5bd935051d380b.png",
-    "static/media/경고.png": "/static/media/경고.384e026b3aba041c72f3.png",
-    "static/media/돋보기.png": "/static/media/돋보기.0f0db8dc9df3e272ce20.png",
-    "static/media/인분.png": "/static/media/인분.db774d3e830f4c26dbb1.png",
-    "static/media/빈별.png": "/static/media/빈별.8a95de774d5677e6b3a7.png",
-    "static/media/별.png": "/static/media/별.618d11e122cbca3f8e9e.png",
-    "static/media/빈사진.png": "/static/media/빈사진.803811a60975d841651b.png",
-    "static/media/페이스북.png": "/static/media/페이스북.4f037d961598aff2a0a4.png",
-    "index.html": "/index.html",
-    "main.644375aa.css.map": "/static/css/main.644375aa.css.map",
-    "main.8630a61c.js.map": "/static/js/main.8630a61c.js.map"
+    "main.css": "/foodRecipe/static/css/main.644375aa.css",
+    "main.js": "/foodRecipe/static/js/main.903afbae.js",
+    "static/media/난이도.png": "/foodRecipe/static/media/난이도.de07439ca5f7f2da770b.png",
+    "static/media/logo.png": "/foodRecipe/static/media/logo.f94b056caf326f522965.png",
+    "static/media/카카오톡.png": "/foodRecipe/static/media/카카오톡.6af80cbc763b5bf1f6ff.png",
+    "static/media/트위터.png": "/foodRecipe/static/media/트위터.c6e48e60f856cb822273.png",
+    "static/media/시계.png": "/foodRecipe/static/media/시계.e23a0957c6fd687ef691.png",
+    "static/media/구글아이콘.png": "/foodRecipe/static/media/구글아이콘.cadee8cdb0c0afb1a713.png",
+    "static/media/위쪽화살표.png": "/foodRecipe/static/media/위쪽화살표.0cb70a5bd935051d380b.png",
+    "static/media/경고.png": "/foodRecipe/static/media/경고.384e026b3aba041c72f3.png",
+    "static/media/돋보기.png": "/foodRecipe/static/media/돋보기.0f0db8dc9df3e272ce20.png",
+    "static/media/인분.png": "/foodRecipe/static/media/인분.db774d3e830f4c26dbb1.png",
+    "static/media/빈별.png": "/foodRecipe/static/media/빈별.8a95de774d5677e6b3a7.png",
+    "static/media/별.png": "/foodRecipe/static/media/별.618d11e122cbca3f8e9e.png",
+    "static/media/빈사진.png": "/foodRecipe/static/media/빈사진.803811a60975d841651b.png",
+    "static/media/페이스북.png": "/foodRecipe/static/media/페이스북.4f037d961598aff2a0a4.png",
+    "index.html": "/foodRecipe/index.html",
+    "main.644375aa.css.map": "/foodRecipe/static/css/main.644375aa.css.map",
+    "main.903afbae.js.map": "/foodRecipe/static/js/main.903afbae.js.map"
   },
   "entrypoints": [
     "static/css/main.644375aa.css",
-    "static/js/main.8630a61c.js"
+    "static/js/main.903afbae.js"
   ]
 }
