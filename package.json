@@ -32,7 +32,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "concurrently \"python ./backend/MainServer.py\" \"npm run start\"",
+    "dev": "concurrently \"cd ./backend && python MainServer.py\" \"npm run start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

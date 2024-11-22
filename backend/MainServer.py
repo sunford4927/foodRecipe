@@ -18,8 +18,14 @@ api = Api(app)
 
 # SSL 인증서와 키 파일 설정 (ssl.SSLContext 사용)
 context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-context.load_cert_chain(certfile='C:\\Users\\lee\\Desktop\\workspace\\recipy\\foodRecipe\\backend\\server-cert.pem',
-                        keyfile='C:\\Users\\lee\\Desktop\\workspace\\recipy\\foodRecipe\\backend\\private-key.pem')
+# context.load_cert_chain(certfile='C:\\Users\\lee\\Desktop\\workspace\\recipy\\foodRecipe\\backend\\server-cert.pem',
+#                         keyfile='C:\\Users\\lee\\Desktop\\workspace\\recipy\\foodRecipe\\backend\\private-key.pem')
+
+context.load_cert_chain(certfile='./server-cert.pem', keyfile='./private-key.pem')
+# 경로 확인 용
+# import os
+# print("Current working directory:", os.getcwd())
+
 
 # API 리소스 설정
 api.add_resource(AllInfo, '/all_info')
