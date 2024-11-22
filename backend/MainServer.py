@@ -34,4 +34,4 @@ api.add_resource(upLoadRC, '/upLoadRC')
 api.add_resource(insertUser, '/userInfo')
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True, ssl_context=context)
+    app.run(host='0.0.0.0', port=5005, debug=True, ssl_context=context)

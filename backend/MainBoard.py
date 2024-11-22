@@ -25,6 +25,8 @@ class MainBoard(Resource):
 class AllInfo(Resource):
     def get(self): 
         data = getQuery("select COUNT(*) AS totalCnt from recipe_board")
+        client_ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+        print(client_ip)
         # 전달하는 데이터의 키 값은 totalCnt
         # print(data)
         # print(request.data)
