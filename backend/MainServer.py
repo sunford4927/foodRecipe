@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_restx import Api
 from flask_cors import CORS
+import ssl  # SSLContext를 사용하기 위한 ssl 모듈
 
-# from hello import test
 from MainBoard import MainBoard, AllInfo 
 from RankBoard import getrank
 from DetailInfo import detailInfo, getComment, getReview
@@ -15,10 +15,12 @@ CORS(app)  # CORS 설정 추가
 app.config['JSON_AS_ASCII'] = False
 api = Api(app)
 
+# SSL 인증서와 키 파일 설정 (ssl.SSLContext 사용)
+context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+context.load_cert_chain(certfile='C:\\Users\\lee\\Desktop\\workspace\\recipy\\foodRecipe\\backend\\server-cert.pem',
+                        keyfile='C:\\Users\\lee\\Desktop\\workspace\\recipy\\foodRecipe\\backend\\private-key.pem')
 
-# import한 py파일 중 클래스를 API에 추가.. 경로 지정한 겨
-# api.add_resource(test, '/HelloTest')
-# api.add_resource(test, '/deltest')
+# API 리소스 설정
 api.add_resource(AllInfo, '/all_info')
 api.add_resource(MainBoard, '/MainBoard')
 api.add_resource(getrank, '/getrank')
@@ -31,4 +33,4 @@ api.add_resource(upLoadRC, '/upLoadRC')
 api.add_resource(insertUser, '/userInfo')
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True, ssl_context=context)

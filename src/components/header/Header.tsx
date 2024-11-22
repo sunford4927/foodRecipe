@@ -35,7 +35,7 @@ const Header: React.FC = () => {
             <Navbar bg="secondary" expand="lg" sticky='top'>
                 <Container>
                     {/* 로고 */}
-                    <Navbar.Brand href='/'>  {/* 클릭 시 홈으로 이동 */}
+                    <Navbar.Brand href={process.env.PUBLIC_URL}>  {/* 클릭 시 홈으로 이동 */}
                         <img
                             className='cursor'  // 마우스 커서가 손 모양으로 변경
                             src={logo}  // 로고 이미지 경로

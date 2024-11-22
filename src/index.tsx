@@ -33,11 +33,11 @@ const store = configureStore({
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     //<React.StrictMode>
-    <Provider store={ store } >
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
-</Provider>
+    <Provider store={store} >
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <App />
+        </BrowserRouter>
+    </Provider>
     //</React.StrictMode>
 );
 
