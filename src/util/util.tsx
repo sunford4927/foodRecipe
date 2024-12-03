@@ -85,7 +85,8 @@ export function sendDel(url : string, func=null, data=null)
 
 
 // export const URL = "https://192.168.1.69:5000"; //상현ip
-export const URL = "https://192.168.1.23:5000"; //지원ip
+export const URL = "https://192.168.1.189:5000"; //지원ip
+// export const URL = "https://172.30.1.55:5000"; //지원ip
 
 
 

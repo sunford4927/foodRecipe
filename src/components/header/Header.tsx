@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import SearchOk from '../../img/돋보기.png';
 import Profile from '../../img/프로필.png';
-import MenuBtn from '../../img/메뉴.png';
+import pen from '../../img/pen.png';
+// import MenuBtn from '../../img/메뉴.png';
 import logo from '../../img/logo.png';
 import './Header.scss';
 import { useNavigate } from 'react-router-dom';
@@ -60,7 +61,7 @@ const Header: React.FC = () => {
                                     className='searchBox'
                                 />
                                 {/* 돋보기 버튼 (검색 버튼) */}
-                                <Button variant="outline-primary">
+                                <Button variant="outline-dark">
                                     <img src={SearchOk} alt="search icon" style={size1} />  {/* 돋보기 아이콘 */}
                                 </Button>
                             </InputGroup>
@@ -68,12 +69,25 @@ const Header: React.FC = () => {
 
                         {/* 사용자 아이콘 및 메뉴 아이콘 */}
                         <Nav>
+                            {/* <Nav.Item>
+                                {user.nick && (  // 사용자가 로그인했을 때만 표시
+                                    <Nav.Link onClick={() => nav("/insertrecipe")}>
+                                        <img src={pen} alt="글작성" style={size2} />
+                                    </Nav.Link>
+                                )}
+                            </Nav.Item> */}
+                            <Nav.Item>                              
+                                <Nav.Link onClick={() => nav("/insertrecipe")}>
+                                    <img src={pen} alt="글작성" style={size2} />
+                                </Nav.Link>                               
+                            </Nav.Item>
+
                             {/* 로그인된 사용자의 닉네임을 표시 */}
-                            <Nav.Item>
+                            {/* <Nav.Item>
                                 {user.nick && (  // 사용자가 로그인했을 때만 표시
                                     <Nav.Link disabled >{`${user.nick} 님 환영합니다`}</Nav.Link>
                                 )}
-                            </Nav.Item>
+                            </Nav.Item> */}
 
                             {/* 프로필 아이콘, 클릭 시 로그인 페이지로 이동 */}
                             <Nav.Item>

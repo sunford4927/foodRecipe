@@ -1,13 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import './InsertInfo.scss';
-// import ImgBox from 'components/custominput/imgbox/ImgBox';
 import ImgBox from './ImgBox';
 
-interface AddStepNumber {
-  stepNum : number;
+interface AddStepProps {
+  index : number;
+  value : string;
+  onChange : (index:number, value:string) => void;
+  onDelete : (index:number) => void; 
 }
 
-const AddStep: React.FC<AddStepNumber> = ({stepNum}) => {
+const AddStepForm: React.FC<AddStepProps> = ({ index, value, onChange, onDelete}) => {
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange(index, e.target.value); 
+    // 상위 컴포넌트에 있는 onchange 함수에 inx랑 value 전달
+    // onChange는 상위에서 받은 prop이고, 여기서 호출해서 상위 컴포넌트로 값을 전달
+  };
+
   // 입력 필드들의 placeholder를 배열로 저장
   const [inputPlh, setInputPlh] = useState<string[]>([]);
 
@@ -16,12 +25,12 @@ const AddStep: React.FC<AddStepNumber> = ({stepNum}) => {
   // set: 중복되지 않는 유일한 값들을 저장하는 자료구조
   const [clicked, setClicked] = useState<Set<string>>(new Set());
 
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
 
-  useEffect(()=>{
-    console.log(value)
-    return console.log(value);
-  },[])
+  // useEffect(()=>{
+  //   console.log(value)
+  //   return console.log(value);
+  // },[])
   // 버튼 클릭 시 추가할 placeholder 값 결정
   const BtnStepInfo = (stepInfo: string) => {
     // set.has(value) , value가 있다면 t, 없으면 f
@@ -72,12 +81,24 @@ const AddStep: React.FC<AddStepNumber> = ({stepNum}) => {
   return (
     <div >
       <div >
-        <span className="green_step">{'Step' + stepNum}</span>
-        <input type="text" className="StepInput" onChange={(e)=>setValue(e.target.value)} />
-        {/* 스크롤 기능 만들기 */}
-        <ImgBox number={stepNum}/>
-        
-        {/* 썸네일 기능, input 이미지 바꾸기, 사이즈 조정하기, Step 옆에 두기 */}
+        <label>Step {index + 1} </label>
+        <input 
+          type="text" 
+          value={value}
+          onChange={handleInputChange}
+          className="StepInput" 
+          placeholder={`Step ${index+1}`} />
+          {/* 스크롤 기능 만들기 */}
+          <ImgBox number={index+1}/>
+
+          <button
+            onClick={() => onDelete(index)}
+            className="btn btn-danger"
+            disabled={index === 0} // 첫 번째 항목은 삭제 불가
+          >
+            -
+          </button>
+      
       </div>
 
       <div className="green_box">
@@ -108,4 +129,4 @@ const AddStep: React.FC<AddStepNumber> = ({stepNum}) => {
   );
 };
 
-export default AddStep;
+export default AddStepForm;
