@@ -2,7 +2,7 @@ import pymysql
 
 def db_connection():
     db = pymysql.connect(
-        host='192.168.1.69',
+        host='192.168.1.48',
         user='recipeuser',
         password='12345',
         db='foodrecipe', 

@@ -16,12 +16,19 @@ CORS(app)  # CORS 설정 추가
 app.config['JSON_AS_ASCII'] = False
 api = Api(app)
 
-# SSL 인증서와 키 파일 설정 (ssl.SSLContext 사용)
-context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-# context.load_cert_chain(certfile='C:\\Users\\lee\\Desktop\\workspace\\recipy\\foodRecipe\\backend\\server-cert.pem',
-#                         keyfile='C:\\Users\\lee\\Desktop\\workspace\\recipy\\foodRecipe\\backend\\private-key.pem')
+# SSL 인증서와 키 파일 설정 (ssl.SSLContext 사용) 12/3일 부터 주석적용
+# context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+# context.load_cert_chain(certfile='./server-cert.pem', keyfile='./private-key.pem')
 
-context.load_cert_chain(certfile='./server-cert.pem', keyfile='./private-key.pem')
+# zerossl인증서 적용
+# cert_file = './key/certificate.crt'
+# key_file = './key/private.key'
+
+
+# ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS)
+# ssl_context.load_cert_chain(certfile='server.crt', keyfile='server.key', password='****')
+
+
 # 경로 확인 용
 # import os
 # print("Current working directory:", os.getcwd())
@@ -40,4 +47,6 @@ api.add_resource(upLoadRC, '/upLoadRC')
 api.add_resource(insertUser, '/userInfo')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5005, debug=True, ssl_context=context)
+    # app.run(host='0.0.0.0', port=5005, debug=True, ssl_context=context)
+    # app.run(host='0.0.0.0', port=5005, debug=False, ssl_context=(cert_file,key_file))
+    app.run(host='0.0.0.0', port=5005, debug=False)
