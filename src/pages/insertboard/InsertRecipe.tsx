@@ -3,10 +3,11 @@ import './InsertRecipe.scss';
 import { recipeCategory, recipeInfo } from 'util/util';
 // import AddInput from 'components/inputInfo/AddInput';
 import AddBundle from 'components/insertInfo/AddBundle';
-import AddStep from 'components/insertInfo/AddStep';
 import DropCate from 'components/insertInfo/DropCate';
 import DropCkInfo from 'components/insertInfo/DropCkInfo';
 import { Button, Form } from 'react-bootstrap';
+import AddStepInput from 'components/insertInfo/AddStepInput';
+import AddStepForm from 'components/insertInfo/AddStepForm';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { State } from '../../redux/reducer/index';
 // import { minus, Plus } from  '../../redux/actions/index';
@@ -133,13 +134,6 @@ const InsertRecipe = () => {
     else if (field === "Note") {
       changeList[index].InputValue[inputIndex].Note = value
     }
-
-    // if (inputIndex === -1) {
-    //   updatedBundles[index].inputTitle = value;  // inputTitle만 변경
-    // } else {
-    //   updatedBundles[index].InputValue[inputIndex][field] = value; // 재료 정보 변경
-    // }
-
     setBundles(changeList);
   };
 
@@ -156,9 +150,39 @@ const InsertRecipe = () => {
     }
   };
 
+  
+  // 초기 데이터 상태 관리
+  const [stepInput, setStepInput] = useState<string[]>([""]);
+
+  // 스텝 추가 함수
+  const handleAddStep = () => {
+    setStepInput([...stepInput, ""]);
+  };
+
+  // 입력값 변경 함수
+  const handleChangeInput = (index:number, value:string) => {
+    const updatedStep = [...stepInput]
+    updatedStep[index] = value;
+    setStepInput(updatedStep);
+  }
+
+  // 스텝 삭제 함수
+  // 하위 컴포넌트에서 전달된 인덱스를 제외한 값들로 새로운 배열 생성
+  const handleDeleteStep = (index:number) => {
+    const updatedStep = stepInput.filter((_, idx) => idx !== index);
+    setStepInput(updatedStep);
+  }
+
+  
   useEffect(() => {
-    console.log("bundle : ", bundles);
-  }, [bundles]);
+    console.log("stepInput : ", stepInput);
+  }, [stepInput]);
+  
+  
+  
+  
+
+
 
   return (
     <div>
@@ -229,6 +253,30 @@ const InsertRecipe = () => {
       </div>
 
       <hr className='gray-boldline' />
+
+      <div className='third-item'>
+        <span className='third-item-title'>요리순서</span> <Button variant='outline-info' size='sm' className='second-btn'>+ 순서 사진 한번에 넣기</Button>
+        <p className='gray_info'>요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요.</p>
+        <p className='gray_info'>예) 10분간 익혀주세요 ▷ 10분간 약한불로 익혀주세요.</p>
+        <p className='gray_info'>마늘편은 익혀주세요 ▷ 마늘편을 충분히 익혀주셔야 매운 맛이 사라집니다.</p>
+        <p className='gray_info'>꿀을 조금 넣어주세요 ▷ 꿀이 없는 경우, 설탕 1스푼으로 대체 가능합니다.</p>
+        
+        {stepInput.map((step, index) => (
+          <AddStepForm
+            key={index}
+            index={index}
+            value={step}
+            onChange={handleChangeInput}
+            onDelete={handleDeleteStep}
+          />
+        ))}
+        <Button onClick={handleAddStep}>
+          스텝추가
+        </Button>
+
+
+
+      </div>
     </div>
   );
 };
